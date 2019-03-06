@@ -15,3 +15,5 @@ print(test)
 [test.html](./test.html)
 
 [test.md](test2.md)
+
+[计算机网络](./course/net.md)
