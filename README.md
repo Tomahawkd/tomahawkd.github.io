@@ -14,4 +14,4 @@ print(test)
 
 [test.html](./test.html)
 
-[test.md](./test.md)
+[test.md](test2.md)
