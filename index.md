@@ -1,3 +1,7 @@
+---
+title:  "Main Page"
+---
+
 # My Test Main Page
 
 ## test markdown
