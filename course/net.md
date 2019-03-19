@@ -1,5 +1,5 @@
 ---
-title: 计算机网络
+title: Computer Network
 ---
 
 {% include title_patch.html %}
