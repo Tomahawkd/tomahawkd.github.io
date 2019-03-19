@@ -5,5 +5,3 @@ title: Programming
 
 {% include title_patch.html %}
 
-
-# Programming

@@ -1,7 +1,5 @@
 ---
 permalink: /security/
-title: Security
+title: Security Research
 ---
 {% include title_patch.html %}
-
-# Security Research
