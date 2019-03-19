@@ -2,9 +2,8 @@
 title: 计算机网络
 ---
 
+<script>document.getElementsByClassName("project-name").item(0).innerText = "{{ page.title }}"</script>
 <button onclick="javascript:window.history.back();">&lt; Back</button>
-
-# 计算机网络
 
 ## 名词解释(5x2')
 
