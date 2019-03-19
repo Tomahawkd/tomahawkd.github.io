@@ -1,2 +1,5 @@
 theme: jekyll-theme-cayman
 title:  "Tomahawkd's Logger"
+
+github:
+  is_project_page: true
