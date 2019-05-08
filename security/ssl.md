@@ -14,7 +14,7 @@ Target: SSLv3, CBC
 
 
 
-1. Cast to SSLv3
+1. Cast to SSLv3  
 ![POODLE attack](https://d3eaqdewfg2crq.cloudfront.net/wp-content/uploads/2017/01/image29.png)
 
 2. Attack SSLv3
