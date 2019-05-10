@@ -6,4 +6,4 @@ title: Course
 {% include title_patch.html %}
 
 
-- [Computer Network](./net.md)
+- [Computer Network](./network)
