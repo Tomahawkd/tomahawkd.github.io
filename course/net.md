@@ -1,4 +1,5 @@
 ---
+permalink: /course/network
 title: Computer Network
 ---
 

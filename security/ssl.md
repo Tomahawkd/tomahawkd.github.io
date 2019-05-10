@@ -1,4 +1,5 @@
 ---
+permalink: /security/ssl
 title: SSL/TLS Previous Vulnerabilities
 ---
 {% include title_patch.html %}
