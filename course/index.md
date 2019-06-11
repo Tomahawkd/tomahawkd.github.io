@@ -7,3 +7,4 @@ title: Course
 
 
 - [Computer Network](./network)
+- [Network Security](./security)
