@@ -6,5 +6,5 @@ title: Course
 {% include title_patch.html %}
 
 
-- [Computer Network](./network)
-- [Network Security](./security)
+- [Computer Network](/cource/network)
+- [Network Security](/cource/security)
