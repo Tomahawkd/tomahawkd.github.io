@@ -6,6 +6,7 @@ title: Repositories
 {% include title_patch.html %}
 
 ## Personal Repositories
+- [PKI-QRAuth](https://github.com/Tomahawkd/PKI-QRAuth): PKI based QR Authentication Framework
 - [Netfilter-Firewall](https://github.com/Tomahawkd/Netfilter-Firewall): Netfilter based firewall
 - [Censys-java](https://github.com/Tomahawkd/Censysjava): Censys programming api implementation in java
 - [GsonHelper](https://github.com/Tomahawkd/GsonHelper): Helper class for Gson making it easier to use
