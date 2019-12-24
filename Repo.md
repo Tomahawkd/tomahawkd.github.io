@@ -10,6 +10,8 @@ title: Repositories
 - [Netfilter-Firewall](https://github.com/Tomahawkd/Netfilter-Firewall): Netfilter based firewall
 - [Censys-java](https://github.com/Tomahawkd/Censysjava): Censys programming api implementation in java
 - [DRBG](https://github.com/Tomahawkd/DRBG): Deterministic Random Bit Generator (NIST SP800-90A rev.1 implementation)
+- [speedtest-framework](https://github.com/Tomahawkd/speedtest-framework): Individual speed test framework especially for ciphers  
+- [crypto-framework](https://github.com/Tomahawkd/crypto-framework): Crypto framework inspired by OpenSSL EVP
 - [GsonHelper](https://github.com/Tomahawkd/GsonHelper): Helper class for Gson making it easier to use
 - [Subdomain-detect](https://github.com/Tomahawkd/Subdomain-Detect): Subdomain detection using puppeteer
 - [Course Script](https://github.com/Tomahawkd/courseSD): Using for courses in SDU
