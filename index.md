@@ -10,6 +10,3 @@ title: "Main Page"
 
 # TLS-Tester
 Introducing TLS-Tester @ [here](https://tomahawkd.github.io/TLS-Tester/)
-
-
-Source code of this site is available @ [HERE](https://github.com/Tomahawkd/tomahawkd.github.io)
