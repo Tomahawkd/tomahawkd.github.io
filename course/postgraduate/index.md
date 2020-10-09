@@ -1,5 +1,5 @@
 ---
-permalink: /course/postgraduate
+permalink: /course/postgraduate/
 title: Postgraduate Course Notes
 ---
 

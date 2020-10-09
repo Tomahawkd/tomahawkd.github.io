@@ -1,5 +1,5 @@
 ---
-permalink: /course/undergraduate
+permalink: /course/undergraduate/
 title: Undergraduate Course Notes
 ---
 
