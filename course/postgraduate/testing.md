@@ -8,13 +8,8 @@ title: Software Measurement and Testing
 # Week 1: Nutshell
 
 ### Objectives:
-- View the “big picture'' of software quality in the
-  context of a software development project and
-  organization:
-- Introduce the range of software verification
-  and validation activities
-- Provide a rationale for selecting and combining
-  them within a software development process. 
+- Introduce the range of software verification and validation activities
+- Provide a rationale for selecting and combining them within a software development process. 
   
 ## Validation & Verification (V&V)
 - Terms: 
