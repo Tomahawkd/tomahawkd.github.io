@@ -6,4 +6,4 @@ title: Postgraduate Course Notes
 {% include title_patch.html %}
 
 
-- [Software Measurement and Testing](./testing)
+- [Software Measurement and Testing]({{ page.permalink }}/testing)

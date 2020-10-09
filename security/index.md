@@ -4,6 +4,6 @@ title: Security Research
 ---
 {% include title_patch.html %}
 
-- [SSL/TLS Vulnerabilities](./ssl)
-- [OpenSSL X509 Parse Demo](./x509)
-- [OpenSSL C/S Implementation Demo](./cs)
+- [SSL/TLS Vulnerabilities]({{ page.permalink }}/ssl)
+- [OpenSSL X509 Parse Demo]({{ page.permalink }}/x509)
+- [OpenSSL C/S Implementation Demo]({{ page.permalink }}/cs)
