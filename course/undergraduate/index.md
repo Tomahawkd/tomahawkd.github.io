@@ -6,5 +6,5 @@ title: Undergraduate Course Notes
 {% include title_patch.html %}
 
 
-- [Computer Network]({{ page.permalink }}/network)
-- [Network Security]({{ page.permalink }}/security)
+- [Computer Network]({{ page.permalink }}network)
+- [Network Security]({{ page.permalink }}security)
