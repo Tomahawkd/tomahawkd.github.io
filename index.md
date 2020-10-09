@@ -3,8 +3,7 @@ title: "Main Page"
 ---
 
 # Catalogue
-- [Programming](/programming/)
-- [Security Research](/security/)
+- [Security](/security/)
 - [Course](/course/)
 - [Repo](/repo/)
 
