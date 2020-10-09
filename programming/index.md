@@ -1,5 +1,5 @@
 ---
-permalink: /programming
+permalink: /programming/
 title: Programming
 ---
 
