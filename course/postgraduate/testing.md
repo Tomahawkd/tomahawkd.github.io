@@ -46,6 +46,7 @@ title: Software Measurement and Testing
 - A&T during development aim at revealing faults 
 - We must specify the required level of **dependability** and 
   determine when that level has been attained.
+
 ### Analysis
 - Includes:
     - manual inspection techniques
