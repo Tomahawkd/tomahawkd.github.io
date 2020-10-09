@@ -1,10 +1,10 @@
 ---
 permalink: /course/
-title: Course
+title: Course Notes
 ---
 
 {% include title_patch.html %}
 
 
-- [Computer Network](./network)
-- [Network Security](./security)
+- [Undergraduate](./undergraduate)
+- [Postgraduate](./postgraduate)

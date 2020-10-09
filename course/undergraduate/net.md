@@ -1,5 +1,5 @@
 ---
-permalink: /course/network
+permalink: /course/undergraduate/network
 title: Computer Network
 ---
 

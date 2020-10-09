@@ -1,5 +1,5 @@
 ---
-permalink: /course/security
+permalink: /course/undergraduate/security
 title: Network Security
 ---
 
