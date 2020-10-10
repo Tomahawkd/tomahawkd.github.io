@@ -117,21 +117,21 @@ title: Software Measurement and Testing
 
 ## Main A&T Principles
 - General engineering principles:
-    - Partition: divide and conquer
+    - **Partition**: divide and conquer
         - Divide testing into unit, integration, subsystem and system testing
         - Hard testing and verification problems can be handled by suitably partitioning the input space
-    - Visibility: judging status(making information accessible)
+    - **Visibility**: judging status(making information accessible)
         - X visibility = ability to judge how we are doing on X
-    - Feedback: tuning the development process
+    - **Feedback**: tuning the development process
         - Learning from experience: Each project provides information to improve the next
 - Specific A&T principles:
-    - Sensitivity: better to fail every time than sometimes
+    - **Sensitivity**: better to fail every time than sometimes
         - Machine independency
         - every run of the test should provide the same result.
-    - Redundancy: making intentions explicit
+    - **Redundancy**: making intentions explicit
         - Static type checking is made redundant with dynamic type checking, 
           but still reveals mismatches earlier (upon compilation).
-    - Restriction: making the problem easier
+    - **Restriction**: making the problem easier
         - Can reduce hard (unsolvable) problems to be simpler (solvable) problems.
 
 They can be used to understand advantages and limits of different approaches and compare different techniques
