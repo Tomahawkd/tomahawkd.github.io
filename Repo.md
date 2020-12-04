@@ -1,5 +1,5 @@
 ---
-permalink: /repo/
+permalink: /repo
 title: Repositories
 ---
 
