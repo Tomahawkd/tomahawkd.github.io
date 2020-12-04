@@ -1,5 +1,5 @@
 ---
-permalink: /course/
+permalink: /course
 title: Course Notes
 ---
 
