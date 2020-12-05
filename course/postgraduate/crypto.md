@@ -48,6 +48,10 @@ where $E(Key_1, P) = C$ and $D(Key_2, C) = P$.
   
 **Security depends only on secrecy of the key, not on the algorithm**
 
+# Mathematical Formalization
+
+# Characteristics of Cryptographic Systems
+
 # Historical Ciphers
 
 - Caesar Cipher
