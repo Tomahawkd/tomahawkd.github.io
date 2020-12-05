@@ -7,3 +7,4 @@ title: Postgraduate Course Notes
 
 
 - [Software Measurement and Testing]({{ page.permalink }}/testing)
+- [Cryptography]({{ page.permalink }}/crypto)
