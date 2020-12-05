@@ -5,6 +5,8 @@ title: Cryptography
 
 {% include title_patch.html %}
 
+{% include latex_support.html %}
+
 # Definitions
 
 - **Information security**: 
