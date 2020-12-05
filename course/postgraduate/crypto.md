@@ -38,6 +38,14 @@ title: Cryptography
 
 where $E(Key_1, P) = C$ and $D(Key_2, C) = P$.
 
+- Symmetric algorithms:
+  - $Key_1 = Key_2$, or are easily derived from each other.
+- Asymmetric algorithms:
+  - $Key_1 \neq Key_2$
+  - Public key can be published without compromising private key.
+  
+**Security depends only on secrecy of the key, not on the algorithm**
+
 # Historical Ciphers
 
 - Caesar Cipher
