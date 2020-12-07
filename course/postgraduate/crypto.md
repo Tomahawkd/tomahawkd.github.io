@@ -93,7 +93,7 @@ for each element in set $M$ and $C$ should have its pair in the opposite set.
 
 # Symmetric key encryption
 
-For symmetric encryption scheme ${E_e | e \in K}$ and ${D_d | d \in K}$, ${e, d}$ are 
+For symmetric encryption scheme $\{E_e | e \in K\}$ and $\{D_d | d \in K\}$, $\{e, d\}$ are 
 easy to derived from each other or just $e = d$
 
 - Also known as: secret-key, single-key, one-key, shared-key,
