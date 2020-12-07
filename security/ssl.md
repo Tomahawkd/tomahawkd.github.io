@@ -16,7 +16,7 @@ Target: SSLv3, CBC
 
 
 1. Cast to SSLv3  
-![POODLE attack](https://d3eaqdewfg2crq.cloudfront.net/wp-content/uploads/2017/01/image29.png)
+![POODLE attack](/static/security/ssl/image29.png)
 
 2. Attack SSLv3
 
@@ -69,13 +69,11 @@ Related CVE: CVE-2012-4929
 
 Target: TLS Compression
 
-![compression ratio](https://d3eaqdewfg2crq.cloudfront.net/wp-content/uploads/2017/01/image14.png)
+![compression ratio](/static/security/ssl/image14.png)
 
-![CRIME attack](https://d3eaqdewfg2crq.cloudfront.net/wp-content/uploads/2017/01/image02-1.png)
+![CRIME attack](/static/security/ssl/image02-1.png)
 
-![CRIME attack](https://d3eaqdewfg2crq.cloudfront.net/wp-content/uploads/2017/01/image02-1.png)
-
-![bruteforce](https://d3eaqdewfg2crq.cloudfront.net/wp-content/uploads/2017/01/image08.png)
+![bruteforce](/static/security/ssl/image08.png)
 
 
 
@@ -93,9 +91,9 @@ Same as above
 
 Related CVE: CVE-2014-0160
 
-![TLS vulnerability - heartbleed](https://d3eaqdewfg2crq.cloudfront.net/wp-content/uploads/2017/01/image07.png)
+![TLS vulnerability - heartbleed](/static/security/ssl/image07.png)
 
-![heartbeat message](https://d3eaqdewfg2crq.cloudfront.net/wp-content/uploads/2017/01/image10.png)
+![heartbeat message](/static/security/ssl/image10.png)
 
 ```c
 #define n2s(c,s)((s=(((unsigned int)(c[0]))<< 8)| \
