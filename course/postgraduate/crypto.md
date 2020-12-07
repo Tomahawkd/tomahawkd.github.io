@@ -207,6 +207,10 @@ Encryption:
 
 # RSA
 
+- Primitives
+  
+  We must get two factors $p$ and $q$ of $n$, which is hard.
+
 - Generate keys
   1. Select prime numbers
      
@@ -228,5 +232,20 @@ Encryption:
 
   $M = C^d \mod n$
 
+# Asymmetric algorithms for distribution
+
+- Digital envelope
+  
+  Using asymmetric algorithm to encrypt symmetric key, for example, RSA
+
+  Sender: $C = (C_1, C_2) = (K^e \mod n, E(M, K))$
+
+  Receiver: $K = C_1^d \mod n$ and then $M = D(C_2, K)$
+
+- Key exchange algorithms
+
 # Diffie-Hellman Key Exchange
 
+- Discrete logarithms
+  
+  $\forall b \in \mathbb{Z}, \exist i in \\{1,...,p-1\\}$, there is $b = s^i \mod p$
