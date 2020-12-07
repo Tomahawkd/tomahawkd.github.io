@@ -101,13 +101,53 @@ easy to derived from each other or just $e = d$
 
 # Historical Ciphers
 
-- Caesar Cipher
+- **Caesar Cipher**
 
-- Playfair Cipher
+$C = E(K, M) = (M + K) mod 26$
 
-- Vigenere Cipher
+$M = D(K, C) = (C - K) mod 26$
 
-- Rail Fence Cipher
+where $M, C \in Alphabets$ and $Alphabets$ are mapped into $\{0, 1, ..., 25\}$
+
+Especially, when we set $K = 13$, the function is called `ROT13`, where $E$ is equivalent to $D$
+
+- **Playfair Cipher**
+
+steps:
+  1. Pick keyword (here: monarchy)
+  2. Construct matrix: fill in letters of keyword (minus duplicates)
+     left2right & top2bottom, and remaining letters in alphabetic
+     order, where I and J count as one letter.
+  3. Plaintext is encrypted two letters at a time:  
+  4. If a pair is a repeated letter, insert filler like ‘X’ (e.g., “BALLOON” ; “BA LX LO ON"). Add
+     an ‘X’ also at the end, if needed (or any other character).
+  5. If both letters fall in the same row, replace each with letter to right, wrapping back to start
+      from end (e.g., “AR" is encrypted as “RM").
+  6. If both letters fall in the same column, replace each with the letter below it, wrapping to top
+      from bottom (e.g., “MU” is encrypted as “CM").
+  7. Otherwise each letter is replaced by the letter in the same row and in the column of the
+      other letter of the pair (e.g., “HS" becomes “BP" and “EA" becomes “IM", or “JM", as the
+      encipherer wishes)    
+     
+![playfair](/static/course/postgraduate/crypto/playfair.png)
+
+- **Vigenere Cipher**
+
+  - a sequence of plaintext letters $P = p_0, p_1, p_2, ..., p_{n−1}$,
+  - a key consisting of the sequence of letters $K = k_0, k_1, k_2, ..., k_{m−1}$,
+    typically $m < n$.
+    
+The encryption/decryption is as follows:
+
+$C_i = (P_i + k_{i mod m}) mod 26$
+
+and
+
+$P_i = (C_i − k_{i mod m}) mod 26$
+
+![vigenere](/static/course/postgraduate/crypto/vigenere.png)
+
+- **Rail Fence Cipher**
 
 # Feistel Cipher
 
@@ -115,13 +155,13 @@ easy to derived from each other or just $e = d$
 
 # Block Cipher Modes
 
-- ECB
+- **ECB**
 
-- CBC
+- **CBC**
 
-- CFB
+- **CFB**
 
-- OFB
+- **OFB**
 
 # Number Theory
 
