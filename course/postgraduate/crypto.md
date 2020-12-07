@@ -127,7 +127,7 @@ steps:
       from bottom (e.g., “MU” is encrypted as “CM").
   7. Otherwise each letter is replaced by the letter in the same row and in the column of the
       other letter of the pair (e.g., “HS" becomes “BP" and “EA" becomes “IM", or “JM", as the
-      encipherer wishes)    
+      encipherer wishes)
      
 ![playfair](/static/course/postgraduate/crypto/playfair.png)
 
@@ -147,9 +147,31 @@ $P_i = (C_i − k_{i \mod m}) \mod 26$
 
 ![vigenere](/static/course/postgraduate/crypto/vigenere.png)
 
+- **Vernam Cipher**
+
+$P \xor K = C$
+
+$C \xor K = P$
+
 - **Rail Fence Cipher**
 
+![railfence](/static/course/postgraduate/crypto/railfence.png)
+
+- **Columnar transposition cipher**
+
+Example:
+
+![columnar](/static/course/postgraduate/crypto/columnar.png)
+
+Also, we could perform another encryption to be more secure.
+
 # Feistel Cipher
+
+Composite (product) ciphers: combining both substitution and transposition
+
+Encryption:
+
+![feistelenc](/static/course/postgraduate/crypto/feistelenc.png)
 
 # DES Encryption
 
