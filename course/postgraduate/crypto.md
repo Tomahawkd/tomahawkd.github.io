@@ -39,7 +39,9 @@ title: Cryptography
 
 # Encryption Scheme
 
-![general_scheme](/static/course/postgraduate/crypto/general_scheme.png)
+<div style="text-align:center">
+<img src="/static/course/postgraduate/crypto/general_scheme.png"  alt=""/>
+</div>
 
 where $E(Key_1, P) = C$ and $D(Key_2, C) = P$.
 
@@ -129,8 +131,10 @@ easy to derived from each other or just $e = d$
   7. Otherwise each letter is replaced by the letter in the same row and in the column of the
       other letter of the pair (e.g., “HS" becomes “BP" and “EA" becomes “IM", or “JM", as the
       encipherer wishes)
-     
-![playfair](/static/course/postgraduate/crypto/playfair.png)
+
+<div style="text-align:center">
+<img src="/static/course/postgraduate/crypto/playfair.png"  alt=""/>
+</div>
 
 
 - **Vigenere Cipher**
@@ -147,7 +151,9 @@ easy to derived from each other or just $e = d$
 
   $P_i = (C_i − k_{i \mod m}) \mod 26$
 
-![vigenere](/static/course/postgraduate/crypto/vigenere.png)
+<div style="text-align:center">
+<img src="/static/course/postgraduate/crypto/vigenere.png"  alt=""/>
+</div>
 
 
 - **Vernam Cipher**
@@ -159,14 +165,17 @@ easy to derived from each other or just $e = d$
 
 - **Rail Fence Cipher**
 
-![railfence](/static/course/postgraduate/crypto/railfence.png)
-
+<div style="text-align:center">
+<img src="/static/course/postgraduate/crypto/railfence.png"  alt=""/>
+</div>
 
 - **Columnar transposition cipher**
 
     Example:
 
-![columnar](/static/course/postgraduate/crypto/columnar.png)
+<div style="text-align:center">
+<img src="/static/course/postgraduate/crypto/columnar.png"  alt=""/>
+</div>
 
 Also, we could perform another encryption to be more secure.
 
@@ -176,7 +185,9 @@ Composite (product) ciphers: combining both substitution and transposition
 
 Encryption:
 
-![feistelenc](/static/course/postgraduate/crypto/feistelenc.png)
+<div style="text-align:center">
+<img src="/static/course/postgraduate/crypto/feistelenc.png"  alt=""/>
+</div>
 
 # DES Encryption
 
