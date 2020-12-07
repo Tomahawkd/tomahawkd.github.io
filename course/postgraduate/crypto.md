@@ -93,7 +93,7 @@ for each element in set $M$ and $C$ should have its pair in the opposite set.
 
 # Symmetric key encryption
 
-For symmetric encryption scheme $\left{E_e | e \in K\right}$ and $\left{D_d | d \in K\right}$, $\{e, d\}$ are 
+For symmetric encryption scheme $\big{E_e | e \in K\big}$ and $\big{D_d | d \in K\big}$, $\{e, d\}$ are 
 easy to derived from each other or just $e = d$
 
 - Also known as: secret-key, single-key, one-key, shared-key,
@@ -107,7 +107,7 @@ $C = E(K, M) = (M + K) \mod 26$
 
 $M = D(K, C) = (C - K) \mod 26$
 
-where $M, C \in Alphabets$ and $Alphabets$ are mapped into $\left{0, 1, ..., 25\right}$
+where $M, C \in Alphabets$ and $Alphabets$ are mapped into $\big{0, 1, ..., 25\big}$
 
 Especially, when we set $K = 13$, the function is called `ROT13`, where $E$ is equivalent to $D$
 
