@@ -149,9 +149,9 @@ $P_i = (C_i − k_{i \mod m}) \mod 26$
 
 - **Vernam Cipher**
 
-$P \xor K = C$
+$P \oplus K = C$
 
-$C \xor K = P$
+$C \oplus K = P$
 
 - **Rail Fence Cipher**
 
