@@ -207,10 +207,26 @@ Encryption:
 
 # RSA
 
-1. Select prime numbers
-   
-    $p, q$
-2. 
+- Generate keys
+  1. Select prime numbers
+     
+      $p, q$
+  
+  2. Calculate $n = p * q$ and $\phi(n) = (p - 1) * (q - 1)$
+  3. select $e$ where,
+      
+      $1 < e < \phi(n)$, relatively prime to $\phi(n)$
+  
+  4. Compute $d = e^{-1} \mod \phi(n)$
+  5. Set public key $(e, n)$ and private key $(d, n)$
+  
+- Encryption and Decryption
+
+  $C = M^e \mod n$
+
+  and 
+
+  $M = C^d \mod n$
 
 # Diffie-Hellman Key Exchange
 
