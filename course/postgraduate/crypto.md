@@ -103,9 +103,9 @@ easy to derived from each other or just $e = d$
 
 - **Caesar Cipher**
 
-$C = E(K, M) = (M + K) mod 26$
+$C = E(K, M) = (M + K) \mod 26$
 
-$M = D(K, C) = (C - K) mod 26$
+$M = D(K, C) = (C - K) \mod 26$
 
 where $M, C \in Alphabets$ and $Alphabets$ are mapped into $\{0, 1, ..., 25\}$
 
@@ -139,11 +139,11 @@ steps:
     
 The encryption/decryption is as follows:
 
-$C_i = (P_i + k_{i mod m}) mod 26$
+$C_i = (P_i + k_{i \mod m}) \mod 26$
 
 and
 
-$P_i = (C_i − k_{i mod m}) mod 26$
+$P_i = (C_i − k_{i \mod m}) \mod 26$
 
 ![vigenere](/static/course/postgraduate/crypto/vigenere.png)
 
