@@ -61,19 +61,11 @@ similarly, for each $d \in K$ determines a **bijective function** $D_d$ from $C$
 
 So we could represent as follows:
 
-$\[ E_e(M) = C \]$
-
-or
-
-$\[ E(M, e) = C \]$
+$E_e(M) = C$ or $E(M, e) = C$
 
 and
 
-$\[ D_d(C) = M \]$
-
-or
-
-$\[ D(C, d) = M \]$
+$D_d(C) = M$ or $D(C, d) = M$
 
 Since that the encryption function $E$ and decryption function $D$ are **bijiective**, 
 for each element in set $M$ and $C$ should have its pair in the opposite set.
