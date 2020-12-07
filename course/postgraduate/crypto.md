@@ -50,6 +50,34 @@ where $E(Key_1, P) = C$ and $D(Key_2, C) = P$.
 
 # Mathematical Formalization
 
+Let $M$ be the **message space**, and $m \in M$ is **plaintext**.
+
+Similarly, let $C$ be the **ciphertext space**, and $c \in C$ is **ciphertext**.
+
+Let $K$ be the **key space**, and $e, d \in K$.
+
+For each $e \in K$ determines a **bijective function** $E_e$ from $M$ to $C$, and 
+similarly, for each $d \in K$ determines a **bijective function** $D_d$ from $C$ to $M$.
+
+So we could represent as follows:
+
+$\[ E_e(M) = C \]$
+
+or
+
+$\[ E(M, e) = C \]$
+
+and
+
+$\[ D_d(C) = M \]$
+
+or
+
+$\[ D(C, d) = M \]$
+
+Since that the encryption function $E$ and decryption function $D$ are **bijiective**, 
+for each element in set $M$ and $C$ should have its pair in the opposite set.
+
 # Characteristics of Cryptographic Systems
 
 # Historical Ciphers
