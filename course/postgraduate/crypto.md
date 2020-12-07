@@ -103,17 +103,18 @@ easy to derived from each other or just $e = d$
 
 - **Caesar Cipher**
 
-$C = E(K, M) = (M + K) \mod 26$
+    $C = E(K, M) = (M + K) \mod 26$
 
-$M = D(K, C) = (C - K) \mod 26$
+    $M = D(K, C) = (C - K) \mod 26$
 
-where $M, C \in Alphabets$ and $Alphabets$ are mapped into $\\{0, 1, ..., 25\\}$
+    where $M, C \in Alphabets$ and $Alphabets$ are mapped into $\\{0, 1, ..., 25\\}$
 
-Especially, when we set $K = 13$, the function is called `ROT13`, where $E$ is equivalent to $D$
+    Especially, when we set $K = 13$, the function is called `ROT13`, where $E$ is equivalent to $D$
+
 
 - **Playfair Cipher**
 
-steps:
+    steps:
   1. Pick keyword (here: monarchy)
   2. Construct matrix: fill in letters of keyword (minus duplicates)
      left2right & top2bottom, and remaining letters in alphabetic
@@ -131,35 +132,39 @@ steps:
      
 ![playfair](/static/course/postgraduate/crypto/playfair.png)
 
+
 - **Vigenere Cipher**
 
   - a sequence of plaintext letters $P = p_0, p_1, p_2, ..., p_{n−1}$,
   - a key consisting of the sequence of letters $K = k_0, k_1, k_2, ..., k_{m−1}$,
-    typically $m < n$.
+    typically $m < n$. 
     
-The encryption/decryption is as follows:
+  The encryption/decryption is as follows:
 
-$C_i = (P_i + k_{i \mod m}) \mod 26$
+  $C_i = (P_i + k_{i \mod m}) \mod 26$
 
-and
+  and
 
-$P_i = (C_i − k_{i \mod m}) \mod 26$
+  $P_i = (C_i − k_{i \mod m}) \mod 26$
 
 ![vigenere](/static/course/postgraduate/crypto/vigenere.png)
 
+
 - **Vernam Cipher**
 
-$P \oplus K = C$
+    $P \oplus K = C$
 
-$C \oplus K = P$
+    $C \oplus K = P$
+
 
 - **Rail Fence Cipher**
 
 ![railfence](/static/course/postgraduate/crypto/railfence.png)
 
+
 - **Columnar transposition cipher**
 
-Example:
+    Example:
 
 ![columnar](/static/course/postgraduate/crypto/columnar.png)
 
@@ -190,6 +195,11 @@ Encryption:
 - GCD & Extended GCD
 
 # RSA
+
+1. Select prime numbers
+   
+    $p, q$
+2. 
 
 # Diffie-Hellman Key Exchange
 
