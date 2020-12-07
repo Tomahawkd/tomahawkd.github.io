@@ -248,4 +248,4 @@ Encryption:
 
 - Discrete logarithms
   
-  $\forall b \in \mathbb{Z}, \exist i in \\{1,...,p-1\\}$, there is $b = s^i \mod p$
+  $\forall b \in \mathbb{Z}, \exists i \in \\{1,...,p-1\\}$, there is $b = s^i \mod p$
