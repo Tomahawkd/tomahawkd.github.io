@@ -15,18 +15,21 @@ title: Cryptography
 
 # Security Properties
 
-- **Confidentiality**: No improper disclosure of information. or  
-  No unauthorized access to information.
+- **Confidentiality**: 
+  - No improper disclosure of information. or  
+  - No unauthorized access to information.
 
 - **Privacy**: Confidentiality of information that you don’t want to share.
 
 - **Anonymity**: Confidentiality of your identity.
 
-- **Integrity**: No improper modification of information. or  
-  No unauthorized modification of information.
+- **Integrity**: 
+  - No improper modification of information. or  
+  - No unauthorized modification of information.
 
-- **Availability**: No improper impairment of functionality/service. or  
-  No unauthorized impairment of functionality
+- **Availability**: 
+  - No improper impairment of functionality/service. or  
+  - No unauthorized impairment of functionality
 
 - **Authentication**: Principals or data origin can be identified accurately
 
