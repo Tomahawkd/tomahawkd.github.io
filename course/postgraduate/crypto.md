@@ -75,6 +75,30 @@ for each element in set $M$ and $C$ should have its pair in the opposite set.
 
 # Characteristics of Cryptographic Systems
 
+- **Type of operations** used to transform plaintext into ciphertext
+  - based on two general principles:
+    - **Substitution**: each element in plaintext (bit, letter) is **mapped** into another element.
+    - **Transposition**: elements in plaintext are **rearranged**
+  - Most systems involve multiple stage substitutions and transpositions.
+
+- **Number of keys** used
+  - **Symmetric, single-key, secret-key, or conventional encryption**: sender and receiver use same key
+  - **Asymmetric, two-key, public-key encryption**: sender and receiver use different keys
+
+- **Way in which plaintext is processed**
+  - Block cipher: processes input one block of elements at a time,
+    producing an output block for each input block.
+  - Stream cipher: processes input elements continuously, producing
+    in output one element at a time, as it goes along.
+
+# Symmetric key encryption
+
+For symmetric encryption scheme ${E_e | e \in K}$ and ${D_d | d \in K}$, ${e, d}$ are 
+easy to derived from each other or just $e = d$
+
+- Also known as: secret-key, single-key, one-key, shared-key,
+  conventional encryption.
+
 # Historical Ciphers
 
 - Caesar Cipher
