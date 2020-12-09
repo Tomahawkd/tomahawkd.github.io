@@ -173,11 +173,11 @@ easy to derived from each other or just $e = d$
 
     Example:
 
-<div style="text-align:center">
-<img src="/static/course/postgraduate/crypto/columnar.png"  alt=""/>
-</div>
+  <div style="text-align:center">
+  <img src="/static/course/postgraduate/crypto/columnar.png"  alt=""/>
+  </div>
 
-Also, we could perform another encryption to be more secure.
+  Also, we could perform another encryption to be more secure.
 
 # Feistel Cipher
 
@@ -195,15 +195,119 @@ Encryption:
 
 - **ECB**
 
+  <div style="text-align:center">
+  <img src="/static/course/postgraduate/crypto/ecb.png"  alt=""/>
+  </div>
+
+  - **Encryption**: $C_i = E(P_i, K)$
+
+  - **Decryption**: $P_i = E(C_i, K)$
+
+  - **Properties**: 
+    1. Same encrypted block if the plaintext is same
+    2. Could parallel process
+
+
 - **CBC**
+
+  <div style="text-align:center">
+  <img src="/static/course/postgraduate/crypto/cbcsi.png"  alt="Simplified CBC"/>
+  </div>
+
+  <div style="text-align:center">
+  <img src="/static/course/postgraduate/crypto/cbc.png"  alt=""/>
+  </div>
+
+  - **Encryption**:
+  
+    $C_1 = E(K, IV \oplus P_1)$  
+    $C_i = E(K, C_{i - 1} \oplus P_i)$, $i \geq 1$
+  
+  - **Decryption**:
+
+    $P_1 = D(K, C_1) \oplus IV$  
+    $P_i = D(K, C_i) \oplus C_{i - 1}$, $i \geq 1$
+  
+  - **Properties**:
+  
+    1. need pad last block if not full
+    2. if an error occurs (changed bits, dropped blocks) in Ci
+       but not Ci+1, then Ci+2 is correctly decrypted.
+    
 
 - **CFB**
 
+  <div style="text-align:center">
+  <img src="/static/course/postgraduate/crypto/cfbsi.png"  alt="Simplified CFB"/>
+  </div>
+
+  - **Encryption**:
+
+    <div style="text-align:center">
+    <img src="/static/course/postgraduate/crypto/cfben.png"  alt=""/>
+    </div>
+  
+    $C_i = P_i \oplus MSB_s(E(K, reg))$
+    
+    $MSB_s(X)$ is the most significant $s$ bits of $X$, 
+    
+    $reg$ is the register initially contains IV, and fill with the $C_i$ afterwards.
+    
+    Every encryption shifts the $reg$ $s$ bits to refresh value.
+  
+  - **Decryption**:
+
+    <div style="text-align:center">
+    <img src="/static/course/postgraduate/crypto/cfbde.png"  alt=""/>
+    </div>
+  
+    $P_i = C_i \oplus MSB_s(E(K, reg))$
+  
+  - **Properties**:
+    
+    1. Only use encryption function
+    2. Act like stream cipher
+
 - **OFB**
 
+  <div style="text-align:center">
+  <img src="/static/course/postgraduate/crypto/ofbsi.png"  alt="Simplified OFB"/>
+  </div>
+
+  - **Encryption/Decryption**:
+
+    <div style="text-align:center">
+    <img src="/static/course/postgraduate/crypto/ofb.png"  alt=""/>
+    </div>
+
+    $C_i = P_i \oplus E(MSB_s(K, reg))$
+
+    $P_i = C_i \oplus E(MSB_s(K, reg))$
+  
+  - **Properties**:
+    1. Similar as CFB, except that OFB uses encrypted block to xor with text
+  
 # Number Theory
 
 - GCD & Extended GCD
+
+  - GCD
+    ```
+    gcd(a, b):
+        if b == 0 
+        then return a 
+        else return gcd(b, a mod b)
+     ```
+  - Extended GCD
+    ```
+    exgcd(a, b):
+        if b == 0
+        then return (a, 1, 0)
+        else
+          (d', x', y') <- exgcd(b, a mod b)
+          return (d', y', x' - (int(a / b) * y))
+    ```
+    
 
 # RSA
 
@@ -249,3 +353,25 @@ Encryption:
 - Discrete logarithms
   
   $\forall b \in \mathbb{Z}, \exists i \in \\{1,...,p-1\\}$, there is $b = s^i \mod p$
+
+  In other words: for any integer b and a primitive root s of prime number p, 
+  we can find a unique exponent i such that
+  
+  $b = s^i \mod p$ where 1 ≤ i ≤ (p − 1).
+
+- Key exchange
+  1. share a prime number $q$ and an integer $\alpha$ which is a primitive root of $q$
+  2. A and B generate random numbers, $X_A$ and $X_B$ for A and B, respectively
+  3. A and B computes $Y_i = \alpha^{X_i} \mod q$, where $i \in \\{A, B\\}$
+  4. exchange $Y_A$ and $Y_B$
+  5. compute $K = Y_A^{X_B} \mod q = Y_B^{X_A} \mod q$
+  
+- Group DH exchange
+<div style="text-align:center">
+<img src="/static/course/postgraduate/crypto/groupdh.png"  alt=""/>
+</div>
+
+- El Gamal
+  1. $A$ -> $B$: $Y_A = \alpha^{X_A} \mod q$
+  2. $B$ -> $A$: $(C, Y_B)$ = $(E(M, K), \alpha^{X_B} \mod q)$
+  3. $A$: $K = Y_B^{X_A} \mod q$, $M = D(C, K)$
