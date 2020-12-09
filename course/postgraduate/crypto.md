@@ -357,7 +357,7 @@ Encryption:
   In other words: for any integer b and a primitive root s of prime number p, 
   we can find a unique exponent i such that
   
-  $b = s^i \mod p$ where 1 ≤ i ≤ (p − 1).
+  $b = s^i \mod p$ where $1 \leq i \leq (p − 1)$.
 
 - Key exchange
   1. share a prime number $q$ and an integer $\alpha$ which is a primitive root of $q$
