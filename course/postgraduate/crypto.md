@@ -296,7 +296,31 @@ RD_i
 
 # S-DES
 
+  <div style="text-align:center">
+  <img src="/static/course/postgraduate/crypto/sdes.png"  alt=""/>
+  </div>
 
+  - IP
+
+    <div style="text-align:center">
+    <img src="/static/course/postgraduate/crypto/sdesip.png"  alt=""/>
+    </div>
+
+  - $f_k$
+
+    <div style="text-align:center">
+    <img src="/static/course/postgraduate/crypto/sdesf.png"  alt=""/>
+    </div>
+
+    <div style="text-align:center">
+    <img src="/static/course/postgraduate/crypto/sdestables.png"  alt=""/>
+    </div>
+
+  - Key generation:
+
+    <div style="text-align:center">
+    <img src="/static/course/postgraduate/crypto/sdeskeygen.png"  alt=""/>
+    </div>
 
 # Block Cipher Modes
 
