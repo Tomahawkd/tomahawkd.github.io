@@ -183,11 +183,46 @@ easy to derived from each other or just $e = d$
 
 Composite (product) ciphers: combining both substitution and transposition
 
+<div style="text-align:center">
+<img src="/static/course/postgraduate/crypto/feistel.png"  alt=""/>
+</div>
+
 Encryption:
 
 <div style="text-align:center">
 <img src="/static/course/postgraduate/crypto/feistelenc.png"  alt=""/>
 </div>
+
+$LE_i = RE_{i - 1}$
+
+$RE_i = LE_{i - 1} \oplus F(RE_{i - 1}, K_i)$
+
+Decryption:
+
+Since 
+$LD_{16 - i} = RE_i$ and $RD_{16 - i} = LE_i$
+
+$\begin{equation}
+\begin{split}
+LD_i
+& = RE_{16 - i} \\
+& = LE_{16 - i - 1} \oplus F(RE_{16 - i - 1}, K_{16 - i}) \\
+& = LE_{15 - i} \oplus F(RE_{15 - i}, K_{16 - i}) \\
+& = RD_{16 - 15 + i} \oplus F(LD_{16 - 15 + i}, K_{16 - i})
+& = RD_{i + 1} \oplus F(LD_{i + 1}, K_{16 - i})
+\end{split}
+\end{equation}$
+
+$\begin{equation}
+\begin{split}
+RD_i
+& = LE_{16 - i} \\
+& = RE_{16 - i - 1} \\
+& = RE_{15 - i} \\ 
+& = LD_{16 - 15 + i} \\
+& = LD_{i + 1}
+\end{split}
+\end{equation}$
 
 # DES Encryption
 
