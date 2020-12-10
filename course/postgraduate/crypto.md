@@ -542,5 +542,5 @@ RD_i
   
 - MAC (Message Authentication Code):
   1. Family of hash functions parameterized by secret key
-  2. given $(x_i, h_K(x_i))$, it is infeasible to compute $(x, h_K(x))$ for $x /neq x_i$
+  2. given $(x_i, h_K(x_i))$, it is infeasible to compute $(x, h_K(x))$ for $x \neq x_i$
   
