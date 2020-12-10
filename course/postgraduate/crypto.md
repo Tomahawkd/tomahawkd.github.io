@@ -216,10 +216,10 @@ LD_i
 $\begin{equation}
 \begin{split}
 RD_i
-& = LE_{16 - i} \\\\
-& = RE_{16 - i - 1} \\\\
-& = RE_{15 - i} \\\\ 
-& = LD_{16 - 15 + i} \\\\
+& = LE_{16 - i} \\\\\\\\
+& = RE_{16 - i - 1} \\\\\\\\
+& = RE_{15 - i} \\\\\\\\
+& = LD_{16 - 15 + i} \\\\\\\\
 & = LD_{i + 1}
 \end{split}
 \end{equation}$
