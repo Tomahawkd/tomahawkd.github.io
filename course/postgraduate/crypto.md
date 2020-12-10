@@ -529,3 +529,18 @@ RD_i
   1. $A$ -> $B$: $Y_A = \alpha^{X_A} \mod q$
   2. $B$ -> $A$: $(C, Y_B)$ = $(E(M, K), \alpha^{X_B} \mod q)$
   3. $A$: $K = Y_B^{X_A} \mod q$, $M = D(C, K)$
+  
+# Hash
+
+- Hash function:
+  1. Maps an input with arbitrary bit length to an output of fixed bit length
+  2. computable in limited time
+  
+- Cryptographic hash function:
+  1. One-way, it is hard to get $x$ when only given $y = h(x)$
+  2. It's difficult to find $x'$ that $h(x) = h(x')$
+  
+- MAC (Message Authentication Code):
+  1. Family of hash functions parameterized by secret key
+  2. given $(x_i, h_K(x_i))$, it is infeasible to compute $(x, h_K(x))$ for $x /neq x_i$
+  
