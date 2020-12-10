@@ -205,10 +205,10 @@ $LD_{16 - i} = RE_i$ and $RD_{16 - i} = LE_i$
 $\begin{equation}
 \begin{split}
 LD_i
-& = RE_{16 - i} \\\\
-& = LE_{16 - i - 1} \oplus F(RE_{16 - i - 1}, K_{16 - i}) \\\\
-& = LE_{15 - i} \oplus F(RE_{15 - i}, K_{16 - i}) \\\\
-& = RD_{16 - 15 + i} \oplus F(LD_{16 - 15 + i}, K_{16 - i}) \\\\
+& = RE_{16 - i} \\\\\\
+& = LE_{16 - i - 1} \oplus F(RE_{16 - i - 1}, K_{16 - i}) \\\\\\
+& = LE_{15 - i} \oplus F(RE_{15 - i}, K_{16 - i}) \\\\\\
+& = RD_{16 - 15 + i} \oplus F(LD_{16 - 15 + i}, K_{16 - i}) \\\\\\
 & = RD_{i + 1} \oplus F(LD_{i + 1}, K_{16 - i})
 \end{split}
 \end{equation}$
@@ -216,10 +216,10 @@ LD_i
 $\begin{equation}
 \begin{split}
 RD_i
-& = LE_{16 - i} \\\\\\\\
-& = RE_{16 - i - 1} \\\\\\\\
-& = RE_{15 - i} \\\\\\\\
-& = LD_{16 - 15 + i} \\\\\\\\
+& = LE_{16 - i} \\\\\\
+& = RE_{16 - i - 1} \\\\\\
+& = RE_{15 - i} \\\\\\
+& = LD_{16 - 15 + i} \\\\\\
 & = LD_{i + 1}
 \end{split}
 \end{equation}$
