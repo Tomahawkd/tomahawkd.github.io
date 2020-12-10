@@ -290,6 +290,14 @@ RD_i
 
   $C = E(K_1, D(K_2, E(K_1, P)))$ or $C = E(K_1, E(K_2, E(K_3, P)))$
 
+  For two keys in T-DES:
+    - Compatibility is maintained with standard DES $(K_2 = K_1)$.
+    - No known practical attack
+
+# S-DES
+
+
+
 # Block Cipher Modes
 
 - **ECB**
