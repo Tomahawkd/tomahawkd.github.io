@@ -202,6 +202,12 @@ Decryption:
 Since 
 $LD_{16 - i} = RE_i$ and $RD_{16 - i} = LE_i$
 
+$LD_i = RD_{i - 1}$
+
+$RD_i = LD_{i - 1} \oplus F(RD_{i - 1}, K_{17 - i})$
+
+Proof: 
+
 $\begin{equation}
 \begin{split}
 LD_i
@@ -209,7 +215,8 @@ LD_i
 & = LE_{16 - i - 1} \oplus F(RE_{16 - i - 1}, K_{16 - i}) \\\\\\
 & = LE_{15 - i} \oplus F(RE_{15 - i}, K_{16 - i}) \\\\\\
 & = RD_{16 - 15 + i} \oplus F(LD_{16 - 15 + i}, K_{16 - i}) \\\\\\
-& = RD_{i + 1} \oplus F(LD_{i + 1}, K_{16 - i})
+& = RD_{i + 1} \oplus F(LD_{i + 1}, K_{16 - i}) \\\\\\
+& = RD_{i + 1} \oplus F(RD_i, K_{16 - i})
 \end{split}
 \end{equation}$
 
