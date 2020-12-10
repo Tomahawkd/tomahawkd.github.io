@@ -266,7 +266,7 @@ RD_i
 
 - Key validation:
   
-  $\sum_{i=1}^8 b_{8k + i} \equiv 1 \mod 2, 0 \leq k \leq 7$
+  $\sum\limits_{i=1}^8 b_{8k + i} \equiv 1 \mod 2, 0 \leq k \leq 7$
 
 - Single Round:
   <div style="text-align:center">
