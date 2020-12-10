@@ -233,6 +233,63 @@ RD_i
 
 # DES Encryption
 
+<div style="text-align:center">
+<img src="/static/course/postgraduate/crypto/desgen.png"  alt=""/>
+</div>
+
+- Block size: 64 bits
+
+- Key size: 56 bits (last 1 bit for each 7 bits used to validate the key itself)
+
+- Key validation:
+  
+  $\sum_{i=1}^8 b_{8k + i} \equiv 1 \mod 2, 0 \leq k \leq 7$
+
+- Single Round:
+  <div style="text-align:center">
+  <img src="/static/course/postgraduate/crypto/dessing.png"  alt=""/>
+  </div>
+
+  <div style="text-align:center">
+  <img src="/static/course/postgraduate/crypto/desf.png"  alt=""/>
+  </div>
+
+    - Expansion:
+        <div style="text-align:center">
+        <img src="/static/course/postgraduate/crypto/dese.png"  alt=""/>
+        </div>
+    
+    - Substitution:
+        <div style="text-align:center">
+        <img src="/static/course/postgraduate/crypto/dess.png"  alt=""/>
+        </div>
+  
+    - Permutation:
+        <div style="text-align:center">
+        <img src="/static/course/postgraduate/crypto/desp.png"  alt=""/>
+        </div>
+  
+- Key generation:
+  <div style="text-align:center">
+  <img src="/static/course/postgraduate/crypto/deskey.png"  alt=""/>
+  </div>
+
+  <div style="text-align:center">
+  <img src="/static/course/postgraduate/crypto/deskeygenf.png"  alt=""/>
+  </div>
+
+# DES Security
+
+- two DES encryptions:
+  
+  Meet in the middle attack:
+  
+  Find two keys satisfying $E(K_1, P) = D(K_2, C)$
+
+- Triple DES
+
+  $C = E(K_1, D(K_2, E(K_1, P)))$ or $C = E(K_1, E(K_2, E(K_3, P)))$
+
 # Block Cipher Modes
 
 - **ECB**
