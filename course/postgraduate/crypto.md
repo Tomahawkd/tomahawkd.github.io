@@ -114,6 +114,29 @@ easy to derived from each other or just $e = d$
     Especially, when we set $K = 13$, the function is called `ROT13`, where $E$ is equivalent to $D$
 
 
+- **Mono-alphabetic substitution ciphers**:
+
+  Map **a element** in $A$ into **a element** in $C$
+
+
+- **Homophonic substitution ciphers**:
+
+  Map **a element** in $A$ into **multiple elements** in $C$
+
+  For communicators: This relationship/set is the key
+
+  For cryptanalysis: frequency analysis is more difficult
+
+  For example:
+
+  for $A = \\{x, y\\}$, declares keys $K_x = \\{00, 10\\}$ and $K_y = \\{01, 11\\}$.
+
+  The plaintext xy encrypts to one of 0001, 0011, 1001, 1011
+  
+  <div style="text-align:center">
+  <img src="/static/course/postgraduate/crypto/homo.png"  alt=""/>
+  </div>
+
 - **Playfair Cipher**
 
     steps:
@@ -137,7 +160,7 @@ easy to derived from each other or just $e = d$
 </div>
 
 
-- **Vigenere Cipher**
+- **Vigenere Cipher (polyalphabetic substitution cipher)**
 
   - a sequence of plaintext letters $P = p_0, p_1, p_2, ..., p_{n−1}$,
   - a key consisting of the sequence of letters $K = k_0, k_1, k_2, ..., k_{m−1}$,
