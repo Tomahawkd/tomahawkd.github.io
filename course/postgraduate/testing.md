@@ -5,6 +5,8 @@ title: Software Measurement and Testing
 
 {% include title_patch.html %}
 
+{% include gen_index.html %}
+
 # Week 1: Nutshell
 
 ### Objectives:

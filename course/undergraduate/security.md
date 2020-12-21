@@ -5,6 +5,8 @@ title: Network Security
 
 {% include title_patch.html %}
 
+{% include gen_index.html %}
+
 # Network Security Summary
 
 ## Web 

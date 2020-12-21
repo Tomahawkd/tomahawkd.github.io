@@ -5,6 +5,8 @@ title: Security Management
 
 {% include title_patch.html %}
 
+{% include gen_index.html %}
+
 # Introduction
 
 ## Definitions

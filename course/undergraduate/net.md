@@ -7,6 +7,7 @@ title: Computer Network
 
 {% include latex_support.html %}
 
+{% include gen_index.html %}
 
 ## 名词解释(5x2')
 
