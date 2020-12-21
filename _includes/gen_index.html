@@ -3,8 +3,7 @@
 
 <script>
 
-    let elements = document.getElementsByClassName("main-content")[0]
-        .getElementsByTagName("h1").filter(e => e.hasAttribute("id"))
+    let elements = document.getElementsByClassName("main-content")[0].getElementsByTagName("h1")
     var menu = "<ul>"
 
     for (const ele in elements) {
@@ -18,7 +17,7 @@
         menu += ele.innerText
         menu += "</a>"
 
-        let sub = ele.getElementsByTagName("h2").filter(e => e.hasAttribute("id"))
+        let sub = ele.getElementsByTagName("h2")
         if (sub.length === 0) continue
 
         menu += "<ul>"
