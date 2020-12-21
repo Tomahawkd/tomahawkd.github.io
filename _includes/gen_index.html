@@ -3,34 +3,45 @@
 
 <script>
 
-    let elements = document.getElementsByClassName("main-content")[0].getElementsByTagName("h1")
-    var menu = "<ul>"
+    function init_list() {
+        let elements = document.getElementsByClassName("main-content")[0].querySelectorAll("h1, h2")
+        let flag = false
+        var menu = "<ul>"
 
-    for (let i = 0; i < elements.length; i++) {
-        const ele = elements[i]
-        if (ele.id === "") continue
-        menu += "<li>"
-        menu += "<a style=\"font-size: 1em; font-weight: bolder\" href=\"#" + ele.id + "\">"
-        menu += ele.innerText
-        menu += "</a>"
+        for (let i = 0; i < elements.length; i++) {
+            const ele = elements[i]
+            if (ele.id === "") continue
 
-        let sub = ele.getElementsByTagName("h2")
-        if (sub.length === 0) continue
-
-        menu += "<ul>"
-        for (let j = 0; j < sub.length; j++) {
-            const subele = sub[j]
-            if (subele.id === "") continue
-            menu += "<li>"
-            menu += "<a style=\"font-size: 1em; font-weight: bolder\" href=\"#" + subele.id + "\">"
-            menu += subele.innerText
-            menu += "</a></li>"
+            if (ele.tagName.toLowerCase() === "h1") {
+                if (flag) {
+                    menu += "</ul>"
+                    flag = false
+                }
+                menu += "<li><a style=\"font-size: 1em; font-weight: bolder\" href=\"#" + ele.id + "\">"
+                menu += ele.innerText
+                menu += "</a></li>"
+            } else if (ele.tagName.toLowerCase() === "h2") {
+                if (!flag) {
+                    menu += "<ul>"
+                    flag = true
+                }
+                menu += "<li><a style=\"font-size: .83em; font-weight: bolder\" href=\"#" + ele.id + "\">"
+                menu += ele.innerText
+                menu += "</a></li>"
+            }
         }
-        menu += "</ul></li>"
+
+        if (flag) {
+            menu += "</ul>"
+        }
+        menu += "</ul>"
+        document.getElementById("indices").innerHTML = menu
     }
 
-    menu += "</ul>"
-    document.getElementById("indices").innerHTML = menu
+    document.addEventListener("DOMContentLoaded", function(){
+        init_list()
+    });
+
 
 </script>
 
