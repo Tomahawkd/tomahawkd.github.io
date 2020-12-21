@@ -6,7 +6,8 @@
     let elements = document.getElementsByClassName("main-content")[0].getElementsByTagName("h1")
     var menu = "<ul>"
 
-    for (const ele in elements) {
+    for (let i = 0; i < elements.length; i++) {
+        const ele = elements[i]
         if (ele.id === "") continue
         menu += "<li>\n"
 
@@ -22,7 +23,8 @@
 
         menu += "<ul>"
 
-        for (const subele in sub) {
+        for (let j = 0; j < sub.length; j++) {
+            const subele = sub[j]
             if (subele.id === "") continue
             menu += "<li>\n"
             menu += "::marker\n"
@@ -32,7 +34,6 @@
             menu += subele.innerText
             menu += "</a></li>"
         }
-
         menu += "</ul></li>"
     }
 
