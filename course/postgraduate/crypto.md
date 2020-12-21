@@ -7,6 +7,8 @@ title: Cryptography
 
 {% include latex_support.html %}
 
+{% include gen_index.html %}
+
 # Definitions
 
 - **Information security**: 

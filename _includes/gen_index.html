@@ -1,0 +1,44 @@
+<div id="indices" style="color: lightgrey; height: 80%">
+</div>
+
+<script>
+
+    let elements = document.getElementsByClassName("main-content")[0]
+        .getElementsByTagName("h1").filter(e => e.hasAttribute("id"))
+    var menu = "<ul>"
+
+    for (const ele in elements) {
+        if (ele.id === "") continue
+        menu += "<li>\n"
+
+        menu += "::marker\n"
+        menu += "<a style=\"font-size: 1em; font-weight: bolder\" href=\"#"
+        menu += ele.id
+        menu += "\">"
+        menu += ele.innerText
+        menu += "</a>"
+
+        let sub = ele.getElementsByTagName("h2").filter(e => e.hasAttribute("id"))
+        if (sub.length === 0) continue
+
+        menu += "<ul>"
+
+        for (const subele in sub) {
+            if (subele.id === "") continue
+            menu += "<li>\n"
+            menu += "::marker\n"
+            menu += "<a style=\"font-size: .83em; font-weight: bolder\" href=\"#"
+            menu += subele.id
+            menu += "\">"
+            menu += subele.innerText
+            menu += "</a></li>"
+        }
+
+        menu += "</ul></li>"
+    }
+
+    menu += "</ul>"
+    document.getElementById("indices").innerText = menu
+
+</script>
+
