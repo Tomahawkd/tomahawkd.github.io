@@ -9,12 +9,8 @@
     for (let i = 0; i < elements.length; i++) {
         const ele = elements[i]
         if (ele.id === "") continue
-        menu += "<li>\n"
-
-        menu += "::marker\n"
-        menu += "<a style=\"font-size: 1em; font-weight: bolder\" href=\"#"
-        menu += ele.id
-        menu += "\">"
+        menu += "<li>"
+        menu += "<a style=\"font-size: 1em; font-weight: bolder\" href=\"#" + ele.id + "\">"
         menu += ele.innerText
         menu += "</a>"
 
@@ -22,15 +18,11 @@
         if (sub.length === 0) continue
 
         menu += "<ul>"
-
         for (let j = 0; j < sub.length; j++) {
             const subele = sub[j]
             if (subele.id === "") continue
-            menu += "<li>\n"
-            menu += "::marker\n"
-            menu += "<a style=\"font-size: .83em; font-weight: bolder\" href=\"#"
-            menu += subele.id
-            menu += "\">"
+            menu += "<li>"
+            menu += "<a style=\"font-size: 1em; font-weight: bolder\" href=\"#" + subele.id + "\">"
             menu += subele.innerText
             menu += "</a></li>"
         }
