@@ -5,6 +5,8 @@ title: Security Management
 
 {% include title_patch.html %}
 
+{% include latex_support.html %}
+
 {% include gen_index.html %}
 
 # Introduction
@@ -125,3 +127,145 @@ title: Security Management
 - **Physical Assets**
 - **Software**
 
+# Threat and Vulnerability Assessment
+
+## Asset valuation
+
+The value of an asset is prioritised by the contribution it makes 
+to the business. This may include:
+
+- how it contributes to security properties – eg CIA and other requirements 
+  (eg non-reputation)
+- information classification policies (public vs highly sensitive information)
+- cost of compromise (replacement equipment)
+- interdependencies with other business systems/processes
+- personal injury or death.
+
+## Threat Assessment
+
+Threat assessment identifies the threats to an organisation, and identifies 
+the likely culprits of attacks.
+
+### Threat Agents
+
+- Natural Threats
+- Accidental Threats
+- Malicious Agents
+
+<div style="text-align:center">
+<img src="/static/course/postgraduate/manage/threatagent.png"  alt=""/>
+</div>
+
+### Threat Assessment Methodology
+
+Formula:
+
+$TC = (Q * 4) + (T * 3) + (H * 7) + (U * 6) + Pr$
+
+| Factor\Score                     | 1                   | 2                   | 3                     | 4                        | 5                      | 6                                      |
+|----------------------------------|---------------------|---------------------|-----------------------|--------------------------|------------------------|----------------------------------------|
+| Group Size (Q)                   | 1-25                | 26-50               | 51-100                | 101-200                  | 201-300                | >300                                   |
+| History of relevant activity (H) | None                | Intermittent        | Occasional            | Occasional               | Regular                | Regular and widespread                 |
+| Technical expertise (T)          | None                | Very limited        | Limited               | Limited                  | Adequate               | High level                             |
+| Prowess within community (Pr)    | Not part of a group | Peripheral interest | Interest within group | Significant within group | Important within group | Very important within group            |
+| Reason for target selection (U)  | Curiosity           | Rebellion           | Criminal Gain         | Criminal Gain            | Belief                 | Revenge, religion, racism, nationalism |
+
+
+## Vulnerability Assessment
+
+### Vulnerability categories
+- Technical Vulnerabilities
+- Hardware Vulnerabilities
+- Application Vulnerabilities
+- System Configuration
+- Social Engineering
+
+### Assurance Techniques
+
+Techniques that allow us to establish the level of
+assurance we have about how secure a system is
+
+Different techniques to find vulnerabilities in systems
+  - Cost-effective decisions to choose which techniques to apply
+  - But domain decisions too!
+
+<div style="text-align:center">
+<img src="/static/course/postgraduate/manage/assurancetechniques.png"  alt=""/>
+</div>
+
+# Risk Assessment and Management
+
+## Qualitative Risk Assessment
+
+A qualitative risk analysis prioritizes the identified project risks
+using a pre-defined rating scale. Risks will be scored based on
+their probability or likelihood of occurring and the impact on
+project objectives should they occur.
+
+- Qualitative probabilities (Likelihoods)
+- Qualitative/Quantitative Impact
+
+Risk = Likelihoods (Threat x Vulnerability) x Impact
+
+<div style="text-align:center">
+<img src="/static/course/postgraduate/manage/owasprisk.png"  alt=""/>
+</div>
+
+## Quantitative Risk Assessment
+
+A quantitative risk analysis is a further analysis of the highest priority
+risks during a which a numerical or quantitative rating is assigned
+in order to develop a probabilistic analysis of the project.
+
+<div style="text-align:center">
+<img src="/static/course/postgraduate/manage/quantitativerisk.png"  alt=""/>
+</div>
+
+# Risk Treatment and Monitoring
+
+## Risk Treatment
+
+<div style="text-align:center">
+<img src="/static/course/postgraduate/manage/risktreatment.png"  alt=""/>
+</div>
+
+- **Avoid**  
+  Not doing something that incurs risk. That is, to not do or
+  to stop doing a business activity because it puts the organisation
+  at too much risk.
+- **Accept**  
+  The organisation is willing to live with or tolerate the risk.
+- **Reduce**  
+  This is when security controls are applied to reduce the risk.
+  - Reduce the threat
+  - Reduce the vulnerability
+  - Reduce the impact
+- **Transfer**  
+  This is where the risk is passed on to another entity or organisation.
+  - Outsourcing:   
+    Risk is moved to a third party when the relevant expertise
+    to manage the risk is not available within the organisation.
+    
+  - Insurance policy:  
+    This is an especially appropriate method when the impact of the risk
+    can be measured as a purely financial one and is estimated to be high.
+    
+# Risk Monitoring
+
+The frequency of monitoring may vary according to the type of threat:
+
+- some threats may change very quickly and will require monitoring
+  at frequent intervals
+- others, however, will change little over long periods of time
+  and will only need occasional monitoring.
+  
+The whole risk management cycle should be repeated over time, 
+as some threats might disappear completely and new threats might emerge. 
+The interval will depend largely upon the risk appetite of the organisation 
+and may well be documented in a risk management strategy or policy document.
+
+# Challenge for Risk Management
+
+- Unanticipated threats
+- AI
+- Supply chains
