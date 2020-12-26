@@ -105,23 +105,23 @@ easy to derived from each other or just $e = d$
 
 # Historical Ciphers
 
-- **Caesar Cipher**
+## Caesar Cipher
 
-    $C = E(K, M) = (M + K) \mod 26$
+  $C = E(K, M) = (M + K) \mod 26$
 
-    $M = D(K, C) = (C - K) \mod 26$
+  $M = D(K, C) = (C - K) \mod 26$
 
-    where $M, C \in Alphabets$ and $Alphabets$ are mapped into $\\{0, 1, ..., 25\\}$
+  where $M, C \in Alphabets$ and $Alphabets$ are mapped into $\\{0, 1, ..., 25\\}$
 
-    Especially, when we set $K = 13$, the function is called `ROT13`, where $E$ is equivalent to $D$
+  Especially, when we set $K = 13$, the function is called `ROT13`, where $E$ is equivalent to $D$
 
 
-- **Mono-alphabetic substitution ciphers**:
+## Mono-alphabetic substitution ciphers
 
   Map **a element** in $A$ into **a element** in $C$
 
 
-- **Homophonic substitution ciphers**:
+## Homophonic substitution ciphers
 
   Map **a element** in $A$ into **multiple elements** in $C$
 
@@ -139,9 +139,8 @@ easy to derived from each other or just $e = d$
   <img src="/static/course/postgraduate/crypto/homo.png"  alt=""/>
   </div>
 
-- **Playfair Cipher**
-
-    steps:
+## Playfair Cipher
+steps:
   1. Pick keyword (here: monarchy)
   2. Construct matrix: fill in letters of keyword (minus duplicates)
      left2right & top2bottom, and remaining letters in alphabetic
@@ -162,8 +161,7 @@ easy to derived from each other or just $e = d$
 </div>
 
 
-- **Vigenere Cipher (polyalphabetic substitution cipher)**
-
+## Vigenere Cipher (polyalphabetic substitution cipher)
   - a sequence of plaintext letters $P = p_0, p_1, p_2, ..., p_{n−1}$,
   - a key consisting of the sequence of letters $K = k_0, k_1, k_2, ..., k_{m−1}$,
     typically $m < n$. 
@@ -181,22 +179,22 @@ easy to derived from each other or just $e = d$
 </div>
 
 
-- **Vernam Cipher**
+## Vernam Cipher
 
-    $P \oplus K = C$
+  $P \oplus K = C$
 
-    $C \oplus K = P$
+  $C \oplus K = P$
 
 
-- **Rail Fence Cipher**
+## Rail Fence Cipher
 
 <div style="text-align:center">
 <img src="/static/course/postgraduate/crypto/railfence.png"  alt=""/>
 </div>
 
-- **Columnar transposition cipher**
+## Columnar transposition cipher
 
-    Example:
+  Example:
 
   <div style="text-align:center">
   <img src="/static/course/postgraduate/crypto/columnar.png"  alt=""/>
@@ -212,7 +210,7 @@ Composite (product) ciphers: combining both substitution and transposition
 <img src="/static/course/postgraduate/crypto/feistel.png"  alt=""/>
 </div>
 
-Encryption:
+## Encryption:
 
 <div style="text-align:center">
 <img src="/static/course/postgraduate/crypto/feistelenc.png"  alt=""/>
@@ -222,7 +220,7 @@ $LE_i = RE_{i - 1}$
 
 $RE_i = LE_{i - 1} \oplus F(RE_{i - 1}, K_i)$
 
-Decryption:
+## Decryption:
 
 Since 
 $LD_{16 - i} = RE_i$ and $RD_{16 - i} = LE_i$
@@ -349,7 +347,7 @@ RD_i
 
 # Block Cipher Modes
 
-- **ECB**
+## ECB
 
   <div style="text-align:center">
   <img src="/static/course/postgraduate/crypto/ecb.png"  alt=""/>
@@ -364,7 +362,7 @@ RD_i
     2. Could parallel process
 
 
-- **CBC**
+## CBC
 
   <div style="text-align:center">
   <img src="/static/course/postgraduate/crypto/cbcsi.png"  alt="Simplified CBC"/>
@@ -391,7 +389,7 @@ RD_i
        but not Ci+1, then Ci+2 is correctly decrypted.
     
 
-- **CFB**
+## CFB
 
   <div style="text-align:center">
   <img src="/static/course/postgraduate/crypto/cfbsi.png"  alt="Simplified CFB"/>
@@ -424,7 +422,7 @@ RD_i
     1. Only use encryption function
     2. Act like stream cipher
 
-- **OFB**
+## OFB
 
   <div style="text-align:center">
   <img src="/static/course/postgraduate/crypto/ofbsi.png"  alt="Simplified OFB"/>
