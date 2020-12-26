@@ -269,3 +269,71 @@ and may well be documented in a risk management strategy or policy document.
 - Unanticipated threats
 - AI
 - Supply chains
+
+# Security Organisation, Policies, and Compliance
+
+## Security Culture
+
+Information Security is more than just technical countermeasures. 
+It is as much about people as it is about anything else. 
+People have to be educated, motivated and appropriately regulated.
+
+## New CISO
+
+### Four faces
+
+- Technologist
+- Guardian
+- Strategist
+- Advisor
+
+### Challenges
+
+- Narrow perspective
+- Communications and collaboration
+- Talent shortage
+- False sense of security
+- Competing agendas
+
+## Security Policies
+
+### Policy
+A high-level statement of an organisation’s values, goals and 
+objectives in a specific area. 
+
+A policy doesn’t say how it should be implemented, but it states the end-goal.
+
+### Standard
+
+More prescriptive than a policy, a standard quantifies what needs 
+to be done and provides consistency in controls that can be measured.
+
+Designed to support policy and states what must be done and 
+how it should be achieved.
+
+### Procedure
+
+A set of detailed working instructions that describe what, when, 
+how and by whom something should be done.
+
+### Guideline
+
+Guidelines provide advice, direction and best practice in instances 
+where it is often difficult to regulate how something should be done.
+
+## Compliance
+
+### Check compliance
+
+- Risk management
+- security policies and control
+- Reports of breaches/incidents
+
+# Security Controls
+
+## Types
+
+- Technical
+- Procedural
+- Physical
+
