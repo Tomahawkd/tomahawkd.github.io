@@ -528,8 +528,8 @@ RD_i
 </div>
 
 - El Gamal
-  1. $A$ -> $B$: $Y_A = \alpha^{X_A} \mod q$
-  2. $B$ -> $A$: $(C, Y_B)$ = $(E(M, K), \alpha^{X_B} \mod q)$
+  1. $A \rightarrow B$: $Y_A = \alpha^{X_A} \mod q$
+  2. $B \rightarrow A$: $(C, Y_B)$ = $(E(M, K), \alpha^{X_B} \mod q)$
   3. $A$: $K = Y_B^{X_A} \mod q$, $M = D(C, K)$
   
 # Hash
@@ -546,3 +546,80 @@ RD_i
   1. Family of hash functions parameterized by secret key
   2. given $(x_i, h_K(x_i))$, it is infeasible to compute $(x, h_K(x))$ for $x \neq x_i$
   
+# Security Protocols
+
+## Needham-Schroeder Public Key Protocol (NSPK)
+
+### Procedure  
+  1. $A \rightarrow B: \\{NA, A\\}_{K_B}$
+  2. $B \rightarrow A: \\{NA, NB\\}_{K_A}$
+  3. $A \rightarrow B: \\{NB\\}_{K_B}$
+
+### MITM
+  1. $A \rightarrow C: \\{NA, A\\}\_{K_C}, C \rightarrow B: \\{NA, A\\}_{K_B}$
+  2. $B \rightarrow C: \\{NA, NB\\}\_{K_A}$, $C \rightarrow A: \\{NA, NB\\}_{K_A}$
+  3. $A \rightarrow C: \\{NB\\}\_{K_C}$, $C \rightarrow B: \\{NB\\}_{K_B}$
+
+## NSL Protocol
+
+### Procedure
+  1. $A \rightarrow B: \\{NA, A\\}_{K_B}$
+  2. $B \rightarrow A: \\{NA, NB, B\\}_{K_A}$
+  3. $A \rightarrow B: \\{NB\\}_{K_B}$
+
+### MITM
+  1. $A \rightarrow C: \\{NA, A\\}\_{K_C}, C \rightarrow B: \\{NA, A\\}_{K_B}$
+  2. $B \rightarrow C: \\{NA, NB, B\\}\_{K_A}$, $C \rightarrow A: \\{NA, NB, B\\}_{K_A}$
+
+$A$ received the message $\\{NA, NB, B\\}$ and found that $A$ is connecting to $B$ (should be $C$).
+
+# Zero-knowledge Protocols
+
+## Principals
+- Prover: $Peggy$
+- Verifier: $Victor$
+- Trusted Third Party: $Trent$
+
+## Setup
+- $Trent$: choose prime numbers $p$, $q$, publish $n = p * q$
+- $Peggy$: choose $s$ where $1 < s < n - 1$, and publish $v = s^2 \mod n$
+- $Victor$: knows $v$ and $n$
+
+## Verification (Peggy knows s)
+
+- $Peggy$: choose $r$ where $1 < r < n - 1$, calculate $x = r^2 \mod n$ and
+  send to $Victor$
+- $Victor$: send challenge $c$ where $c \in \\{0, 1\\}$
+- $Peggy$: calculate $y = (r * s^c) \mod n$
+- $Victor$: calculate $A = y^2 \mod n$ and $B = (x * v^c) \mod n$ and check 
+  if $A = B$
+  
+Proof:
+$\begin{equation}
+\begin{split}
+y^2 \mod n
+& = (r * s^c)^2 \mod n \\\\\\
+& = (r^2 * s^2c) \mod n \\\\\\
+& = (r^2 * (S^2)^c) \mod n \\\\\\
+& = (x * v^c) \mod n
+\end{split}
+\end{equation}$
+
+## Cheating
+
+### Principal
+- $Pamela$: Only knows $v = s^2 \mod n$
+
+### Cheat
+
+- $Victor$ choose $c = 0$
+  - $Pamela$: choose $r$ where $1 < r < n - 1$, set $x = r^2 \mod n$
+  - $Victor$: choose $c = 0$
+  - $Pamela$: set $y = r \mod n$
+  - $Victor$: check $y^2 \mod n$ and $(x * v^0) \mod n$
+
+- $Victor$ choose $c = 1$
+  - $Pamela$: choose $r$ where $1 < r < n - 1$, set $x = \frac{r^2}{v} \mod n$
+  - $Victor$: choose $c = 1$
+  - $Pamela$: set $y = r \mod n$
+  - $Victor$: check $y^2 \mod n$ and $(x * v^1) \mod n$
