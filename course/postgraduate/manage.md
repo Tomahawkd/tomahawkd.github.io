@@ -337,3 +337,223 @@ where it is often difficult to regulate how something should be done.
 - Procedural
 - Physical
 
+# Relevant legislation for Security Control
+
+Legislation applies to all types of security controls: 
+technical, physical and procedural. Whether writing policy, 
+designing CCTV or other monitoring systems, procuring storage 
+and backup from third parties, everything needs to be checked 
+against relevant legislation.
+
+Privacy laws exist to protect the rights of individuals.
+
+The rights of employees are also vital to consider.
+
+Finally, it is worth emphasising that most of the time 
+when gathering information we care only about the 
+meta-data (data about data), not the data itself.
+
+# Cloud Computing Security
+
+The practice of using a network of remote servers hosted on the
+Internet to store, manage, and process data, rather than a local server
+or a personal computer.
+
+<div style="text-align:center">
+<img src="/static/course/postgraduate/manage/cloudcomputing.png"  alt=""/>
+</div>
+
+# Security Economics
+
+### Moral Hazard
+
+A moral hazard is a situation in which one party gets involved 
+in a risky event knowing that it is protected against the risk.
+
+In Information Security, this would apply when people engage 
+in activities that can cause an Information Security risk thinking 
+they are somehow protected.
+
+For instance, one may engage with riskier and less secure 
+websites thinking that the anti-malware they have installed 
+will protect them.
+
+### Market for Lemons
+
+The market for lemons was an example introduced by 
+Akerlof (Noble prize winner) in 1970 to explain the 
+concept of asymmetric information in economics. 
+
+It presents the following simple yet profound 
+insight: suppose that there are 100 used cars for 
+sale in a town: 50 well-maintained cars worth 2000 dollar 
+each, and 50 lemons (said of a car that turns out to 
+have several manufacture defects not apparent to the 
+buyer) worth 1000 dollar. The sellers know which is which, 
+but the buyers don't. What is the market price of a 
+used car? You might think 1500 dollar; but at that price no 
+good cars will be offered for sale. So the market 
+price will be close to 1000 dollar. This is one reason 
+poor security products predominate. When users can't 
+tell good from bad, they might as well buy a cheap 
+antivirus product for 10 dollar as a better one for 20 dollar, 
+and we may expect a race to the bottom on price.
+
+# Business Continuity Management (BCM)
+
+Business continuity management (BCM) is a holistic management process 
+that identifies potential impacts that threaten an organisation and 
+provides a framework for building resilience and capability for 
+an effective response that safeguards the interests of its 
+key stakeholders, reputation, brand and value creation activities.
+
+## Business Continuity Plan
+
+1. Assigning responsibilities
+2. Establishing and implementing the plan
+3. Ongoing management
+
+In order to create an effective business continuity plan, we need to:
+- understand the organisation and its risks, so this relates to 
+  risk management and assessment as seen in this module in previous weeks
+- determine the BCM strategy, identifying the actions needed to 
+  maintain critical activities to support the organisation’s products 
+  and services
+- develop and implement the BCM response, which includes answering 
+  questions such as: How do we meet our expected recovery times? 
+  What tactics can we deploy to protect resources?
+
+### Business impact analysis
+
+Business impact analysis predicts the consequences of disruption 
+of a business function and process, and gathers information 
+needed to develop recovery strategies.
+
+First, list products that could be disrupted and for each 
+identified product, consider the impact of disruption 
+in terms of stakeholders and the organisation’s ability to 
+meet its aims and objectives. 
+
+Secondly, we need to figure out what the maximum length that 
+the disruption can be managed without interrupting the business is. 
+In other words, if a service or a product is disrupted, how long 
+will it take for the disruption to be felt by the business 
+in terms of profit, reputation, etc. 
+
+We also need to identify the recovery time objective (RTO), 
+which is a point in time at which each key product or service 
+would need to be resumed in the event of a disruption.
+
+Finally, we need to identify the critical activities necessary 
+to deliver the products and services. These are the activities 
+that we need to protect and in order to do that we need to 
+quantify the resources (people, premises, technology, 
+information, suppliers, etc) required over time to maintain 
+these activities at an acceptable level to and meet our RTO.
+
+### Developing and implementing the busines continuity plan
+
+- incident management
+- business continuity
+- business recovery
+
+#### Outline:
+
+- **Purpose, scope and content**
+- **Document maintainer**
+- **Plan invocation**  
+  The method by which the plan is invoked should be 
+  clearly documented, setting out the individuals who have 
+  the authority to invoke the plan and under what circumstances. 
+  The plan should also set down the process for mobilising and 
+  standing down the relevant teams.
+- **Roles and responsibilities**
+- **Incident management**
+  Document the required tasks to manage the initial phase of 
+  the incident and who is responsible for each task. The tasks include:
+  - site evacuation and mobilisation of safety
+  - first-aid or evacuation-assistance teams
+  - locating and accounting for those who were on site and the immediate 
+    vicinity
+  - ongoing employee and customer communications and safety briefings
+  - up to date contract list and location of plan
+  - identifying robust rooms to manage the incident.
+- **Business continuity and recovery**  
+  In terms of business continuity and recovery the plan should:
+  - set out the critical activities to be recovered 
+  - the timescales in which they are to be recovered and the needed 
+    recovery levels
+  - the resources available at different points in time to deliver 
+    your critical activities
+  - the process for mobilising these resources and the detailed actions 
+    needed to ensure the continuity and recovery of your critical activities.
+
+The plan must be exercised regularly in order to ensure that 
+arrangements are reliable.
+
+#### Discussion based exercises
+Bring staff together and inform them about their responsibilities. 
+Discuss with staff to identify problems and solutions.
+#### Testing
+Not everything can be tested, however, you can consider the contact list, 
+activation process and the relied upon hardware such as communication lines, 
+power supply, etc.
+#### Table-top exercise (ie think board games)
+In this exercise, you bring staff together around a table to make decisions 
+as events unfold in the same way as if the incident actually happened. 
+This can take between a couple of hours and half a day. The benefit of 
+this format is that it can generate high levels of realism and lets everyone 
+know each other.
+#### Live exercise
+Live exercises are necessary for some components such as evacuation 
+that cannot be tested effectively in any other way. While single 
+component tests are relatively simple to set up, full tests are much more 
+complex and can be costly.
+
+# Disaster recovery
+
+## Main goals
+
+- To minimise interruptions to the normal operations
+- To limit the extent of disruption and damage
+- To minimise the economic impact of the disaster
+- To establish means of operations in advance
+- To train personnel in emergency procedures
+- To provide smooth and rapid restoration of services
+
+## Recovery Plan Contents
+
+- **Introduction**  
+  A summary of the objectives and scope of the plan
+- **Roles and responsibilities**  
+  A list of the internal and external stakeholders involved 
+  in each DR process covered, complete with their contact details 
+  and a description of their duties.
+- **Incident response**
+- **Disaster recovery procedures**  
+  When the plan is triggered, the stakeholders can start to 
+  action the process for each affected IT service. These processes 
+  have to be set out step by step.
+- **Appendices**
+
+# BCM and DR
+
+Disaster recovery is that part of business continuity that addresses 
+the need to recover IT services and voice services and data following 
+a business-threatening impact. 
+
+Disaster recovery prioritises those services and information that 
+are critical to the business. Disaster recovery includes planning for 
+crisis situations and having in place the means to identify incidents, 
+contain and recover them.
+
+# Usable Security
+
+- Make it “just work”
+  - Invisible security
+- Make security understandable
+  - Make it visible
+  - Make it intuitive
+  - Use metaphors that users can relate to
+- Train the user
+
