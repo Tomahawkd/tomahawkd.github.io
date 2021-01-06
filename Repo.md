@@ -9,6 +9,7 @@ title: Repositories
 - [PKI-QRAuth](https://github.com/Tomahawkd/PKI-QRAuth): PKI based QR Authentication Framework
 - [Netfilter-Firewall](https://github.com/Tomahawkd/Netfilter-Firewall): Netfilter based firewall
 - [Censys-java](https://github.com/Tomahawkd/Censysjava): Censys programming api implementation in java
+- [JLightConfig](https://github.com/Tomahawkd/JLightConfig): A Lightweight zero configuration configuration framework
 - [DRBG](https://github.com/Tomahawkd/DRBG): Deterministic Random Bit Generator (NIST SP800-90A rev.1 implementation)
 - [speedtest-framework](https://github.com/Tomahawkd/speedtest-framework): Individual speed test framework especially for ciphers  
 - [crypto-framework](https://github.com/Tomahawkd/crypto-framework): Crypto framework inspired by OpenSSL EVP
