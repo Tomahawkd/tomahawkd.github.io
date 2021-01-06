@@ -1,5 +1,13 @@
 <script>
     document.getElementsByClassName("project-name").item(0).innerText = "{{ page.title }}";
     document.getElementsByClassName("project-tagline").item(0).innerText = "{{ page.description }}";
+
+    function back() {
+        let url = window.location.href;
+        if (url.endsWith("/")) {
+            url = url.substring(0, url.length - 1);
+        }
+        window.location.href=url.substring(0, url.lastIndexOf('/'));
+    }
 </script>
-<button onclick="window.location.href=window.location.href.substring(0, window.location.href.lastIndexOf('/'));">&lt; Back</button>
+<button onclick="back()">&lt; Back</button>
