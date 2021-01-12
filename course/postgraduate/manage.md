@@ -148,6 +148,10 @@ the likely culprits of attacks.
 
 ### Threat Agents
 
+The threat agent is someone or something that may give rise to a threat.
+It is the likely culprit of a risk to the organisation. 
+Threat agents can be natural, accidental, or malicious.
+
 - Natural Threats
 - Accidental Threats
 - Malicious Agents
@@ -205,6 +209,17 @@ as penetration testing and vulnerability scans, as any issue caused by this
 more active assurance techniques will entail a risk of information loss and
 infrastructure unavailability.
 
+You could consider the actual context and domain of the organisation 
+(eg testing the security of a normal IT system is not the same as a 
+nuclear power plant). In particular, if has a web-based application, 
+so one could consider potential ways in which attackers might exploit it.
+
+Also, you may need to check for social engineering, for instance 
+with regard to those custodians of the paper-based records.
+
+Then, from the available possibilities, the most cost-effective ones 
+should be chosen: that is, those with the lowest cost of performing them 
+but which are most effective at discovering vulnerabilities.
 
 # Risk Assessment and Management
 
@@ -339,6 +354,28 @@ attacks by cyber-criminals.
 - False sense of security
 - Competing agendas
 
+### CISO Position
+
+The CISO should ideally be part of the board of directors of GANT. 
+This is due to a number of reasons, which we could divide into two categories:
+
+**Authority within the organisation**
+
+- It will ensure that the CISO is seen as a senior role, demonstrating 
+  from the ‘higher-ups’ a real commitment to Information Security in GANT.
+- A director or board member has the necessary status to ensure appropriate 
+  focus is placed on Information Security.
+- Sarbanes-Oxley (USA) and The Companies Act (UK) also require this level 
+  of accountability/responsibility.
+
+**External incentive**
+
+- There is a responsibility to ensure adequate service continuity 
+  requirements are in place. Therefore, if there is a major problem, 
+  the company won’t go out of operation.
+- If measures are not properly implemented, the accountable person can 
+  face a custodial sentence.
+
 ## Security Roles
 
 - **System administrator**  
@@ -450,6 +487,29 @@ issued to help encourage best practice.
   Physical controls rely on the presence of physical limitations to the 
   activities that a criminal or other unauthorised person may wish to 
   carry out.
+
+## Adequate level of protection
+
+First of all, recall that any decisions on the security controls to be 
+implemented should be based on a risk analysis. In this case, there is 
+a need to balance the risk of malware against the costs of purchasing 
+and implementing countermeasures.
+
+A good starting point would be to:
+
+- have a combination of anti-virus and personal firewall programs on 
+  each PC that has a connection to the internet or is networked to 
+  another computer that does
+- choose a product that will also restrict the executables that will 
+  run on that computer to a known list of authorised products
+- change all the default settings in operating systems, applications 
+  and browsers, for example passwords, configurations, open ports and 
+  so on, to make it harder for malware to compromise the computer
+- apply patches to the operating system and applications promptly
+- have a backup policy in place.
+
+Other countermeasures could also be considered depending on the 
+financial capability of GANT (eg network firewall or IDS, etc).
 
 # Relevant legislation for Security Control
 
