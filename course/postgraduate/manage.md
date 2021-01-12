@@ -267,7 +267,11 @@ and may well be documented in a risk management strategy or policy document.
 # Challenge for Risk Management
 
 - Unanticipated threats
-- AI
+- AI  
+  Key issue in Adversarial ML: bad actors will attempt to
+  exploit the ML model itself
+  - Evasion attacks: Attacks on ML, where malicious objects are deliberately
+    transformed to make a ML model make wrong predictions
 - Supply chains
 
 # Security Organisation, Policies, and Compliance
@@ -294,6 +298,33 @@ People have to be educated, motivated and appropriately regulated.
 - Talent shortage
 - False sense of security
 - Competing agendas
+
+## Security Roles
+
+- **System administrator**  
+  A person who manages the operation of a computer system or a particular 
+  electronic communication service.
+
+- **Security auditor**  
+  A person who works with a company to provide an audit of security systems 
+  used by that company.
+
+- **System user**  
+  A person who interacts with a system, typically through an interface, 
+  to extract some functional benefit.
+
+- **Incident response member**  
+  A person who is part of the incident response team. They are responsible 
+  for resolving incidents as they arise.
+
+- **Security champion**  
+  A person who is appointed to oversee the enforcement of security policies 
+  within their group and to report incidents to management.
+
+- **Security officer/guard**  
+  A person employed by the organisation to protect the assets from a variety 
+  of hazards by enforcing preventative measures.
+
 
 ## Security Policies
 
