@@ -156,6 +156,13 @@ the likely culprits of attacks.
 <img src="/static/course/postgraduate/manage/threatagent.png"  alt=""/>
 </div>
 
+Threat agent Characteristics:
+- **Motivation** - Why are they doing this?
+- **Capability** - Can they do it and to what level?
+- **Catalyst** - What set them off?,
+- **Inhibitors** - What has/could put them off?
+- **Amplifiers** - What has/could push them on?
+
 ### Threat Assessment Methodology
 
 Formula:
@@ -193,7 +200,24 @@ Different techniques to find vulnerabilities in systems
 <img src="/static/course/postgraduate/manage/assurancetechniques.png"  alt=""/>
 </div>
 
+The least suitable techniques in this case may be testing techniques, such
+as penetration testing and vulnerability scans, as any issue caused by this
+more active assurance techniques will entail a risk of information loss and
+infrastructure unavailability.
+
+
 # Risk Assessment and Management
+
+**Risk Register**:
+
+- the threats and the vulnerabilities they might exploit
+- the assessed impact and likelihood, and the overall risk 
+  calculated from these
+- the recommended treatment (accept, avoid, reduce, transfer)
+- the actual action(s) to be taken and the person or department 
+  responsible for carrying out this work and the date by which 
+  it is expected to be completed.
+
 
 ## Qualitative Risk Assessment
 
@@ -216,6 +240,15 @@ Risk = Likelihoods (Threat x Vulnerability) x Impact
 A quantitative risk analysis is a further analysis of the highest priority
 risks during a which a numerical or quantitative rating is assigned
 in order to develop a probabilistic analysis of the project.
+
+The Annualized Rate of Occurrence (ARO) is a business-friendly measure of 
+the probability of occurrence of an event that measures how likely an event 
+is to happen during a year.
+
+The Annual Loss Expectancy (ALE) is a business-friendly measure of a risk 
+in a quantitative risk assessment approach. It is calculated based on the 
+annual rate of occurrence (ARO) and the single loss expectancy (SLE) for 
+each risk.
 
 <div style="text-align:center">
 <img src="/static/course/postgraduate/manage/quantitativerisk.png"  alt=""/>
@@ -271,7 +304,10 @@ and may well be documented in a risk management strategy or policy document.
   Key issue in Adversarial ML: bad actors will attempt to
   exploit the ML model itself
   - Evasion attacks: Attacks on ML, where malicious objects are deliberately
-    transformed to make a ML model make wrong predictions
+    transformed to make a ML model make wrong predictions. For instance, 
+    a software binary can be manipulated to make a machine-learning based 
+    anti-malware model predict that it is not malware.
+
 - Supply chains
 
 # Security Organisation, Policies, and Compliance
@@ -283,6 +319,10 @@ It is as much about people as it is about anything else.
 People have to be educated, motivated and appropriately regulated.
 
 ## New CISO
+
+Responsible for protecting their organisation’s computers, networks 
+and data against threats, such as security breaches, computer viruses or 
+attacks by cyber-criminals.
 
 ### Four faces
 
@@ -360,13 +400,56 @@ where it is often difficult to regulate how something should be done.
 - security policies and control
 - Reports of breaches/incidents
 
+## Externally imposed requirements
+Risk assessment and management are key elements that inform the 
+security policy hierarchy, but they are not the only ones. For instance, 
+an organisation also needs to comply with external requirements.
+
+### Statutory requirements
+Statutory requirements are legal requirements that must be fulfilled. 
+For instance law enforcement agencies must be contacted should certain laws 
+be broken or are suspected of being broken. The downloading of child 
+pornography would be such a case. Compliance with these requirements may 
+influence how an enterprise’s incident reporting procedures are organised. 
+For example how, when and by whom should the authorities be contacted? 
+Privacy legislation such as the Data Protection Act will influence how 
+information is stored and managed within the enterprise and how resources 
+are deployed to ensure that it complies with this legislation.
+
+### Regulatory requirements
+Regulatory requirements are often imposed by trade bodies, and they specify 
+how an enterprise should operate to conform to certain standards. Although 
+they are not legal obligations, regulatory bodies have extensive powers, and 
+failure to comply could lead to possible fines or, in extreme cases, exclusion 
+from trading in a particular environment. The finance sector is a good example 
+of this as it maintains strict controls to prevent financial malpractices 
+such as fraud or money laundering.
+
+### Advisory requirements
+Advisory requirements may arise from government agencies or utility companies 
+and may provide advice as to what arrangements should be put into place 
+to help cope with instances such as fires, natural disasters and acts 
+of terrorism. These requirements are not legally binding and are generally 
+issued to help encourage best practice.
+
 # Security Controls
+
+**Preventative security** attempts to stop an exploit from being exploited.   
+**Detective security** tries to discover if an attack is underway.   
+**Reactionary** tries to respond to an attack and reduce its impact.
+
 
 ## Types
 
-- Technical
-- Procedural
-- Physical
+- **Technical**
+- **Procedural**  
+  Procedural controls are those controls that cover the rules, regulations and
+  policies that an organisation puts in place to help reduce the risk of issues
+  arising. An example is a Clear Screen and Desk Policy.
+- **Physical**
+  Physical controls rely on the presence of physical limitations to the 
+  activities that a criminal or other unauthorised person may wish to 
+  carry out.
 
 # Relevant legislation for Security Control
 
@@ -389,6 +472,31 @@ meta-data (data about data), not the data itself.
 The practice of using a network of remote servers hosted on the
 Internet to store, manage, and process data, rather than a local server
 or a personal computer.
+
+Cloud computing is the practice of using a network of remote serves hosted 
+on the Internet to store, manage, and process data, rather than a local 
+server or a personal computer. It is useful as it allows a small company 
+to gain access to powerful computers that would normally be out of reach.
+
+**Legal implications**: 
+They must consider the physical location of services
+(Data Protection Rules), access to information (cloud provider can read all
+data), if GANT can audit the cloud provider (verify if the cloud is keeping
+the data secure) and legal issues around the cloud providers sub-contractors.
+
+**Security Risks**: 
+Cloud providers can be hacked and the information is leaked
+publicly. This is an example of risk-sharing as while the cloud provider is
+liable - the data leaked can be embarassing to the organisation. Also the
+data can be deleted/lost if the cloud provider suffers a crash and does not
+keep regular backups. Or the data could not be deleted completely when
+needed.
+
+**Data Deletion**:
+Multiple copies of data; Virtualization; Multiple users (Data gets tangled
+together); Multiple components; Multiple logical layers; Underlying hardware
+(E.g., Different storage media - SSDs); Third-party and Offline backups (-
+e.g., other services / tapes)
 
 <div style="text-align:center">
 <img src="/static/course/postgraduate/manage/cloudcomputing.png"  alt=""/>
@@ -440,9 +548,19 @@ key stakeholders, reputation, brand and value creation activities.
 
 ## Business Continuity Plan
 
-1. Assigning responsibilities
-2. Establishing and implementing the plan
-3. Ongoing management
+1. **Assigning responsibilities**
+   - Senior management must approve the plan.
+   - Likely an appointment at boardroom or executive level to oversee,
+     and an appointment to take the programme forward.
+2. **Establishing and implementing the plan**
+   - Scope, aim and objectives, and the activities required if the plan is
+     triggered, i.e. What are the likely problems that will pop up? How
+     can we deal with them?
+3. **Ongoing management**
+   - Regular review of the continuity plan (i.e. it can easily become out
+     of date and no longer reflect real business operations). Similar to the
+     Plan-Do-Check-Act model.
+
 
 In order to create an effective business continuity plan, we need to:
 - understand the organisation and its risks, so this relates to 
@@ -555,17 +673,27 @@ complex and can be costly.
 ## Recovery Plan Contents
 
 - **Introduction**  
-  A summary of the objectives and scope of the plan
+  A summary of the objectives and scope of the plan, including IT
+  services and locations covered, the different services, and testing
+  and maintenance activities. Also includes a revision history to track
+  changes.
+
 - **Roles and responsibilities**  
   A list of the internal and external stakeholders involved 
   in each DR process covered, complete with their contact details 
   and a description of their duties.
 - **Incident response**
+  When should the DR plan be triggered, and how and when should
+  employees, management, partners and customers be notified?
 - **Disaster recovery procedures**  
   When the plan is triggered, the stakeholders can start to 
   action the process for each affected IT service. These processes 
   have to be set out step by step.
 - **Appendices**
+  A collection of any other lists, forms and documents relevant to
+  the DR plan, such as details on alternate work locations, insurance
+  policies, and the storage and distribution of DR resources.
+
 
 # BCM and DR
 
@@ -579,6 +707,13 @@ crisis situations and having in place the means to identify incidents,
 contain and recover them.
 
 # Usable Security
+
+According to the computing research association, usable security is “Give
+end-users security controls they can understand and privacy they can control
+for the dynamic, pervasive computing environments of the future”. One
+example could be the indicators in browsers about whether a connection is
+secure (HTTPS) or insecure (HTTP).
+
 
 - Make it “just work”
   - Invisible security
