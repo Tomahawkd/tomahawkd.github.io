@@ -555,8 +555,8 @@ RD_i
 
 ### MITM
   1. $A \rightarrow C: \\{NA, A\\}\_{K_C}, C \rightarrow B: \\{NA, A\\}_{K_B}$
-  2. $B \rightarrow C: \\{NA, NB\\}\_{K_A}$, $C \rightarrow A: \\{NA, NB\\}_{K_A}$
-  3. $A \rightarrow C: \\{NB\\}\_{K_C}$, $C \rightarrow B: \\{NB\\}_{K_B}$
+  2. $B \rightarrow C: \\{NA, NB\\}\_{K_A}, C \rightarrow A: \\{NA, NB\\}_{K_A}$
+  3. $A \rightarrow C: \\{NB\\}\_{K_C}, C \rightarrow B: \\{NB\\}_{K_B}$
 
 ## NSL Protocol
 
