@@ -10,3 +10,4 @@ title: Postgraduate Course Notes
 - [Cryptography]({{ page.permalink }}/crypto)
 - [Security Management]({{ page.permalink }}/manage)
 - [Security Engineering]({{ page.permalink }}/engineering)
+- [Security Testing]({{ page.permalink }}/sectest)
