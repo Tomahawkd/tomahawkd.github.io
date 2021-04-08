@@ -84,3 +84,5 @@ fabric.properties
 Gemfile
 Gemfile.lock
 _site/
+
+.jekyll-metadata
