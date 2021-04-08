@@ -3,3 +3,11 @@ title:  "Tomahawkd's Logger"
 
 github:
   is_project_page: true
+
+exclude:
+  - run_local.sh
+  - run_local.bat
+  - .idea/
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
