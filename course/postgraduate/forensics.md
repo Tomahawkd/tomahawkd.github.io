@@ -451,11 +451,394 @@ the Association of Chief Police Officers (ACPO).
 4. The person in charge of the investigation (the case officer) has 
    overall responsibility for ensuring that the law and these principles are adhered to.
    
-
 # W6: The Forensics Process
+## The Investigative Methodology
+### Differences between Conventional and Digital Forensics
+**Conventional forensics** is built on top of Locard's Exchange Principle. 
+This principle says that every contact leaves a trace. When there is physical contact, 
+there is indeed an exchange of physical material.
+
+In theory, one might be able to cover digital tracks, and someone could actually 
+commit the perfect cybercrime.
+In practice, this is not realistic or devices generate a great number of 
+logs with each action that we take and with every interaction that we make. 
+This is the reason why **isolating a crime scene** is also very important in 
+digital forensics.
+
+In addition to isolation, the scenes have to be **frozen** as well. This also brings 
+important challenges with respect to conventional forensics.
+
+### Forensic Investigation
+In a forensic investigation, these are the main methods that define 
+a sound forensic process. First, we have the **acquisition process**. 
+Once evidence is acquired, it needs to be properly **preserved**. 
+A cornerstone process is to be able to **search** among the data and **analyse 
+and evaluate** the evidence. Finally, probably the most boring, but yet 
+the most important step is to **report** the findings and the conclusions 
+that you have reached throughout your investigation. This has to be done 
+in a thorough manner.
+
+#### Acquisition
+This is a process that starts with a **warrant** and for this, 
+a judge needs to have **reasonable suspicion**.
+There is a limitation on the type of devices that a forensic can seize. 
+This is usually bounded by the warrant, based on such suspicions.
+The **place where a device is found** is important to determine whether it's relevant 
+or not.
+In all the cases, the acquisition process is characterised by careful **documentation** 
+of the elements seized. Forensic analysts have to always take photographs, 
+tag all the bags with all the details where a device has been found and watch out 
+for hidden devices in plain sight, like for example, USB drives that don't look 
+like USB drives.
+
+#### Preservation
+In traditional forensics, you can destroy part of the evidence 
+when you measure it with interventions. In computer forensics, however, 
+you have tools to make **bit-for-bit images of all seized media**. 
+You can do that with tools like Write-blocker, shown in the image, 
+that modes all drive devices as read-only. Then you need to use 
+**cryptographic hashes** to make sure the integrity of the files you have collected 
+can be verified in the future.
+
+#### Searching
+**Keyword Searching**  
+Keyword-searching provides perhaps the greatest potential to drastically reduce 
+the data volume to a manageable and reviewable level. A method that is generally used 
+is **keyword-searching**. However, there are certain files that will not be accessible 
+to keyword-searching.  
+**Handling Special Files**  
+Some examples are encrypted files or password protected files, 
+certain files in binary format, for example. These special files include 
+also compressed archives, encoded attachments in emails, and so on. Luckily, 
+there are tools to search on these files too.
+
+So, what happens if you find evidence of **another crime**? Obviously, you must 
+report the crime, but you **cannot** collect evidence for that crime. You must 
+start an independent process, which includes getting a warrant and make sure 
+that none of those processes overlap to avoid biases.
+
+#### Analysis & Evaluation of Evidence
+This is the **cornerstone process** of the forensic method. Because even if you find 
+many pieces of evidence, if you're not able to correlate them to your hypothesis, 
+explain their timeline, and identify what has happened, then you've got nothing.  
+The other cornerstone of the investigation is every time that you come across evidence, 
+you need to confront it. First, you need to assess how strong that evidence is, 
+and then you need to challenge your own hypothesis using the evidence that 
+you just found. As a result, you will be able to know how compelling evidence 
+is during the evaluation process.
+
+#### Reporting
+This process tries to inform how the forensic analysis has reached a conclusion. 
+It has to be done in a form and style that lets both **technical experts 
+validate their findings**, but also so that **legal personnel and juries 
+can understand it**. 
+For this, a forensic analyst has to address an important trade-off that is not 
+generally easy. To help here, it is customary to have at the beginning of 
+the report an executive summary that puts in layman's terms what the evidence means. 
+This is for possible presentation in a court of law.
+
+### Scientific Method
+Digital evidence can be used to answer fundamental questions relating to a crime,
+including **sequencing** (when things happened), **linkage** (who interacted with whom),
+**evaluation** of source (the origin of items) and **attribution** (who is responsible).
+However, its complexity is a potential pitfall, even for experienced practitioners.
+
+The complexity of computer systems requires the understanding that individual pieces 
+of evidence may have multiple interpretations. To deal with digital evidence, you 
+need to understand and make use of the scientific method. The scientific method 
+combined with the digital forensics methodologies will enable you to adapt to 
+differing circumstances and requirements and ensure that correct conclusions are drawn.
+
+1. **Gather information and make observations**:  
+   Firstly, legal evidence is acquired, preserved and searched. 
+   You need to verify the integrity and authenticity of the discovered evidence 
+   and survey all of it to determine how to proceed most effectively. 
+   When working with digital evidence, this involves preprocessing, 
+   salvaging deleted data, handling any special files, filtering out 
+   irrelevant data and extracting embedded metadata. However, it is important 
+   not to forget that not all evidence relevant to an investigation is digital 
+   and to remember to include all information you have access to.
+   
+2. **Form a hypothesis to explain observations**:
+3. **Evaluate the hypothesis**:  
+   Once evidence is handled, you must form and evaluate a hypothesis. 
+   This involves developing possible explanations and is most influenced 
+   by the experience of the forensic practitioner. It is important not to 
+   skew our thinking and analysis in favour of the working hypothesis. This is 
+   called confirmation bias. People have a tendency to favour evidence and 
+   facts that suit their hypothesis and discard or discredit that which 
+   does not fit. The aim is to suppress biases and hunches, and try to 
+   disprove the current working theory through experimentation.   
+
+4. **Draw conclusions and communicate findings:**  
+   Finally, when we have an explanation that is supported by the evidence we 
+   must communicate our findings to decision makers. This may involve 
+   being explicit about our degree of certainty, reporting how likely or unlikely 
+   a given scenario is.
+
+The scientific method is a **cyclic process**, requiring the forensic analyst 
+to repeat the steps until a conclusion is reached.
+
+### Uses of digital forensic analysis
+**Attributing activities** on a computer to a particular person can be challenging. 
+For example, logs showing that an internet account was used to commit a crime 
+do not prove that the owner of that account was responsible, since someone else 
+could have used the individual’s account. However, personal communications and 
+access to online banking or e-commerce accounts can make it difficult for a person 
+to deny responsibility for the illegal activities on the computer around 
+the same time. It is important to use evidence from multiple independent sources.
+
+**Assessing alibis** can also be tricky. Again, the use of evidence from multiple sources 
+is essential, as it is not difficult to alter the clock on a machine or change 
+the creation time of a file. However, evidence of clock tampering may enable a 
+forensic practitioner to conclude that the computer owner intentionally backdated
+a digital document for example.
+
+**Determining intent** can be done by analysing internet search history, 
+suspicious behaviour or simply through notes and plans that were not deleted. 
+In several cases, internet searches on suspects’ computers revealed their intent 
+to commit murder.
+
+**Evaluating sources** of data can reveal that the piece of evidence was produced by 
+a specific source, is a segment of the source, or was altered by the source. 
+File formats have characteristics that may be associated with their source, 
+eg, EXIF metadata. Comparing an item of evidence to an exemplar can reveal 
+investigatively useful class characteristics or even individual characteristics, 
+and lead to further breakthroughs.
+
+Finally, there is **document authentication**. Significant attributes such as 
+the author of a document or its date of creation can be tampered with, as 
+was already mentioned. In these cases, it is possible to use date-time stamps 
+on files and in log files, look for nuances on date-time stamps, look for 
+meta-data within files or inspect the files through digital stratigraphy. 
+Stratigraphy, which is a building block process in archeology, is the study of layers 
+to determine elements such as the origin, the composition, or the time frame 
+of every layered component. Digital stratigraphy is the process for which 
+an in-depth analysis of a digital device is used to extract attributes buried 
+within storage media.
+
+## The e-discovery process
+Exchange of data between parties in civil or criminal litigation.
+
+In that case, Judge Shira A. Scheindlin ruled that reasonably accessible data is:
+
+1. active, online data, such as hard drive information
+2. near-line data, to include robotic tape libraries
+3. offline storage, such as CDs or DVDs.
+
+On the other hand, not reasonably accessible data is:
+1. backup tapes
+2. erased, fragmented, and damaged data.
+
+### Electronic Discovery Reference Model
+The steps outlined go through the whole life cycle of 
+electronically stored information (ESI), from creation to disposal.
+The model then outlines the following stages of the process.
+
+1. **Preservation**  
+   Ensuring that ESI is protected against inappropriate alteration or destruction.
+2. **Collection**  
+   Gathering ESI for further use in the e-discovery process (processing, review, etc).
+3. **Processing**  
+   Reducing the volume of ESI and converting it, if necessary, 
+   to forms more suitable for review and analysis.
+4. **Review**  
+   Evaluating ESI for relevance and privilege.
+5. **Analysis**  
+   Evaluating ESI for content and context, including key patterns, 
+   topics, people and discussion.
+6. **Production**  
+   Delivering ESI to others in appropriate forms and 
+   using appropriate delivery mechanisms.
+7. **Presentation**  
+   Displaying ESI before audiences (at depositions, hearings, trials, etc), 
+   to elicit further information, validate existing facts or positions, 
+   or persuade an audience.
 
 # W7: Memory and Network Forensics
+## Device Forensics
+Primary sources of evidence are storage devices: hard disk drives (HDDs) 
+solid state drives (SSDs) and external media, such as USB sticks. 
+Data stored on those devices can be understood through the model of 
+data abstraction layers. The higher layers include the types below.
+- **Physical media**  
+  The lowest level examinations are performed on this layer. 
+  It is accessed through a host bus adapter (HBA) interface. 
+  HBAs implement standard protocol low-level operations: SATA and SCSI.
+- **Block Devices**
+  HBAs present a block device abstraction of sequences of fixed-size blocks, 
+  between 512 and 4096 bytes in size. The term sector is used as the units 
+  of magnetic hard disks. Data acquisition at the block level is done 
+  through imaging.
+- **File System**
+  The block device has no notion of files or directories, so it is the task 
+  of the file system to organise the block storage into a file-based store. 
+  It is this layer that provides files with attributes such as name, size, 
+  owner, timestamps, access permissions, etc.
+- **Application Artifacts**
+  This final layer is where we find executable binaries, libraries, 
+  configuration and log files and registry entries. Actions of the system 
+  at this level require greater effort and more expert knowledge to reconstruct. 
+  They are particularly costly in closed systems like Windows.
+
+**Physical data acquisition** is the process of obtaining data directly from 
+hardware media, without the mediation of any potentially untrusted 
+third-party software. This is not always possible, so we use **logical data 
+acquisition** which relies on one or more software layers as intermediaries to 
+acquire the data from the storage device.
+
+### File content carving
+When data is in fragments and can’t be recovered whole, we use a process 
+called file content carving. This is a process of reassembling file contents 
+from fragments, usually in the absence of file system metadata.
+
+The reason why this process works is because most file formats have 
+specific beginning and end tags. Additionally, file systems strongly favour 
+a sequential file layout to maximise throughput, so related files are often 
+stored near each other.
+
+<div style="text-align:center">
+<img src="/static/course/postgraduate/forensics/device%20forensics.png"  alt=""/>
+</div>
+
+The first type, **contiguous**, is simplest. The header of file A is followed by 
+the contents of file A and ends with a footer of that file. Then the header of 
+the next file B is present, followed by the contents and the footer.
+
+The second type is **nested**. This is when the header of file A is followed by 
+a part of that file’s content, then the header of file B is present followed 
+by the content and footer of that file. Only then do we find the rest of file 
+A’s content and its footer.
+
+The third type is called **bifragmented**. This is when the header and some part 
+of file A is present, followed by some unrelated data, followed by the remains 
+of the content and the footer. The recovery of this file will depend on 
+how easily the unrelated data is recognised and separated from the contents 
+of the file.
+
+The fourth type is **interleaved**. This is when we encounter the header and part 
+of file A, then the header and part of file B, then the rest of file A with 
+its footer, and then finally the rest of file B with its footer.
+
+## Memory and Network Forensics
+### Motivation
+The main reason why we are interested in doing memory forensics is 
+that data can persist for quite a long time in volatile memory. 
+Volatile memory is a very rich ecosystem that can contain information that 
+never makes it to the hard drive, such as passwords to decrypt and 
+encrypt drives, and so on. But there are also other reasons why one 
+may want to do live forensics. An example being the need to analyse 
+a SCADA system or any system that needs to be 24/7 online.
+
+### Memory Forensics
+#### Process Information
+It is actually practical to identify and enumerate all **running processes**, 
+**threads and loaded system modules**. We can actually obtain a **copy of the 
+individual processes' code, the stack, the heap and all the data segments**. 
+All this is particularly useful when analysing compromised machines, 
+as it allows you to identify suspicious services, abnormal parent and child 
+relationships, and more generally, to search for known symptoms of compromise 
+and patterns of attacks.
+#### Artifacts and Fragments
+The memory management system tends to be reactive and leaves a lot of 
+artefact traces behind. This is primarily an effort to avoid any processing 
+that is not necessary for the functioning of the system. Caching disk and 
+network data tends to leave traces in memory for a long time.
+#### File Information
+We can also identify any **open files**, **shared libraries**, **shared memory** and
+**anonymously mapped memory**. This is particularly useful for identifying
+correlated user actions and file system activities, potentially
+demonstrating their intent.
+#### Network Connections
+One can also extract from memory open and recently **closed network connections** 
+and **protocol information**. This type of information could readily be used to 
+identify related parties and communication patterns between them.
+
+### Network Forensics
+It relates to the monitoring and analysis of computer network traffic 
+for the purposes of information gathering, legal evidence, or intrusion detection.
+
+#### Scenarios
+The first, relating to security, involves monitoring a network for 
+anomalous traffic and identifying intrusions. An attacker may be able to 
+**erase all log files on a compromised host**. But network-based evidence might 
+therefore be the only evidence available for forensic analysis.
+
+The second form relates to law enforcement. In this case, 
+analysis of capture network traffic can include tasks such as 
+**reassembling transmitted files**, **searching for keywords** and **parsing 
+human communications** like emails and chat sessions.
+
+**Strategies**
+- **catch-it-as-you-can**  
+  This is where all packets passing through a certain traffic point are captured 
+  and written to storage with analysis being done subsequently in batch mode.
+  This approach requires large amounts of storage.
+  
+- **Stop, Look, Listen**  
+  This is where each packet is analysed in a rudimentary way in memory, and only 
+  certain information is saved.
+
+#### Medium
+1. **Ethernet**  
+   Applying forensic methods on the ethernet layer is done by 
+   eavesdropping beta streams with tools called sniffers.
+   
+2. **Wireless**  
+   The main goal of wireless forensics is to provide a methodology and 
+   tools required to collect and analyse wireless network traffic that 
+   can be presented as valid digital evidence in a court of law.
 
 # W8: Anti-forensics
+## Adversarial Actions
+- **Destroy**  
+  Potentially useful digital forensic evidence of their activities (wiping logs)
+- **Divert by**  
+  Planting misleading digital forensic evidence (spoofing the source IP address 
+  of a cyberattack)
+- **Deceive by**  
+  Hiding potentially useful digital forensic evidence (steganography or onion routing)
+- **Deny**  
+  Access to potentially useful digital forensic evidence (cryptography)
+  
+## An Example (Full Disk Encryption)
+a disk has been encrypted using full disk encryption (FDE).
+
+**Countermeasure**:  
+In order for the full disk encryption system to operate, 
+the decryption key must be stored somewhere, typically in memory or 
+in a separate device.
+
+The use of live forensic techniques on the main memory 
+might be able to retrieve the password encryption key that has been used 
+for full disk encryption.
+
+When the full disk encryption system is not in operation, the key might be stored 
+in a trusted platform model like what happens for example in Android, 
+or mostly in iOS, in iPhone, or it can be hidden in a partition or somewhere else. 
+In an alternative approach, you can actually freeze the RAM. This kind of attack 
+is called a **cold boot attack** and would allow you to recover the encryption keys 
+that are stored in RAM memory.
+
+### Forensic Soundness considerations
+- Collecting data from a live system causes changes
+    - An examiner will need to explain the changes
+  
+- Some schools argue that the acquisitions should not alter the evidence
+    - This does not happen in traditional forensics
+    - The methods are forensically sound
+    
+- Key to forensic soundness
+    - Documentation
+
+### Forensic Examination
+In cases when credentials for decrypting a disk are not available at the time 
+of acquisition, a forensic duplicate of the encrypted disk can be acquired 
+using a normal method. Data can be decrypted later in a number of ways.
+
+- Attempt decryption
+- Load duplicate into a virtual environment
+- Restore to a working hard disk
+- Boot a restored clone of the original disk
 
 # W9: Incident Management
