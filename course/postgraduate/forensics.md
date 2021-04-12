@@ -4,7 +4,7 @@ title: Computer Forensics and Cybercrime
 ---
 
 {% include title_patch.html %}
-
+{% include latex_support.html %}
 {% include gen_index.html %}
 
 # W1: Introduction to cybercrime and computer forensics
@@ -842,3 +842,64 @@ using a normal method. Data can be decrypted later in a number of ways.
 - Boot a restored clone of the original disk
 
 # W9: Incident Management
+## Intrusion response and incident handling
+- Incident: An unexpected event that disrupts the normal operation of a system
+- Objective: Return the service to normal as quickly as possible after disruption
+- Aim: Create as little negative impact on the business as possible
+
+### Incident Management Process
+The incident management process generally has two modes of operation.   
+**In practice**, the team managing the incident try to find a **temporal workaround 
+to ensure services are up and running**.   
+**In parallel**, the incident management team **investigates the incident**, 
+**identifies the cause root** and **finds a permanent fix**.
+
+### Incident Managment Workflow
+<div style="text-align:center">
+<img src="/static/course/postgraduate/forensics/workflow.png"  alt=""/>
+</div>
+
+## Intrusion analysis, monitoring and logging
+<div style="text-align:center">
+<img src="/static/course/postgraduate/forensics/lifecycle.png"  alt=""/>
+</div>
+
+### Normalisation
+Logs come in different formats, syntax and types, eg, ASCII, binary, etc. 
+There are some standards, but generally there is a lack of consensus. 
+Normalisation is the procedure in which all logs that are processed by 
+an intrusion detection system are processed and stored in a common format, 
+and all relevant attributes of the event are identified and processed.
+
+### Security information and event management (SIEM)
+**Security information management (SIM)**  
+The practice of collecting, monitoring and analysing security-related data from 
+computer logs.
+
+SIEM systems gather data from many devices, correlate events and provide information 
+and knowledge in the form of reports and alerts.
+
+**OSSIM (Open Source SIM) Architecture**
+<div style="text-align:center">
+<img src="/static/course/postgraduate/forensics/sim.png"  alt=""/>
+</div>
+
+The OSSIM evaluates the risk as follows:  
+$Risk = (Asset * Priority * Reliability) / 25$
+
+- **Asset** is the quantitative measure of the importance and/or a notion of 
+  how vulnerable a given asset is.
+- **Priority** is the threat or impact of the attack.
+- **Reliability** is the probability that a given set of events will 
+  actually be an attack.
+  
+## Sensing strategies
+A sensing strategy defines how the SIEM is deployed. It details where 
+to place the different sensors, how these sensors are interconnected, 
+what the security measures are, who the people in charge of each sensor are, etc.
+
+Here is an example diagram of a university network, courtesy of S. Pastrana.
+
+<div style="text-align:center">
+<img src="/static/course/postgraduate/forensics/example.jpg"  alt=""/>
+</div>
