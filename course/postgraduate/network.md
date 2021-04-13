@@ -471,3 +471,197 @@ remaining fragments are passed through.
 amount of the transport header. 
   
 # Intrusion Detection and Prevention Systems
+- An IDS’s main function is to detect and report intrusion attempts to the network.
+- An IDS is a security camera after the gate.
+- An IDS alerts any intrusion attempts to the security administrator
+
+## Terms
+- Intrusion: unwanted and unauthorised intentional access of computerised
+network resources
+- Intrusion detection: detecting unauthorised use of a system or network,
+detecting attacks upon a system or network
+- Intrusion detection system (IDS): does for network what anti-virus software
+does with incoming files
+    - Components: sensors, alerts
+
+- Intrusion prevention system (IPS): an IDS with an automated response
+    - Shut down attacker connections
+    - Try to back-trace attacker
+    - Counter-attack
+    
+## Intrusion Detection
+- Reputation detection
+    - Detect host communication with someone of bad reputation
+    - Idea: detect host communicating with someone with bad reputation
+    - Based on (public or private) blacklists
+- Anomaly-based detection
+    - Normal system behaviour is defined first
+    - Involves the collection of data relating to the behaviour of
+      legitimate users over a period of time
+    - Then statistical tests are applied to observed behaviour to
+      determine whether that behaviour is not legitimate user behaviour
+    - Threshold detection: this approach involves defining thresholds,
+      independent of user, for the frequency of occurrence of various
+      events
+    - Profile based: a profile of the activity of each user is developed and
+      used to detect changes in the behaviour of individual accounts
+      - Focuses on characterising the past behaviour of the user or a group of users
+      and then detects significant variations.
+    - Can be thought as the whitelist in firewall rule
+
+- Misuse-based detection
+    - Abnormal system behaviour is defined first
+    - Involves an attempt to define a set of rules or attack patterns that
+      can be used to decide that a given behaviour is that of an intruder
+    - Advantages
+        - Generate few false alarms
+        - Provides an explanation for alerts
+        - It is fast
+        - It is (more) resilient to evasion
+    - Disadvantage
+        - It detects only known attacks
+        - It needs continuous updating
+        - It is vulnerable to over-stimulation attacks
+    
+## IDS classification
+- Timeliness:
+    - Real-time (on-line, continuously running)
+    - Non real-time (off-line, periodic)
+- Response type:
+    - Passive (generates alerts)
+    - Active (blocks malicious traffic)
+- State-dependency:
+    - Stateful analysis
+    - Stateless analysis
+- System type:
+    - Software
+    - Hardware
+    
+## How an IDS works 
+- Input information
+    - Application-specific information: correct data flow, etc.
+    - Host-specific information: local logs, syscalls, file system changes
+    - Network-specific information: packets, etc
+- Intrusion detection policies
+    - Known bad: blacklist with known attacks or attackers
+        - Reputation-based detection
+        - Signature-based/rule-based/misuse-based detection
+    - Known good: alert anything out of usual
+        - Anomaly-based detection
+- Response on intrusions
+    - Passive response
+    - Active response
+    
+# Honeypots
+- A honeypot is a trap set to detect, deflect, or in some
+manner counteract attempts at unauthorised use of information or network systems
+- Honeypots are decoy systems that are designed to lure a
+potential attacker away from critical systems
+- It can be viewed as an intrusion detection technique used to
+    - Learn from unknown attacks
+    - Study intruders modus operandi
+    - Better identify, understand and protect against threats
+- Traffic landing in a honeypot is unsolicited
+- Flexible tool with multiple applications
+    - Prevention
+    - Detection
+    - Information gathering
+    
+## Classification
+- By purpose
+    - Production honeypots:
+        - Meant to be used in production environments of companies
+        - Characterised by ease of deployment and utilisation
+        - Trade-off between ease of operation and the quantity of collected information
+    - Research honeypots
+        - Provide comprehensive information about attacks
+        - More difficult to deploy
+- By level of interaction
+    - Low interaction honeypots
+        - Emulates a small set of services, applications
+        - Cannot be exploited to get complete access to the honeypot
+        - The attacker is limited to the level of emulation
+        - Tend to be production honeypots
+        - Advantages: low risk, easy to deploy/maintain
+        - Disadvantages: they capture limited information
+    - High interaction honeypots
+        - Use real operating system and applications
+        - Attacker gain full access at network/system
+        - Tend to be research honeypots
+        - Advantages: capture extensive information
+        - Disadvantages: high risk and time intensive to maintain
+- By implementation
+    - Physical honeypot:
+        - A real machine on the network
+    - Virtual honeypot:
+        - Simulated or virtualised by a host machine that forwards the
+          network traffic to the virtual honeypot
+        - Multiple virtual honeypots can be simulated on a single host
+        - Usually high-interaction honeypots
+- By direction of the interaction
+    - Server honeypots
+    - Client honeypots
+    
+## Honeypots Workflow
+### Phase: data control
+Honeypots control and contain the activities of an attacker by interacting
+with the attacker through network protocols
+
+### Phase: data capture
+-Honeypots monitor and log all of the activities of an attacker within the honeypot
+- Keep it all at all levels
+- Stores all captured data in one central location
+
+### Phase: data analysis
+- Honeypots analyse the data being collected
+- Human-driven analysis
+    - Rely on automated tools to process the data
+- Machine-driven analysis
+    - Assume that network connection are either
+        - Malicious
+        - anomalous
+    
+# IPsec
+## Authentication Header (AH)
+**Header**: 
+<div style="text-align:center">
+<img src="/static/course/postgraduate/network/ah.png"  alt=""/>
+</div>
+
+**Two Modes**:
+<div style="text-align:center">
+<img src="/static/course/postgraduate/network/ahmode.png"  alt=""/>
+</div>
+
+## Encapsulating Security Payload (ESP)
+**Header**: 
+<div style="text-align:center">
+<img src="/static/course/postgraduate/network/esp.png"  alt=""/>
+</div>
+
+**Transport Mode**: 
+<div style="text-align:center">
+<img src="/static/course/postgraduate/network/esptrans.png"  alt=""/>
+</div>
+
+**Tunnel Mode**:
+<div style="text-align:center">
+<img src="/static/course/postgraduate/network/esptun.png"  alt=""/>
+</div>
+
+# Internet Key Exchange (IKE)
+For DH Key Exchange and Perfect Forward Secrecy see 
+[Cryptography](/course/postgraduate/crypto)
+
+
+
+# SSL/TLS
+<div style="text-align:center">
+<img src="/static/course/postgraduate/network/sslhand.png"  alt=""/>
+</div>
+
+For vulnerability see [ssl vulnerabilities](/security/ssl)
+
+# Privacy and Anonymity
+
+# Wireless and IoT security 
