@@ -4,7 +4,7 @@ title: Network Security
 ---
 
 {% include title_patch.html %}
-
+{% include latex_support.html %}
 {% include gen_index.html %}
 
 # Introduction
@@ -95,6 +95,7 @@ sent upstream to the packet filter, which may decide to discard the
 packet.
 - Many CPU cycles will be wasted copying unwanted packets 
   
+
 BPF solution:
 - Filter the packet before buffering the required parts of it
 - The filter is defined by users (which are network sniffers here)
@@ -356,6 +357,7 @@ Autonomous System Number (ASN).
 - Without preventing good things from happening (such as employees
   accessing information available externally)
   
+
 Main task: Access Control
 
 ## Techniques for firewalls to control access
@@ -663,5 +665,132 @@ For DH Key Exchange and Perfect Forward Secrecy see
 For vulnerability see [ssl vulnerabilities](/security/ssl)
 
 # Privacy and Anonymity
+- Privacy:
+  - A state in which one is not observed or disturbed by others
+  - You choose what you let other people know.
+  - Confidentiality of information that you don’t want to share.
+- Anonymity:
+    - A condition in which your true identity is not known.
+    - Confidentiality of your identity.
+    - Unobservability of our actions when they occur.
+    
+## Anonymity
+**Attacks**  
+- Passive traffic analysis
+    - Infer from network traffic who is talking to whom
+    - To hide your traffic, you must carry other people’s traffic!
+- Active traffic analysis
+    - Inject packets or put a timing signature on packet flow
+- Compromise of network nodes (routers)
+    - It is not obvious which nodes have been compromised
+    - Attacker may be passively logging traffic
+    - Better not to trust any individual node
+    - Assume that some fraction of nodes is good, but don’t know which
 
-# Wireless and IoT security 
+Requirement: anonymise the sender and/or the receiver
+- Provide confidentiality of principal’s identities
+- Linkage to actual identity only in restricted cases
+- IT equivalent: online usernames
+- Pseudonyms need sometimes to be resolved into the proper (underlying) names
+- But naming and name resolution can be quite problematic.
+
+## Mix Networks
+- Public-key cryptography plus trusted re-mailer (Mix)
+    - Public keys used as persistent pseudonyms.
+    - Untrusted communication medium: designed to work in environment with an
+      active attacker who
+        1. Can learn origin, destination(s), and representation of all messages in the
+          communication system;
+        2. Can inject, remove, or modify messages;
+        3. However, cannot determine anything about the correspondence between a set of
+          encrypted items and the corresponding set of unencrypted items, or create
+          forgeries.
+
+### Single Mix
+<div style="text-align:center">
+<img src="/static/course/postgraduate/network/mixnet.png"  alt=""/>
+</div>
+For sending message M to agent at address B
+
+$\\{r_1, \\{r_0, M\\}\_{pk_b}, B\\}\_{pk_{mix}} \rightarrow \\{r_0, M\\}_{pk_b}, B$  
+
+- Input to Mix on left hand side of $\rightarrow$
+- Mix generates output on right hand side and sends first component to B
+- $r_i$ are padding strings of random bits
+- This is just a variant of single proxy, with padding and encryption
+- Mix also performs additional operations to foil traffic analysis
+
+**Foiling Traffic Analysis Requirements**  
+1. Agents/mixes work with uniformly sized items
+   i.e., messages split (or padded) into fixed size blocks
+2. Order of arrival hidden by outputting items in batches
+   - Can use fix ordering (e.g., lexicographic) or random ordering
+3. Repeated information must be blocked
+   - So mixes must filter duplicates, cross-checking across batches
+   - Or string r include, e.g., a time stamp
+4. Sufficient traffic from a large anonymity set is required
+   - Few clients sending entails weak anonymity
+   - Solution involves clients regularly sending (and receiving dummy messages).
+
+**Untraceable Return Addresses**  
+- To respond to an anonymous sender x with a return message $M’$
+- Single Mix case (with key $pk_{mix_1}$)
+    - Sender includes “return address”: $\\{r_1, A_x\\}\_{pk_{mix_1}}, pk_x$
+        - $r_1$ is a random string that can also be used as a shared key
+        - $pk_x$ is a fresh public key, created for this purpose
+        - $A_x$ is x’s actual address
+    - Receiver sends to the “response” Mix: $\\{r_1, A_x\\}\_{pk_{mix_1}}, \\{r_0, M'\\}_{pk_x}$
+    - The “response” Mix transforms this to
+        - Second part sent to: $A_x$
+- Encryption with $r_1$ masks input/output correlation $A_x, \\{\\{r_0, M'\\}\_{pk_x}\\}_{r_1}$
+- Only the original sender can decrypt as he created both $pk_x$ and $r_1$
+
+**Attacks**  
+- (n-1) attack
+    - What happens if an attacker knows (e.g., has sent himself) n-1 of the n messages 
+      input to a mix?
+    - Performed by flooding a node with fake messages alongside a single message to be
+    traced.
+    - The attacker can recognise her messages and therefore link the sender with the 
+      receiver of the single message under surveillance.
+    - This is an active attack
+
+## Dining cryptographers (DC)
+1. Each of the three cryptographers $C_1, C_2$ and $C_3$ flips an unbiased coin keeping
+   the result $b_i$ secret ($i \in \\{1,2,3\\}$).
+2. Each cryptographer whispers the result $b_i$ in the ear of the person to their
+   immediate left.
+3. Each cryptographer computes $d_i = b_i \oplus b_{i-1}$, where
+   § where $b_i$ is the cryptographer’s own coin flip and
+   § $b_{i-1}$ is the coin flip of the person on the right
+   § Note that $d_0 = d_3$ and $b_0 = b_3$
+4. A cryptographer that did not pay for the meal announces her own $d_i$
+   A cryptographer that did pay for the meal lies by announcing the negation of $d_i$
+   i.e., $d_i \oplus 1$.
+
+# Wireless and IoT security
+## Wireless security risk factors
+- Channel:
+    - Wireless networking typically involves broadcast communication, which is far
+      more susceptible to eavesdropping and jamming than wired network
+    - Wireless networks are also more vulnerable to active attacks that exploit 
+      vulnerabilities in communications protocols
+- Mobility:
+    - Wireless devices are far more portable and mobile than wired devices
+- Resources:
+    - Some wireless devices, such as smartphones and tablets, have sophisticated
+      operations systems but limited memory and processing resources with which to
+      counter threats, including DoS and malwares
+- Accessibility:
+    - Some wireless devices, such as sensors and robots, may be left unattended in
+      remote and / or hostile locations
+    - This greatly increases their vulnerability to physical attacks
+    
+## IoT Security
+### IoT vulnerabilities by layers
+- Device-based: vulnerabilities associated with the hardware
+- Network-based: vulnerabilities caused by weakness
+originated from communication protocol
+- Software-based: vulnerabilities related to the firmware
+and/or the software of IoT device. 
+  
