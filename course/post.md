@@ -14,3 +14,5 @@ title: Postgraduate Course Notes
 # Semester 2
 - [Security Testing]({{ page.permalink }}/sectest)
 - [Computer Forensics and Cybercrime]({{ page.permalink }}/forensics)
+- [Distribute Ledger and Cryptocurrencies]({{ page.permalink }}/blockchain)
+- [Network Security]({{ page.permalink }}/network)
