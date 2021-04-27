@@ -532,3 +532,9 @@ By grabbing the headers of exposed services, nmap (option -sV) can try
 to infer the exact service version
 - First step before looking for vulnerabilities (e.g., on public repos)
 
+### Contermeasures 
+- Block scanning (e.g., ICMP)
+- Check open ports and configuration, to make sure that only appropriate services 
+  are exposed.
+- Monitor network activity (e.g., Intrusion Detection System, SIEM)
+
