@@ -7,6 +7,8 @@ title: Security Testing
 
 {% include gen_index.html %}
 
+{% include latex_support.html %}
+
 # Web attacks
 
 ## SQL Injection
@@ -444,6 +446,7 @@ registered name servers and some exposed services.
 - **Disable DNS zone transfers to untrusted hosts**
 - **Prune DNS zone files from unnecessary information**
 - **Preventing TypoSquatting**: you may check if a similar domain is available.
+  - e.g., google and goog1e
 
 ## Active Reconnaissance
 ### nmap
@@ -474,6 +477,20 @@ Limitation: Normally the “ping” command is used to send packets ICMP
 ECHO_REQUEST to a system, soliciting the return of a segment ICMP
 ECHO_REPLY, which indicates that the system is functioning
 
+#### fping
+```shell
+fping -s -g 192.168.10.0/24
+```
+
+- option `-s`: print cumulative statistics upon exit
+- option `-g`: generate a target list from a supplied IP netmask
+
+#### nmap
+Unlike fping, the option -sP of nmap allows you to send in parallel:
+- An ICMP ECHO_REQUEST packet
+- A TCP ACK (to port 80)
+  - In this way, also “hosts” blocking ICMP packets can be detected
+
 #### Defense
 Defense:
 - Block all ICMP traffic
@@ -481,12 +498,6 @@ Defense:
 Counter-defense:
 - scan ports at the transfer layer (TCP/UDP):
   - e.g., through nmap or hping3
-  
-### nmap Ping sweep
-Unlike fping, the option -sP of nmap allows you to send in parallel:
-- An ICMP ECHO_REQUEST packet
-- A TCP ACK (to port 80)
-  - In this way, also “hosts” blocking ICMP packets can be detected
   
 ### Port Scanning
 Trying to connect to TCP and UDP ports of the target system to
@@ -527,14 +538,517 @@ nmap -O ip_address
 <img src="/static/course/postgraduate/sectest/osfingerprinting.png"  alt=""/>
 </div>
 
-### Enumeration
+### Service Enumeration
 By grabbing the headers of exposed services, nmap (option -sV) can try
 to infer the exact service version
 - First step before looking for vulnerabilities (e.g., on public repos)
+
+#### nmap
+```shell
+nmap -sV ip_address
+```
 
 ### Contermeasures 
 - Block scanning (e.g., ICMP)
 - Check open ports and configuration, to make sure that only appropriate services 
   are exposed.
 - Monitor network activity (e.g., Intrusion Detection System, SIEM)
+
+# Reporting
+## Security Testing Activities
+### Vulnerability Assessment (VA)
+- **Execute tools to identify vulnerabilities in systems and software**
+- Use both open-source and paid tools
+  - For this class, we will use open-source ones, but when doing a
+    professional VA it is not realistic to assume that the attacker does not
+    have access to licensed tools. 
+- Unlike Pentesting, VA usually involves only “using tools as is”
+
+### Penetration Testing
+It is a more sophisticated activity that goes beyond the tools:
+- **you simulate behavior and capabilities of a real attacker** to try to
+  “penetrate” into a computer system.
+- It comprises several phases and has also some recommended
+  standards, such as Penetration Testing Execution Standard (PTES)
+
+Phases of Pentesting:
+1. Pre-engagement Interactions
+2. Intelligence Gathering
+3. Threat Modeling
+4. Vulnerability Analysis
+5. Exploitation
+6. Post Exploitation
+7. Reporting
+
+### Red Teaming
+- Red Team = attackers, Blue Team = defenders
+- Red Team emulates Tactics, Techniques and Procedures (TTPs) of
+adversaries
+- Blue Team is typically **not informed** that a Red Team has been hired
+(whereas in penetration testing, they collaborate).
+- Red Teaming is often confused with Penetration Testing, and they are
+often used interchangeably
+
+<div style="text-align:center">
+<img src="/static/course/postgraduate/sectest/pentestvsredteam.png"  alt=""/>
+</div>
+
+## Reporting
+### Objectives
+- Report the findings
+- Rate the vulnerabilities
+- Explain how the results will affect the customer in the real world
+
+### Quality
+Anyone can:
+- run a vulnerability scanner
+- report results in a template by changing organization name at the top.
+
+Not everyone can understand what vulnerabilities actually mean.
+- Your added value comes here. 
+
+To make client
+- Understand report
+- Reproduce exploitations
+- Implement remediations
+
+### Vulnerability Details
+- Estimated **risk and impact values** consistent with the context 
+  (e.g., low-medium-high)
+  - For example, httpOnly flags disabled in an application that does not
+    have a login is very low risk and impact.
+  - Whereas not having httpOnly flags enabled if there is a reflected XSS
+    vulnerability then it is high risk and high impact.
+- **Category** (e.g., Data Exposure)
+- **Location** (where is it)
+- **Description** of the vulnerability
+- **Replication steps** (how your client can replicate the vulnerability)
+- **Recommendation** on how to remediate it
+
+### Common Mistakes
+- Don’t RE-TITLE a tool report (e.g., Nessus)
+- Rate your vulnerabilities appropriately
+  - Find a consistent and clear way to do so (e.g., Appendix)
+  - Refer to the CIA security triangle
+- Separate Theoretical vs. Real Findings
+  - e.g., whether an exploit is practical/available
+- Make sure vulnerabilities are actual vulnerabilities
+  - e.g., PHP cgi vulnerabilities on an Apache server that is not running them
+- Write clear reproducibility steps
+- Remediations and Solutions are just as important as the Findings
+- Standardize all your templates
+
+# Social Engineering
+- Many attackers claimed that the easiest way to get the information you
+want, is by asking to the victims themselves.
+  - Psychological techniques to get private information
+  - Does not require a computer science background
+  - Attack vectors: spear phishing, phone calls with impersonation, ...
+
+#### Definition
+Social Engineering is a psychological manipulation of people into
+revealing confidential/sensitive information of the organization or
+performing certain actions, such as:
+- open an infected attachment via e-mail
+- click on a URL of a compromised website.
+
+Social Engineering relies on a set of non-technical strategies that exploit
+weaknesses of human psychology.
+  - Hence, it typically does not require a computer science background, but
+    rather a knowledge of the potential victim and their personal context
+    
+## Phases
+- Phase 1: **Reconnaissance**: The attacker learns as much as possible (e.g.,
+  through Open Source Intelligence) to result credible and lure the victims into
+  revealing sensitive information of perform dangerous actions.
+  - Roles in the company
+  - Company contacts (e.g., e-mail, phone numbers)
+  - Key persons in the company
+  - Choosing a victim
+- Phase 2: **Victim Approach**: The actual attack of the social engineer is
+  performed by contacting the victim through one of the possible attack
+  vectors, such as:
+  - Phone
+  - Email
+  - Social network 
+
+## Key Principles
+- Principle 1: **Reciprocity**
+  - People tend to return a favor.
+  - If the attacker is for example generous or does something for the
+    victim, he/she will feel more compelled to do a favor also to the
+    attacker
+  - For example,
+    - bending the rules,
+    - provide special access without passing by the protocol
+
+- Principle 2: **Commitment and Consistency**
+  - If people commit to an idea or goal, they are more likely to honor that
+    commitment because they have stated that that idea or goal fits their
+    self-image.
+  - The attacker may find and exploit victim’s commitments
+  - For example,
+    - Particular charity activities
+    - Recycling
+    - Eating particular types of foods
+
+- Principle 3: **Social Proof/Consensus**
+  - People will do things that they see other people are doing.
+  - For example:
+    - Attackers may create fake websites with testimonials and lure the victim
+      into clicking something.
+    - Or maybe convince the victim that another employee has already done
+      that, or that it is not the first time a similar request has been made.
+
+- Principle 4: **Authority/Intimidation**
+  - People will tend to obey authority figures, even if they are asked to
+    perform objectionable acts.
+  - The attacker can try to impersonate someone important in the
+    organization, which the victim may not know personally.
+
+- Principle 5: **Liking/Familiarity**
+  - People are easily persuaded by other people whom they like.
+  - The attacker may:
+    - call the other person by first name
+    - throw in the conversation/e-mail a topic that is liked by the victim
+      (e.g., a football match, hobbies).
+      
+- Principle 6: **Scarcity/Urgency**
+  - Perceived scarcity will generate demand, and this may be used to
+    induce urgency in the victim.
+  - For example,
+    - take advantage of limited-time opportunities (e.g., to lure the victim
+      into clicking a link, or providing information).
+    - a false request of urgency for updating a presentation for the person’s
+      boss who did not have time do to it and has an important
+      presentation in a few hours (e.g., maybe attaching an infected
+      presentation to an e-mail request).
+      
+## Reconnaissance
+- OSINT reconnaissance
+- example: Email Harvesting
+  - It is an effective way of finding emails, and possibly usernames,
+    belonging to an organization.
+  - These emails are useful in many ways, such as providing intelligence
+    on how to perform attacks, revealing the naming convention used in the
+    organization, or mapping out users in the organization. 
+
+- Typically, not senior members of the company, but people who are
+closely tied to them (e.g., secretaries, collaborators)
+- Once a candidate victim is chosen, you need to spot the list of elements
+that will create a confidential “feeling” between you and the victim
+  - Exact victim’s position in the company
+  - Use of nicknames known only in the company
+  - Praising the role of the victim (e.g., knowing what they do)
+  - Belonging to some mailing list
+  - Personal interests of the victim
+  
+## Victim Approach
+### Attack Vectors
+- **Vishing** (voice call)
+  - Perform a voice phone call to lure the victim into revealing sensitive
+    information or performing attacker-desired actions.
+  - Common strategies:
+    - Impersonating a manager/senior member of the organization
+    - pretending to be a colleague in need
+
+- **Spear Phishing** (e-mail)
+  - Send a targeted e-mail to the victim, to lure him/her into clicking a link,
+    opening an attachment, or revealing some sensitive information.
+  - Unlike traditional phishing, this is crafted for a specific victim.
+
+- **Tailgaiting**:
+  - Entering in restricted areas by following people with access
+  - Pretending to be someone with access (e.g., courier)
+
+- **Smishing** (SMS Phishing):
+  - Similarly to phishing, but performed by sending an SMS text message.
+  - Depending on the victim habits, the attack vector should resemble the
+    most trusted communication method for the attacker.
+
+- **Watering Hole**:
+  - Compromising part of a legitimate website (e.g., through stored XSS, or
+    DNS poisoning) trusted by the victim (e.g., the victim’s bank website).
+  - When the victim visits the websites, some malicious code is executed only for that
+    specific target (i.e., it is not triggered for all the other benign users).
+
+- **Quid Pro Quo**:
+  - The attacker offers “something in exchange” for following his orders
+  - Examples:
+    - The attacker calls various numbers pretending to be a technician,
+      and convinces a victim to follow commands to grant him access or
+      which lead to malware installation
+    - Occasionally, the attacker may have pre-installed some preliminary
+      malware that slows down the PC (e.g., computer virus hoaxes)
+    - Offers salary reconciliation
+  
+## Countermeasures
+- How to Spot a Social Engineer
+  - Hurry
+  - Intimidatory attitude
+  - Refuses sharing contact information (e.g., phone battery is dying)
+  - Too friendly for being a stranger
+  - Interest in private information
+  - Small mistakes
+  - Knows only subsets of names but not many manager’s names
+  
+- Be Skeptical and Aware of Risks
+  - Emails with urgent requests of sensitive information or delicate actions
+  - Typosquatting e-mail addresses
+  
+# Password Cracking
+## Dictionary Attacks
+A password of at least 8-12 characters could guarantee a good
+protection level against brute-force attacks.  
+Unfortunately, there are other options:
+- Knowledge of personal data
+- Use of dictionary attacks for the research of:
+  - words, fragments of meaningful words, ...
+  - Names lists, locations, dates, companies, ...
+
+There are four main elements to initially determine security of a password:
+1. **Number of symbols** used in the password (e.g., a 4-digit locker would
+   require on average 5000*2 seconds, i.e., about 3 hours)
+2. **Number of possibilities** for each position (e.g., an alphabetic lock with
+   three symbols would require 26*26*26 possibilities, i.e., an average of 5
+   hours instead of 17 minutes).
+3. **Time required by every attempt** (e.g., if 20s were required instead of 2s
+   for every attempt, the situation would be much different, but so it would
+   be if there would be only 2 msec for every attempt)
+4. Are there easier **alternatives**? Typically, an attacker does not want to
+   leave evidences/traces, but he may be forced to break the bag
+   
+## Hash Function
+Cryptographic Hash Functions (CHFs) are hash functions suitable for 
+information security applications, and have the following ideal properties:
+- **Deterministic**: given message M, its hash H(M) is always the same
+- **Quick to compute**
+- **Infeasible to generate message M that has a specific hash value H**
+- Infeasible to find messages M1 and M2 such that H(M1)=H(M2)
+- **Avalanche Effect**: A small change in message M, which makes it M’,
+  should change the hash value extensively
+  
+### Birthday Problem
+Given an i.i.d. distribution of people, with 23 people, probability that 
+a pair has the same birthday already at 50%
+- **Pigeonhole principle**:
+  - Reaches 100% probability when 367 people are present 
+    (since there are only 366 possible birthdays)
+
+- **Birthday Attack**: The attack depends on the higher likelihood of
+collisions found between random attack attempts and a fixed degree
+of permutations (pigeonholes).
+  
+### Collision Attack
+Finding two inputs that generate the same hash
+
+MD5 is a cryptographic hash function
+- Produces 128-bit hash value
+- Known to be vulnerable to collisions
+  - Collisions can be found in seconds in an ordinary computer
+  
+### Pre-Image Attack
+Tries to find a message that has a specific hash value
+- Example: Violate message integrity
+- In general, impossible to detect or prove integrity violation
+
+<div style="text-align:center">
+<img src="/static/course/postgraduate/sectest/preimage.png"  alt=""/>
+</div>
+
+## Password Cracking
+### Brute-Force
+Trying all possible passphrase combinations by enumeration until you get
+the right one (e.g., you get a meaningful plaintext, you access the system)
+
+**Mitigations**:
+- Increase attempt-time, symbols, possibilities for each symbol
+  
+### Dictionary Attack
+A variant of brute-force attack for password cracking
+or cryptanalysis in which, instead of trying all the possible password
+alternatives, you try only a set of passwords from a dictionary
+
+Examples of dictionaries:
+- List of real words in any language
+- Combinations of words
+- Common passwords from public lists
+
+#### Pre-Computing Dictionary
+<div style="text-align:center">
+<img src="/static/course/postgraduate/sectest/precompute.png"  alt=""/>
+</div>
+
+### Rainbow Table Attack
+Pre-Computed Dictionary Attacks: You could precompute a list of hashes of
+dictionary words, and storing these in a table, so that you always know the
+conversion.
+- If “hash-chain” functions are used to store the pre-computed hashes, then the
+  table is called rainbow table.
+
+Space-time Trade-off: Rainbow tables reduce storage requirements at the cost of
+  slightly longer lookup-times.
+
+<div style="text-align:center">
+<img src="/static/course/postgraduate/sectest/rainbow.png"  alt=""/>
+</div>
+
+Objective: Find plaintext password  
+Conditions: Rainbow Table has 3 reduction functions  
+**Step 0**: I find the hash "re3xes" in /etc/shadow of the victim.  
+**Step 1**: Try Function R3, if not found, try Function R2 then R3, or R1, R2, R3 
+until find a keyword at the last of one of the chain (here linux23).  
+**Step 2**: Start at the first keyword of the chain, calculate until find the "re3xes" 
+(here passwd -H-> dlcm4 -R1-> culture -H-> re3xes), therefore **culture** is the plaintext
+
+#### Countermeasures: Rainbow Table Attacks / Pre-Computed Dictionary
+Attacks can be thwarted by the use of salt
+- Salt is a technique that forces the hash dictionary to be recomputed for
+  each password sought, making pre-computation infeasible, provided
+  the number of possible salt values is large enough.
+
+Common mistakes:
+- short salts
+- reuse salts
+
+Note that using “salt” does not provide robustness to Dictionary Attacks,
+but only to pre-computation
+
+## Weak Passwords
+- Default Passwords (provided by system vendor)
+- Dictionary Words
+- Words with numbers appended (password1)
+- Words with simple obfuscation (p@ssw0rd)
+- Doubled Words (passpass)
+- Common sequences from keyboard row (qwert)
+- Numeric sequences based on well known numbers (911)
+- Identifiers (Names)
+- Weak passwords in non-English languages
+- Anything personally related to an individual
+
+# Exploitation
+## Finding Exploits
+#### Find
+• Reliable sources (checked closely)
+- SecurityFocus
+- ExploitDatabase
+
+Always try to understand exploit code before running them
+
+#### Customize
+Exploits mostly do not work out of the box
+- Bad code
+- Wrong offsets
+- Wrong return addresses for more recent OS or patch levels
+- etc.
+
+Heterogeneous languages
+
+## Popular Vulnerabilities
+### Heartbleed
+See at [SSL/TLS Vulnerabilities](/security/ssl/#heartbleed)
+
+### Dirty COW (Copy-on-Write)
+Vulnerability of Linux kernel (also works for Android <= 7)  
+Local privilege escalation vulnerability that exploits a **race condition**
+in the implementation of the **copy-on-write mechanism** in the kernel's
+memory-management subsystem
+- A read-only file can become writable
+- Used in conjunction with other exploits, it allows remote root access
+- Fix: use a copy-on-write flag
+
+### PHPMailer RCE
+Remote code execution (RCE) vulnerability for the PHP e-mail library
+- Cause: class.phpmailer.php incorrectly processing user requests
+
+Four main steps:
+1. PHPMailer gets user requests
+2. PHPMailer validates user-supplied data
+3. PHPMailer sends the data to the PHP mail() function
+4. PHPMailer then calls the OS command “sendmail” (e.g., in Linux) to
+   actually send the e-mail (of course a mail server needs to be
+   configured on the machine to send a message), using
+   `/usr/bin/sendmail -i -t -f <sender>` as default
+
+```
+"attacker \" -injPar1 -injPar2"@example.com
+```
+
+<div style="text-align:center">
+<img src="/static/course/postgraduate/sectest/phparg.png"  alt=""/>
+</div>
+
+### ImageTragick
+ImageMagick is an image processing library often used on the Web  
+Multiple vulnerabilities:
+1. CVE-2016-3714 - Insufficient shell characters filtering leads to
+   (potentially remote) code execution
+2. CVE-2016-3718 - SSRF
+3. CVE-2016-3715 - File deletion
+4. CVE-2016-3716 - File moving
+5. CVE-2016-3717 - Local file read
+
+## Metasploit
+- **Exploit**: The means by which an attacker (or penetration tester) takes
+advantage of a flaw within a system (e.g., SQL injection, buffer overflow)
+- **Payload**: The code that the attacker wants to be return after successful
+exploits on target system (e.g., reverse shell, bind shell)
+- **Shellcode**: Set of instructions used as payload when the exploitation
+occurs. Typically, written in assembly.
+- **Module**: Piece of software that can be used by metasploit
+  - Exploit module: to conduct attack
+  - Auxiliary module: to support an attack (e.g., scanning)
+  - Post exploitation module
+- **Listener**: Metasploit component that waits connection of sorts (e.g., after
+  target has been exploited)
+  
+# Advanced Strategies
+## Stealth
+- Before weaponization & delivery, check AV/Filters detection
+  - Encoding (e.g., msfencode)
+  - Transient malware (e.g., in-memory malware)
+  - Mimicry (e.g., launch payload while executing other legitimate apps)
+  - Packers: obfuscate malicious code, and unpack routine at runtime
+  
+## Presistence
+- Payload in Metasploit (e.g., meterpreter)
+- Scheduled Tasks (consider users rebooting system)
+- Backdoors
+
+## Adversarial Machine Learning
+### 5 Phases
+1. Data Collection
+2. Pre-processing and Feature Engineering
+3. Model Selection and Training
+4. Testing and Evaluation
+5. Evaluation against Time Evolution and Adversaries
+
+### Algorithm Categories
+- Classification: given a labeled dataset, find a model that 
+  separates instances into classes
+  
+- Regression: given some points, try to generalize and predict real-valued numbers
+- Clustering: given an unlabeled dataset, try to group similar elements
+
+### Evaluation
+$TP$: True Positives  
+$FP$: False Positives  
+$TN$: True Negatives  
+$FN$: False Negatives
+
+Precision: How many selected items are relevant
+
+$Precision = \frac{TP}{TP + FP}$
+
+Recall: How many relevant items are selected
+
+$Recall = \frac{TP}{TP + FN}$
+
+F1-Score:
+
+$F_1Score = 2 * \frac{Precision * Recall}{Precision + Recall}$
+
+Accuracy:
+
+$Accuracy = \frac{TP + FN}{TP + FP + TN + FN}$
 
