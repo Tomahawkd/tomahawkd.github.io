@@ -430,7 +430,56 @@ by their own pieces of legislation.
 # W5: Legal Framework
 ## Key pieces of legislation
 1. [Computer Misuse Act](https://www.legislation.gov.uk/ukpga/1990/18/crossheading/computer-misuse-offences)
+
+**Amendments**
+The amendments to the Computer Misuse Act 1990 by Part 5 of 
+the Police and Justice Act 2006 are:
+- Section 35. Unauthorised access to computer material, punishable by up to 2 years 
+  in prison or a fine or both
+- Section 36. Unauthorised acts with intent to impair operation of computer, 
+  etc. punishable by up to 10 years in prison or a fine or both. This covers 
+  Denial of Service (DoS) attacks.
+- Section 37. Making, supplying or obtaining articles intended for use in 
+  computer misuse offences, punishable by up to 2 years in prison or a fine or both
+
 2. [Investigatory Powers Act](https://www.legislation.gov.uk/ukpga/2016/25/contents/enacted)
+
+**Provisions of the Act**
+- introduced new powers, and restated existing ones, for UK intelligence agencies and law
+enforcement to carry out targeted interception of communications, bulk collection
+of communications data, and bulk interception of communications;
+- created an Investigatory Powers Commission (IPC) to oversee the use of all investigatory
+powers, alongside the oversight provided by the Intelligence and Security Committee of
+Parliament and the Investigatory Powers Tribunal. The IPC consists of a number of serving
+or former senior judges. It combined and replaced the powers of the Interception of
+Communications Commissioner, Intelligence Services Commissioner, and Chief
+Surveillance Commissioner;
+- established a requirement for a judge serving on the IPC to review warrants for accessing
+the content of communications and equipment interference authorised by a Secretary of
+State before they come into force;
+- required communication service providers (CSPs) to retain UK internet users' "Internet
+connection records" – which websites were visited but not the particular pages and not the
+full browsing history – for one year;
+- allowed 48 authorities such as police, intelligence officers and other government
+department managers (including HMRC, the Department of Health, the Food Standards
+Agency, the Gambling Commission, the Department for Work and Pensions, and
+the Department for Transport) to see the Internet connection records, as part of a targeted
+and filtered investigation, without a warrant;
+- permitted the police and intelligence agencies to carry out targeted equipment interference,
+that is, hacking into computers or devices to access their data, and bulk equipment
+interference for national security matters related to foreign investigations;
+- placed a legal obligation on CSPs to assist with targeted interception of data, and
+communications and equipment interference in relation to an investigation; foreign
+companies are not required to engage in bulk collection of data or communications;
+- maintained an existing requirement on CSPs in the UK to have the ability to remove
+encryption applied by the CSP; foreign companies are not required to remove encryption;
+- put the Wilson Doctrine* on a statutory footing for the first time as well as safeguards for
+other sensitive professions such as journalists, lawyers and doctors;
+- provided local government with some investigatory powers, for example to investigate
+someone fraudulently claiming benefits, but not access to Internet connection records;
+- created a new criminal offence for unlawfully accessing internet data;
+- created a new criminal offence for a CSP or someone who works for a CSP to reveal that
+  data has been requested.
 
 ## Regulation of security technologies
 The following principles for the handling of digital electronic evidence come from 
@@ -454,8 +503,9 @@ the Association of Chief Police Officers (ACPO).
 # W6: The Forensics Process
 ## The Investigative Methodology
 ### Differences between Conventional and Digital Forensics
-**Conventional forensics** is built on top of Locard's Exchange Principle. 
-This principle says that every contact leaves a trace. When there is physical contact, 
+**Conventional forensics** is built on top of **Locard's Exchange Principle**. 
+This principle says that every contact leaves a trace, because it results in 
+an exchange of physical material. When there is physical contact, 
 there is indeed an exchange of physical material.
 
 In theory, one might be able to cover digital tracks, and someone could actually 
@@ -583,19 +633,19 @@ to repeat the steps until a conclusion is reached.
 **Attributing activities** on a computer to a particular person can be challenging. 
 For example, logs showing that an internet account was used to commit a crime 
 do not prove that the owner of that account was responsible, since someone else 
-could have used the individual’s account. However, personal communications and 
-access to online banking or e-commerce accounts can make it difficult for a person 
+could have used the individual’s account. However, **personal communications** and 
+**access to online banking** or **e-commerce accounts** can make it difficult for a person 
 to deny responsibility for the illegal activities on the computer around 
 the same time. It is important to use evidence from multiple independent sources.
 
 **Assessing alibis** can also be tricky. Again, the use of evidence from multiple sources 
 is essential, as it is not difficult to alter the clock on a machine or change 
-the creation time of a file. However, evidence of clock tampering may enable a 
+the creation time of a file. However, **evidence of clock tampering** may enable a 
 forensic practitioner to conclude that the computer owner intentionally backdated
 a digital document for example.
 
-**Determining intent** can be done by analysing internet search history, 
-suspicious behaviour or simply through notes and plans that were not deleted. 
+**Determining intent** can be done by analysing **internet search history**, 
+**suspicious behaviour** or simply through **notes** and **plans** that were not deleted. 
 In several cases, internet searches on suspects’ computers revealed their intent 
 to commit murder.
 
@@ -608,8 +658,8 @@ and lead to further breakthroughs.
 
 Finally, there is **document authentication**. Significant attributes such as 
 the author of a document or its date of creation can be tampered with, as 
-was already mentioned. In these cases, it is possible to use date-time stamps 
-on files and in log files, look for nuances on date-time stamps, look for 
+was already mentioned. In these cases, it is possible to use **date-time stamps 
+on files and in log files**, look for nuances on date-time stamps, look for 
 meta-data within files or inspect the files through digital stratigraphy. 
 Stratigraphy, which is a building block process in archeology, is the study of layers 
 to determine elements such as the origin, the composition, or the time frame 
@@ -790,6 +840,9 @@ human communications** like emails and chat sessions.
    can be presented as valid digital evidence in a court of law.
 
 # W8: Anti-forensics
+Anti-forensics is the discipline that tries to evade and thwart the forensic process through 
+the implementation of attacks and adoption of adversarial actions.
+
 ## Adversarial Actions
 - **Destroy**  
   Potentially useful digital forensic evidence of their activities (wiping logs)
@@ -864,6 +917,17 @@ to ensure services are up and running**.
 <img src="/static/course/postgraduate/forensics/lifecycle.png"  alt=""/>
 </div>
 
+### Logging Element
+- Event: Single occurrence within an environment
+  - Event Field: Describes one characteristic of the event.
+  - Event Record: Collection of event fields
+- Log: Collection of event records
+- Audit: Process of evaluating logs
+- Recording: Process of tracking events fields
+- Logging: Process of saving events into logs
+- Security Incident: Occurrence of a security event (eg,
+  intrusion attempt, data leakage, DoS, etc).
+
 ### Normalisation
 Logs come in different formats, syntax and types, eg, ASCII, binary, etc. 
 There are some standards, but generally there is a lack of consensus. 
@@ -876,6 +940,12 @@ and all relevant attributes of the event are identified and processed.
 The practice of collecting, monitoring and analysing security-related data from 
 computer logs.
 
+A security information management system (SIMS) automates that practice. 
+It is a type of software that automates the collection of event log data from 
+security devices, such as firewalls, proxy servers, intrusion-detection systems 
+and antivirus software. It translates the logged data into correlated and 
+simplified formats and has strong log management capabilities.
+
 SIEM systems gather data from many devices, correlate events and provide information 
 and knowledge in the form of reports and alerts.
 
@@ -883,6 +953,11 @@ and knowledge in the form of reports and alerts.
 <div style="text-align:center">
 <img src="/static/course/postgraduate/forensics/sim.png"  alt=""/>
 </div>
+
+A diagram showing a frontend connected to the management server which 
+contains the server and framework. The server is connected to DB. 
+It is also connected to the sensor which hosts the agent and plugins 
+such as snort and spade.
 
 The OSSIM evaluates the risk as follows:  
 $Risk = (Asset * Priority * Reliability) / 25$
