@@ -111,8 +111,7 @@ The intended recipient has to provide something to redeem the payment
 - Some transactions require multiple parties to provide something before the locking script is unlocked.
   
 ## Unspent Transaction Output (UTXO)
-UTXO is the output of a transaction which may be spent as an input 
-in a subsequent transaction.
+UTXO is the output of a transaction which may be spent as an input in a subsequent transaction.
 
 - “Sending” a recipient some bitcoin is done by creating some UTXO registered to their address
   - Encumbered to their public key hash or to a script
@@ -120,6 +119,23 @@ in a subsequent transaction.
   - It is held in a database called the UTXO set or UTXO pool.
 - It is locked to a specific address and may be scattered.
 - A wallet will aggregate the UTXO belonging to a single address
+
+The main **advantages** of an UTXO system are:
+- UTXO allows for Simple Payment Verification, where a client verifying payment does not need to download 
+  the entire Bitcoin blockchain.
+- This allows for multiple verification processes checking on different transactions can do so in parallel 
+  since they are checking on different inputs, which allows for greater scalability.
+- UTXO systems allow users to generate different system addresses for the outputs for each transaction, 
+  which supports privacy of transactions.
+  
+
+The main **disadvantages** of UTXO are:
+- Apps built on top of the Bitcoin blockchain are limited in the amount of blockchain state they can impact. 
+  This feature may be considered by some to be a security advantage, since it reduces the potential impact of programs 
+  running over the blockchain.
+- Each output is owned by one user (the user having the private key for that Bitcoin address), 
+  whereas use of smart contracts may often require outputs to be owned by multiple users.
+
 
 ## Standard Transactions
 These are based on what is needed to redeem the payment (ie, to satisfy the encumbrance)
@@ -275,8 +291,8 @@ If nodes behave badly, they forfeit their stake
   - 100 people sitting around a table signing competing documents
   - Each person only gets paid if they sign the documents that a majority of
     other people sign
-  - So payment can only be at the end. 
-  
+  - So payment can only be at the end.
+
 #### Possible Flaws
 - Initial distribution problem
   - How to incentivize users who have initial coins to transfer coin ownership,
@@ -324,7 +340,12 @@ If nodes behave badly, they forfeit their stake
     Hyperledger platform
   - Intended to be run in a secure hardware environment for permissioned ledgers
     - So perhaps less prone to attack by malicious nodes.
-  
+
+### Comparison
+<div style="text-align:center">
+<img src="/static/course/postgraduate/blockchain/procon.png"  alt=""/>
+</div>
+
 ## Consensus Attacks
 ### Sybil attacks
 - A malicious node creates proxies that appear to be run by different owners
@@ -389,22 +410,78 @@ So the blockchain eventually confirms TX2 and not TX1.
   - Unlike say cattle (which eventually die)
 - Not easy to counterfeit
   - Use of watermarks, holograms.
-  
-## Inflation and Hyperinflation
 
+## Inflation and Hyperinflation
+### Fiat Money
+Fiat money is a currency (a medium of exchange) established as money, often by government regulation.
+Fiat money does not have intrinsic value and does not have use value.
+It has value only because a government maintains its value, or because parties engaging in exchange agree on its value.
+
+### Inflation
 - If banks issue too much money (or make lending too easy), then
-  - There is more money available than goods to be purchased (at least in the 
-    short-term)
+  - There is more money available than goods to be purchased (at least in the short-term)
   - The price of goods rises (because demand for them exceeds supply)
   - The average price of goods rises, and so we get inflation
     - The rate of increase of prices per unit time.
 - There is no upper limit on the level of inflation
 - Hyperinflation: When inflation rate exceeds 50% per month.
 
+### Stable Coin
+Stable coins are the digital currencies pegged to the cost of fiat money, or any other asset.
+- is a price stable cryptocurrency
+- whose market price is pegged to another stable asset
+
+#### Fiat Collateralized
+Backed by a real-world currency.
+Supported by fiat money or physical values (Tether, TrueUSD).
+
+Pros:
+- Simplest
+- 100% price stable
+- Less vulnerable to hacks since no collateral held on the blockchain
+
+Cons:
+- Centralized as a trusted custodian must store the fiat
+- Need audits ensure transparency
+- Highly regulated
+- Expensive and slow liquidation to fiat
+
+#### Crypto-Collateralized
+Backed by a cryptocurrency.
+The price is tied to the value of other cryptocurrencies (Dai).
+
+Pros: 
+- More decentralized
+- Can liquidate cheaply and quickly into underlying crypto collateral
+- Easy for everyone to inspect the collateralization ratio of the stable coin
+
+Cons:
+- Less price stable than fiat
+- Can be auto-liquidated during a price crash
+- Tied to the health of a particular cryptocurrency
+- Inefficient use of capital
+- Highest complexity
+
+#### Non-Collateralized
+Stable price by itself using smart contract.
+The price is regulated by the issue of coins, but at the same time it is not supported by 
+either traditional money or other cryptocurrencies (Carbon, Havven).
+
+Pros:
+- No collateral required
+- Most decentralized and independent
+- Not tied to any cryptocurrency or fiat
+
+Cons:
+- Most vulnerable to crypto decline or crash with no ability to liquidate
+- Some complexity
+- Difficult to analyse safety bounds or health
+- Require continual growth
+
 ## functions of cryptocurrencies
 A cryptocurrency may be useful as:
 - A medium of exchange
-- A common measure of value and a unit of account
+- A common measure of value, and a unit of account
 - A store of value
 - A means of anonymous payments
 - A means of deferred payments
@@ -433,8 +510,7 @@ However
 - Can the supply be altered easily?
   - For BTC, new Bitcoins are issued according to an algorithm
 - Is the supply under the control of the community or of a smaller group?
-  - For Bitcoin, change to the supply algorithm would require a fork (and thus
-    community agreement)
+  - For Bitcoin, change to the supply algorithm would require a fork (and thus community agreement)
   - Not the case for all cryptocurrencies. 
 
 **Demand side**:
@@ -470,11 +546,47 @@ However
 - ICOs
   - Presale of tokens
 
-### ICO/IPO
+## Check on investors
+- **KYC**: Know Your Customer regulations  
+  The know your customer or know your client (KYC) guidelines in financial services require that 
+  professionals make an effort to verify the identity, suitability, and risks involved with maintaining 
+  a business relationship. The procedures fit within the broader scope of a bank's Anti-Money Laundering (AML) policy.
+  - Identity
+  - Location
+  - Wealth & assets
+  - Other investments
+- **AML**: Anti-Money Laundering regulations  
+  Anti-money laundering (AML) refers to the laws, regulations and procedures intended to prevent criminals 
+  from disguising illegally obtained funds as legitimate income.
+  - the source(s) of funds
+- Money-laundering
+  - Proceeds of criminal activity (often in cash)
+  - Proceeds of transactions with entities under sanctions
+  
+### Howey Test
+The Howey Test refers to the U.S. Supreme Court case for determining whether a transaction qualifies 
+as an "investment contract," and therefore would be considered a security and subject to disclosure 
+and registration requirements under the Securities Act of 1933 and the Securities Exchange Act of 1934.
+
+Under the Howey Test, a transaction is an investment contract for securities if four conditions are satisfied:
+- It is an investment of money
+  - "Money" may include other forms of near money
+- There is an expectation of profits from the investment
+- The investment of money is in a common enterprise
+  - Pooling of funds into a joint-stock company or similar joint enterprise
+- Any profit comes from the efforts of a promoter or third party
+  - If profit arises from investor’s own actions, then likely not a security.
+
+## ICO/IPO
 Initial Coin Offering (ICO) is the cryptocurrency equivalent of an Initial Public Offering (IPO), where a company goes
 from private to public status by selling shares for equity. This is typically done to get funds without the need to go
 to a Venture Company (VC) or bank. An ICO solves the basic problem of initial coin distribution. Also called a Token
 Generation Event (TKE).
+
+ICOs also retain at least two important structural **differences** from IPOs. 
+1. ICOs are largely unregulated, meaning that government organizations like the 
+Securities and Exchange Commission (SEC) do not oversee them. 
+2. Due to their decentralization and lack of regulation, ICOs are much freer in terms of structure than IPOs.
 
 ## Token Standards (Ethereum)
 A protocol for tokens to interact on the Ethereum network
@@ -562,6 +674,19 @@ A protocol for tokens to interact on the Ethereum network
 <img src="/static/course/postgraduate/blockchain/dlts.png"  alt=""/>
 </div>
 
+
+## Difference with Blockchain
+A distributed ledger is decentralized to eliminate the need for a central authority or intermediary to process,
+validate or authenticate transactions. Enterprises use distributed ledger technology to process,
+validate or authenticate transactions or other types of data exchanges. Typically, these records are only
+ever stored in the ledger when the consensus has been reached by the parties involved.
+
+A blockchain is essentially a shared database filled with entries that must be confirmed and encrypted.
+The name blockchain refers to the "blocks" that get added to the chain of transaction records.
+To facilitate this, the technology uses cryptographic signatures called a hash.
+In short, blockchain is a specific type of distributed ledger. It is designed to record transactions or
+digital interactions and bring much-needed transparency, efficiency, and added security to businesses.
+
 ## Main Benefits of DLT
 - Shared state
   - Different organizations needing the same data
@@ -573,6 +698,25 @@ A protocol for tokens to interact on the Ethereum network
   - Solution to double-spend problem
 - Witnessing of transactions
 - In case of transfer of digital assets, settlement is immediate
+
+A distributed ledger gives control of all its information and transactions to the users and promotes transparency. 
+They can minimise transaction time to minutes and are processed 24/7 saving businesses billions. 
+The technology also facilitates increased back-office efficiency and automation.
+
+Distributed ledgers such as blockchain are exceedingly useful for financial transactions. 
+They cut down on operational inefficiencies (which ultimately saves money). 
+Greater security is also provided due to their decentralized nature, as well as the fact that the ledgers are immutable.
+
+Alternatively, blockchain technology offers a way to securely and efficiently create a tamper-proof log 
+of sensitive activity. This includes anything from international money transfers to shareholder records. 
+Financial processes are radically upgraded to offer companies a secure, digital alternative to processes run 
+by a clearinghouse. Altogether avoiding these often bureaucratic, time-consuming, paper-heavy, and expensive processes.
+
+When you write data to a blockchain, it gets etched on the network. When you have a series of transactions over time, 
+you gain an accurate and immutable audit trail. This is very useful for financial audits. 
+Having data stored in a place where no single entity owns or controls it, and no one can change what’s already written, 
+gives you benefits similar to double-entry book-keeping. Ultimately, this means that there are fewer chances of errors 
+or fraud.
 
 ## Major Use Cases
 - Shared state: Cross-organizational workflows
@@ -607,6 +751,8 @@ A protocol for tokens to interact on the Ethereum network
     - Smart contracts are programs which seek to change the state of the machine
 
 ### Ethereum Gas
+Gas is an internal currency in Ethereum used to control demand and supply of transaction processing on the platform, 
+and to prevent infinite loops.
 - Ethereum separates cryptocurrency from measurement of work done
 - Gas cost – unit of measurement for transactions
     - eg, 6 gas for each 256-bit hash
