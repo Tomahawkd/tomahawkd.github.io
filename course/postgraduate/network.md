@@ -659,6 +659,26 @@ with the attacker through network protocols
     - Necessarily malicious
 
 # IPsec
+## Security Association
+- A security association (SA) is a one-way relationship between sender and receiver defining security services
+- SA specifies things like:
+    - Authentication algorithm (AH)
+    - Encryption algorithm (ESP)
+    - Keys
+    - Key lifetimes
+    - Lifetime of security association
+    - Protocol mode (tunnel or transport)
+
+- SA is uniquely identified by three parameters:
+    - **Security Parameters Index (SPI)**: a bit string assigned to this SA and
+      having local significance only. SPI is carried in AH and ESP headers to
+      enable receiving system to select SA under which a received packet will
+      be processed.
+    - **IP destination address**: address of destination endpoint of SA (may be an
+      end-use system or a network system such as a firewall or router)
+    - **Security Protocol Identifier**: a field from the outer IP header that
+      indicates whether the SA is an AH or ESP SA.
+
 ## Authentication Header (AH)
 **Header**: 
 <div style="text-align:center">
@@ -853,11 +873,25 @@ $\\{r_1, \\{r_0, M\\}\_{pk_b}, B\\}\_{pk_{mix}} \rightarrow \\{r_0, M\\}_{pk_b},
       remote and / or hostile locations
     - This greatly increases their vulnerability to physical attacks
     
+## 802.11i Operation
+<div style="text-align:center">
+<img src="/static/course/postgraduate/network/80211i.png"  alt=""/>
+</div>
+
+
 ## IoT Security
+### IoT Architecture
+<div style="text-align:center">
+<img src="/static/course/postgraduate/network/iotarch.png"  alt=""/>
+</div>
+
 ### IoT vulnerabilities by layers
 - Device-based: vulnerabilities associated with the hardware
 - Network-based: vulnerabilities caused by weakness
 originated from communication protocol
 - Software-based: vulnerabilities related to the firmware
 and/or the software of IoT device. 
-  
+
+<div style="text-align:center">
+<img src="/static/course/postgraduate/network/iotvul.png"  alt=""/>
+</div>
