@@ -13,7 +13,7 @@ title: Network Security
 - Integrity
 - Availability
 
-For more see at [Cryptography](/course/postgraduate/crypto)
+For more see at [Cryptography](./crypto#security-properties)
 
 ## OSI Security Architecture
 - **Security Attack**: Any action that compromises the security of information
@@ -54,6 +54,15 @@ For more see at [Cryptography](/course/postgraduate/crypto)
 - Security recovery
     - Deals with requests from security mechanisms, such as event handling
       and management functions, and takes recovery actions
+
+## Security Policy
+- Access control requirements: Only X may access Y.
+- Actions required before the access: Gathering owner consent.
+- Actions that must be performed within a certain time period: Inform data owner whether the data is used.
+- Restriction of purposes for which data may be used: Statistical purposes only.
+- Limitations on retention time: Delete after 7 days.
+- Mandatory use of protection mechanisms: Encrypt backups.
+- Duties of keeping the data up-to-date: Update every 30 days.
 
 ## Security Attack
 ### Jamming
@@ -145,7 +154,7 @@ packets
 - To avoid having to send an ARP request packet each time by broadcasting,
 a host can cache the IP and the corresponding MAC address in its ARP
 table (ARP cache)
-- Each entry in the ARP table is usually “aged” and contents are erased if no
+- Each entry in the ARP table is usually "aged" and contents are erased if no
 activity occurs within a period
 - ARP table is updated when hearing an ARP request or ARP reply
 - ARP is a stateless protocol, so most operating systems will update their
@@ -162,6 +171,10 @@ computer B to the attacker instead
 
 ### Application
 1. **MitM**
+In cryptography and computer security, a man-in-the-middle attack is a cyberattack 
+where the attacker secretly relays and possibly alters the communications between two parties 
+who believe that they are directly communicating with each other.
+
 <div style="text-align:center">
 <img src="/static/course/postgraduate/network/arp_mitm.png"  alt=""/>
 </div>
@@ -336,8 +349,8 @@ Autonomous System Number (ASN).
   
 2. **RRSet attack**
 - DNS response contains different Resource Record Sets, or RRSets.
-- In particular, an “additional” section, where name server can
-  give additional info that may be “useful” for future lookups
+- In particular, an "additional" section, where name server can
+  give additional info that may be "useful" for future lookups
 - In an iterative query, the .com nameserver says you can ask ns.example.com for the
   IP address of example.com. To help next request, an additional record might give IP
   for ns.example.com.
@@ -406,6 +419,7 @@ whether to forward or discard the packet.
 - Positive filtering
 - Use a whitelist
 - That which is not expressively permitted is prohibited  
+
 **Default = forward**
 - Negative filtering
 - Use a blacklist
@@ -491,6 +505,17 @@ does with incoming files
     - Try to back-trace attacker
     - Counter-attack
     
+## Detection Rate
+See at [Evaluation](./sectest#evaluation)
+
+$Sensitivity = True Positive Rate = Detection Rate = \frac{TP}{TP + TN}$
+
+$Specificity = True Negative Rate = \frac{TN}{TN + FP}$
+
+<div style="text-align:center">
+<img src="/static/course/postgraduate/network/evaluation.png"  alt=""/>
+</div>
+
 ## Intrusion Detection
 - Reputation detection
     - Detect host communication with someone of bad reputation
@@ -623,6 +648,16 @@ with the attacker through network protocols
         - Malicious
         - anomalous
     
+## Honeytoken
+- Honeytokens are honeypots that are not computer system but
+    - An unused email address
+    - A fake database entry
+    - etc
+- Their value lies not in their use, but in their abuse
+- Key idea
+    - Their use is inherently suspicious
+    - Necessarily malicious
+
 # IPsec
 ## Authentication Header (AH)
 **Header**: 
@@ -652,10 +687,18 @@ with the attacker through network protocols
 </div>
 
 # Internet Key Exchange (IKE)
-For DH Key Exchange and Perfect Forward Secrecy see 
-[Cryptography](/course/postgraduate/crypto)
+[DH Key Exchange](./crypto#diffie-hellman-key-exchange)
 
+## Perfect Forward Secrecy (PFS)
 
+A property of key-agreement protocols ensuring that a session key derived from a set of long term keys 
+cannot be compromised if one of the long-term keys is compromised in the future. The key used to 
+protect transmission of data must not be used to derive any additional keys, and if the key used to 
+protect transmission of data is derived from some other keying material, then that material must not be used to 
+derive any more keys. In this way, compromise of a single key permits access only to data protected by that single key.
+
+The trick to achieving Perfect Forward Secrecy is to generate a temporary session key, not derivable from 
+the information stored at the node and forgotten after the session concludes.
 
 # SSL/TLS
 <div style="text-align:center">
@@ -663,6 +706,12 @@ For DH Key Exchange and Perfect Forward Secrecy see
 </div>
 
 For vulnerability see [ssl vulnerabilities](/security/ssl)
+
+## User Interface Vulnerability
+- Users don’t understand lock=SSL
+- Users never click on the lock
+- Users don’t understand certificates
+- Confusion over warning messages
 
 # Privacy and Anonymity
 - Privacy:
@@ -733,17 +782,35 @@ $\\{r_1, \\{r_0, M\\}\_{pk_b}, B\\}\_{pk_{mix}} \rightarrow \\{r_0, M\\}_{pk_b},
    - Solution involves clients regularly sending (and receiving dummy messages).
 
 **Untraceable Return Addresses**  
-- To respond to an anonymous sender x with a return message $M’$
+- To respond to an anonymous sender x with a return message $M'$
 - Single Mix case (with key $pk_{mix_1}$)
-    - Sender includes “return address”: $\\{r_1, A_x\\}\_{pk_{mix_1}}, pk_x$
+    - Sender includes "return address": $\\{r_1, A_x\\}\_{pk_{mix_1}}, pk_x$
         - $r_1$ is a random string that can also be used as a shared key
         - $pk_x$ is a fresh public key, created for this purpose
         - $A_x$ is x’s actual address
-    - Receiver sends to the “response” Mix: $\\{r_1, A_x\\}\_{pk_{mix_1}}, \\{r_0, M'\\}_{pk_x}$
-    - The “response” Mix transforms this to
+    - Receiver sends to the "response" Mix: $\\{r_1, A_x\\}\_{pk_{mix_1}}, \\{r_0, M'\\}_{pk_x}$
+      - Sender choose path of the responding message
+    - The "response" Mix transforms this to
         - Second part sent to: $A_x$
 - Encryption with $r_1$ masks input/output correlation $A_x, \\{\\{r_0, M'\\}\_{pk_x}\\}_{r_1}$
 - Only the original sender can decrypt as he created both $pk_x$ and $r_1$
+
+**Generalized Format**
+1. Sender includes "return address":
+   
+    $\\{r_1, \\{r_2, ..., \\{r_n, A_x\\}\_{pk\_{mix_n}}\\}\_{pk\_{mix_2}}\\}\_{pk\_{mix_1}}, pk_x$
+
+2. Receiver sends to the "response" Mix:
+
+    $\\{r_1, \\{r_2, ..., \\{r_n, A_x\\}\_{pk\_{mix_n}}\\}\_{pk\_{mix_2}}\\}\_{pk\_{mix_1}}, \\{r_0, M'\\}\_{pk_x}$
+
+3. Result of 1^{st} Return Mix: 
+
+    $\\{r_2, ..., \\{r_n, A_x\\}\_{pk\_{mix_n}}\\}\_{pk\_{mix_2}}, \\{\\{r_0, M'\\}\_{pk_x}\\}\_{r_1}$
+
+4. Final result: 
+
+    $A_x, \\{\\{\\{\\{r_0, M'\\}\_{pk_x}\\}\_{r_1}\\}\_{r_2} ...\\}\_{r_n}$
 
 **Attacks**  
 - (n-1) attack
