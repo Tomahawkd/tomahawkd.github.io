@@ -114,6 +114,7 @@ Y = 0xbd - len(address) - len(pad)
 Example (x86):
 
 1. Exploitable Code:
+
 ```c
   FILE *f = NULL;
   char log_entry[64];
@@ -130,6 +131,7 @@ Example (x86):
 ```
 
 2. Exploit Code:
+
 ```c
 #define VULN "/var/challenge/level8/8"
 
