@@ -112,6 +112,7 @@ Y = 0xbd - len(address) - len(pad)
 </div>
 
 Example (x86):
+
 1. Exploitable Code:
 ```c
   FILE *f = NULL;
