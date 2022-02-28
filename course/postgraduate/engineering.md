@@ -87,9 +87,21 @@ Shellcode_Address = 0xc0000000 - 8 - strlen(vulnerable_program) - 1 - strlen(she
       Used to write char `Y` at `[$esp+X]` (treat `$esp+X` as a pointer)  
       
     
-Note: You could also use `%Yu%X$n` to write `unsigned int`. Change type to
-    meet your requirement.
-
+Note:  
+1. `Y` actually represents the fixed length in `%Yc`. In reality, you may need
+to calculate the exact data (address) you need to insert, especially there is 
+additional chars at the beginning of the fmt. For example, for fmt `"<pad> <address> %Yc%x$n"`, 
+when you need to insert `0xbd`, you have to calculate the value as follows: 
+```
+Y = 0xbd - len(address) - len(pad)
+```
+2. `X` should be the offset of the address(es) to write data, not the start of the
+   `%Yc%X$n`.
+3. You could also use `%Yu%X$n` to write `unsigned int`. Change type to
+   meet your requirement.
+4. Using `%u` or `%c` is recommended as it is clearer to represent the endianness.
+   Be aware of the value of `Y` if you use `int` or other types.
+5. Be aware of the endianness of the target computer.
 
 - Check Offset  
     Since you could write data to where `$esp+X` is pointing to, you need 
