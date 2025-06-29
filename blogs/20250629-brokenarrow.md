@@ -20,12 +20,12 @@ title: 浅析某箭的反作弊机制
 
 ```json
 {
-  "assemblyName":"ACTk.Runtime",
-  "nameSpace":"CodeStage.AntiCheat.Common",
-  "className":"ACTk",
-  "methodName":"GetUnityInfo",
-  "loadTypes":0,
-  "isUnityClass":false
+  "assemblyName": "ACTk.Runtime",
+  "nameSpace": "CodeStage.AntiCheat.Common",
+  "className": "ACTk",
+  "methodName": "GetUnityInfo",
+  "loadTypes": 0,
+  "isUnityClass": false
 }
 ```
 
