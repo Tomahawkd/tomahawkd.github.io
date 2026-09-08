@@ -43,6 +43,8 @@ The development server refreshes content when Markdown files are added, edited, 
 
 The archive displays a 100-document stack (5 columns × 20 rows). Background document borders and fittings are simplified automatically during development/build, with the original glass panels, materials, and full-detail selected document retained. Glass refraction is rendered at half width and height (one quarter of the capture pixels), without lowering the main scene or text resolution. Geometry optimization runs only at build time; publishing content requires no extra steps.
 
+3D resolution is bounded independently of window size: standard mode uses at most 1280 × 720 pixels and high-quality mode/the model viewer at most 1920 × 1080 pixels in total, preserving the window's aspect ratio. Post-processing follows the same limit. Fullscreen and high-DPI displays cannot increase the pixel workload beyond these budgets; HTML text and controls remain native-resolution.
+
 ## GitHub Pages
 
 The included workflow builds and deploys the site when changes are pushed to `master`. The repository's Pages source must be **GitHub Actions** (a one-time repository setting when adopting this build). Thereafter, publishing only requires committing/pushing content changes. The existing `CNAME` is preserved.

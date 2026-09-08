@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { createArchiveLighting } from "./archive-lighting";
 import { damp } from "./motion";
+import { resizeRenderer } from "./render-resolution";
 
 const PARTS = [
   { id: "fasteners", label: "紧固件", en: "FASTENERS", depth: 2.75 },
@@ -427,12 +428,8 @@ export class ModelViewer {
     if (!this.isOpen) return;
     const width = this.canvasHost.clientWidth,
       height = this.canvasHost.clientHeight;
-    this.renderer.setPixelRatio(
-      Math.min(devicePixelRatio, 1.5) *
-        Math.min(innerWidth / 1920, innerHeight / 1080),
-    );
-    this.renderer.setSize(width, height);
-    this.camera.aspect = width / height;
+    resizeRenderer(this.renderer, this.canvasHost, devicePixelRatio, true);
+    this.camera.aspect = Math.max(1, width) / Math.max(1, height);
     this.camera.updateProjectionMatrix();
   }
 
