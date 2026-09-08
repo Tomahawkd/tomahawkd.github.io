@@ -8,7 +8,6 @@ import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
 import { BokehPass } from "three/addons/postprocessing/BokehPass.js";
 import { CardAppearance } from "./appearance";
 import { backgroundGeometry } from "./background-geometry";
-import { resizeRenderer } from "./render-resolution";
 import { archiveColumns, fileLocation } from "./data";
 import {
   cellKey,
@@ -120,9 +119,11 @@ export class ArchiveScene {
     // height means one quarter of the pixels in this pass only. Keep the main
     // scene resolution and full-detail selected geometry unchanged.
     this.renderer.transmissionResolutionScale = 0.5;
-    const renderSize = resizeRenderer(
-      this.renderer, container, devicePixelRatio, this.highQuality,
+    this.renderer.setPixelRatio(
+      Math.min(devicePixelRatio, 1.5) *
+        Math.min(innerWidth / 1920, innerHeight / 1080),
     );
+    this.renderer.setSize(container.clientWidth, container.clientHeight);
     this.renderer.info.autoReset = false;
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -161,18 +162,13 @@ export class ArchiveScene {
     this.cameraAim.set(-0.5, 1.1, 0.4);
     this.camera.fov = 6.15;
     this.camera.lookAt(this.cameraAim);
-    // Keep all post-processing targets in physical pixels, independent of
-    // CSS window size and renderer density. Never apply the pixel ratio twice.
-    this.composer = new EffectComposer(this.renderer, new THREE.WebGLRenderTarget(
-      renderSize.width, renderSize.height, { type: THREE.HalfFloatType },
-    ));
-    this.composer.setPixelRatio(1);
+    this.composer = new EffectComposer(this.renderer);
     this.composer.addPass(new RenderPass(this.scene, this.camera));
     this.ao = new SSAOPass(
       this.scene,
       this.camera,
-      renderSize.width,
-      renderSize.height,
+      container.clientWidth,
+      container.clientHeight,
     );
     this.ao.kernelRadius = lightingLook === "refined" ? 0.44 : 0.38;
     this.ao.minDistance = 0.001;
@@ -597,9 +593,14 @@ export class ArchiveScene {
   resize() {
     const w = this.container.clientWidth,
       h = this.container.clientHeight;
-    const renderSize = resizeRenderer(this.renderer, this.container, devicePixelRatio, this.highQuality);
-    this.composer.setSize(renderSize.width, renderSize.height);
-    this.camera.aspect = Math.max(1, w) / Math.max(1, h);
+    this.renderer.setPixelRatio(
+      Math.min(devicePixelRatio, this.highQuality ? 1.5 : 1) *
+        Math.min(innerWidth / 1920, innerHeight / 1080),
+    );
+    this.composer.setPixelRatio(this.renderer.getPixelRatio());
+    this.renderer.setSize(w, h);
+    this.composer.setSize(w, h);
+    this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
   }
   private bindPointer() {
@@ -1166,13 +1167,6 @@ export class ArchiveScene {
       drawCalls: this.renderer.info.render.calls,
       triangles: this.renderer.info.render.triangles,
       transmissionResolutionScale: this.renderer.transmissionResolutionScale,
-      renderResolution: {
-        width: this.renderer.domElement.width,
-        height: this.renderer.domElement.height,
-        pixelRatio: this.renderer.getPixelRatio(),
-        postWidth: this.composer.readBuffer.width,
-        postHeight: this.composer.readBuffer.height,
-      },
       archiveCount: this.positions.length,
       backgroundTrianglesPerDocument: this.instances.reduce(
         (sum, mesh) => sum + (mesh.geometry.index?.count ?? mesh.geometry.getAttribute("position").count) / 3, 0,
