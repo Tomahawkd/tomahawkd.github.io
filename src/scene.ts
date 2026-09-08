@@ -356,7 +356,7 @@ export class ArchiveScene {
     this.appearance.apply(this.model, 0);
     this.drawLabel(0);
     this.scene.add(this.model);
-    this.model.position.copy(this.positions[this.selectedSlot]);
+    this.model.position.copy(this.cellPosition(this.selectedCell));
     this.loaded = true;
   }
 
@@ -917,12 +917,7 @@ export class ArchiveScene {
         p.z + entryZ + this.rail.value,
       );
       this.dummy.rotation.set(slope * 0.024 * (1 - detail), 0, 0);
-      this.dummy.scale.setScalar(
-        hidden.has(cellKey(this.cells[i])) ||
-          ((cinematic || !this.looping) && i >= 160)
-          ? 0
-          : 1,
-      );
+      this.dummy.scale.setScalar(hidden.has(cellKey(this.cells[i])) ? 0 : 1);
       this.dummy.updateMatrix();
       for (const inst of this.instances) inst.setMatrixAt(i, this.dummy.matrix);
     }

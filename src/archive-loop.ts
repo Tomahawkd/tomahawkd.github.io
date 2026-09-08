@@ -4,11 +4,10 @@ export type ArchiveCell = { lane: number; row: number };
 export type ArchiveNavigation =
   { axis: "row" | "lane"; direction: number } | { cell: ArchiveCell };
 
-export const LOOP_COLUMNS = 9;
-export const LOOP_ROWS = 32;
+export const LOOP_COLUMNS = 5;
+export const LOOP_ROWS = 16;
 export const COLUMN_SPACING = 5.2;
 export const ROW_SPACING = 0.62;
-const POOL_LANES = [0, 1, 2, 3, 4, -2, -1, 5, 6];
 
 export function wrap(value: number, count: number) {
   return ((value % count) + count) % count;
@@ -53,23 +52,20 @@ export function selectionCell(
   };
 }
 
-// Preserve the reference animation's original first 160 instances. The four
-// extra columns form a hidden margin on either side during interactive use.
+// Keep a compact window around the initial selection. Physical pool positions
+// are independent of archive IDs and collection lengths.
 export function poolCell(index: number): ArchiveCell {
   return {
-    lane: POOL_LANES[Math.floor(index / LOOP_ROWS)],
-    row: index % LOOP_ROWS,
+    lane: 2 - Math.floor(LOOP_COLUMNS / 2) + Math.floor(index / LOOP_ROWS),
+    row: 12 - Math.floor(LOOP_ROWS / 2) + (index % LOOP_ROWS),
   };
 }
 
 export function visibleCell(index: number, center: ArchiveCell): ArchiveCell {
+  const cell = poolCell(index);
   return {
-    lane: nearestOccurrence(
-      POOL_LANES[Math.floor(index / LOOP_ROWS)],
-      center.lane,
-      LOOP_COLUMNS,
-    ),
-    row: nearestOccurrence(index % LOOP_ROWS, center.row, LOOP_ROWS),
+    lane: nearestOccurrence(cell.lane, center.lane, LOOP_COLUMNS),
+    row: nearestOccurrence(cell.row, center.row, LOOP_ROWS),
   };
 }
 
