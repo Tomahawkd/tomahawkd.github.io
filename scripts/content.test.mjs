@@ -81,7 +81,7 @@ test('archive navigation supports changing category counts and unequal collectio
     const exports = {};
     runInNewContext(code, { exports, require: () => data });
     const count = exports.LOOP_COLUMNS * exports.LOOP_ROWS;
-    assert.equal(count, 200);
+    assert.equal(count, 100);
     const initial = Array.from({ length: count }, (_, i) => exports.poolCell(i));
     assert.ok(initial.some(cell => cell.lane === 2 && cell.row === 12));
     for (const center of [{ lane: 2, row: 12 }, { lane: -9, row: -40 }, { lane: 23, row: 75 }, { lane: 2048, row: 2048 }]) {

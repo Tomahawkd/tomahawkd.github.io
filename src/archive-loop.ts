@@ -4,8 +4,8 @@ export type ArchiveCell = { lane: number; row: number };
 export type ArchiveNavigation =
   { axis: "row" | "lane"; direction: number } | { cell: ArchiveCell };
 
-export const LOOP_COLUMNS = 8;
-export const LOOP_ROWS = 25;
+export const LOOP_COLUMNS = 5;
+export const LOOP_ROWS = 20;
 export const COLUMN_SPACING = 5.2;
 export const ROW_SPACING = 0.62;
 

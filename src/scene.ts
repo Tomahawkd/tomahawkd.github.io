@@ -115,6 +115,10 @@ export class ArchiveScene {
       alpha: false,
       powerPreference: "high-performance",
     });
+    // Frosted glass can use a softer refraction capture: half the width and
+    // height means one quarter of the pixels in this pass only. Keep the main
+    // scene resolution and full-detail selected geometry unchanged.
+    this.renderer.transmissionResolutionScale = 0.5;
     this.renderer.setPixelRatio(
       Math.min(devicePixelRatio, 1.5) *
         Math.min(innerWidth / 1920, innerHeight / 1080),
@@ -1162,6 +1166,7 @@ export class ArchiveScene {
       loaded: this.loaded,
       drawCalls: this.renderer.info.render.calls,
       triangles: this.renderer.info.render.triangles,
+      transmissionResolutionScale: this.renderer.transmissionResolutionScale,
       archiveCount: this.positions.length,
       backgroundTrianglesPerDocument: this.instances.reduce(
         (sum, mesh) => sum + (mesh.geometry.index?.count ?? mesh.geometry.getAttribute("position").count) / 3, 0,
