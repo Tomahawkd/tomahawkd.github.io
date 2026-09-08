@@ -1,1 +1,2 @@
-bundle exec jekyll serve --incremental
+#!/usr/bin/env sh
+npm run dev

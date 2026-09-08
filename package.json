@@ -1,0 +1,26 @@
+{
+  "name": "tomahawkd-logger",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "node scripts/content.mjs && tsc && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "check": "node scripts/content.test.mjs"
+  },
+  "dependencies": {
+    "@kitlangton/rolling-number": "0.4.1",
+    "three": "^0.183.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.183.0",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-texmath": "^1.0.0",
+    "katex": "^0.16.22",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  }
+}

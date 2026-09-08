@@ -86,3 +86,8 @@ Gemfile.lock
 _site/
 
 .jekyll-metadata
+
+node_modules/
+dist/
+.generated/
+src/site-records.json

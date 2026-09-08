@@ -1,1 +1,1 @@
-bundle exec jekyll serve --incremental
+npm run dev
