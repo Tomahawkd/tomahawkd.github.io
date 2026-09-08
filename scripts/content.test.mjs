@@ -81,7 +81,7 @@ test('archive navigation supports changing category counts and unequal collectio
     const exports = {};
     runInNewContext(code, { exports, require: () => data });
     const count = exports.LOOP_COLUMNS * exports.LOOP_ROWS;
-    assert.equal(count, 80);
+    assert.equal(count, 200);
     const initial = Array.from({ length: count }, (_, i) => exports.poolCell(i));
     assert.ok(initial.some(cell => cell.lane === 2 && cell.row === 12));
     for (const center of [{ lane: 2, row: 12 }, { lane: -9, row: -40 }, { lane: 23, row: 75 }, { lane: 2048, row: 2048 }]) {
@@ -90,7 +90,7 @@ test('archive navigation supports changing category counts and unequal collectio
       assert.ok(cells.some(cell => exports.sameCell(cell, center)));
       assert.equal(new Set(cells.map(cell => cell.lane)).size, exports.LOOP_COLUMNS);
       assert.equal(new Set(cells.map(cell => cell.row)).size, exports.LOOP_ROWS);
-      assert.ok(cells.every(cell => Math.abs(cell.lane - center.lane) <= 2 && Math.abs(cell.row - center.row) <= 8));
+      assert.ok(cells.every(cell => Math.abs(cell.lane - center.lane) <= Math.floor(exports.LOOP_COLUMNS / 2) && Math.abs(cell.row - center.row) <= Math.floor(exports.LOOP_ROWS / 2)));
       assert.ok(cells.every(cell => Number.isInteger(exports.fileAtCell(cell))));
     }
     let cell = { lane: 0, row: 12 };

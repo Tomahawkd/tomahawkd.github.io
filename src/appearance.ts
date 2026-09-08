@@ -3,8 +3,8 @@ import * as THREE from "three";
 type Surface = THREE.MeshPhysicalMaterial;
 type Palette = { high: Surface; low?: Surface };
 
-// The array and selected file share geometry. Morph their surface properties
-// on one mesh so transparent shells never overlap during a quality change.
+// The selected file retains full geometry while its materials match the array
+// at rest. Morph surfaces on one mesh so transparent shells never overlap.
 export class CardAppearance {
   private palettes = new Map<string, Palette>();
 

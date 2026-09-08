@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { cp, mkdir, readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { buildContent } from './scripts/content.mjs';
+import { buildBackgroundGeometry } from './scripts/background-geometry.mjs';
 
 export default defineConfig({
   appType: 'mpa',
@@ -9,7 +10,7 @@ export default defineConfig({
   optimizeDeps: { entries: ['index.html'] },
   plugins: [{
     name: 'personal-archive-content',
-    async buildStart() { await buildContent(); },
+    async buildStart() { await Promise.all([buildContent(), buildBackgroundGeometry()]); },
     async transformIndexHtml(html) {
       return html.replace('<!-- SITE_CATALOGUE -->', await readFile('.generated/catalogue.html', 'utf8'));
     },

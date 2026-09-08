@@ -41,6 +41,8 @@ npm run dev
 
 The development server refreshes content when Markdown files are added, edited, or removed. `npm run check` verifies content discovery and publishing behavior; `npm run build` produces the static site in `dist/`; `npm run preview` serves that build locally. Ruby and Jekyll are no longer needed.
 
+The archive displays a dense 200-document stack (8 columns × 25 rows). Background document borders and fittings are simplified automatically during development/build, with the original glass panels, materials, and full-detail selected document retained. Geometry optimization runs only at build time; publishing content requires no extra steps.
+
 ## GitHub Pages
 
 The included workflow builds and deploys the site when changes are pushed to `master`. The repository's Pages source must be **GitHub Actions** (a one-time repository setting when adopting this build). Thereafter, publishing only requires committing/pushing content changes. The existing `CNAME` is preserved.

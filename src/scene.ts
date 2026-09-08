@@ -7,6 +7,7 @@ import { SSAOPass } from "three/addons/postprocessing/SSAOPass.js";
 import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
 import { BokehPass } from "three/addons/postprocessing/BokehPass.js";
 import { CardAppearance } from "./appearance";
+import { backgroundGeometry } from "./background-geometry";
 import { archiveColumns, fileLocation } from "./data";
 import {
   cellKey,
@@ -327,7 +328,7 @@ export class ArchiveScene {
         arrayMat.metalness = 0.05;
       }
       this.appearance.register(name, mat, arrayMat);
-      const inst = new THREE.InstancedMesh(geom, arrayMat, count);
+      const inst = new THREE.InstancedMesh(backgroundGeometry(name, geom), arrayMat, count);
       inst.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
       inst.castShadow = name === "Optical_Diffuser";
       inst.receiveShadow = true;
@@ -1162,6 +1163,13 @@ export class ArchiveScene {
       drawCalls: this.renderer.info.render.calls,
       triangles: this.renderer.info.render.triangles,
       archiveCount: this.positions.length,
+      backgroundTrianglesPerDocument: this.instances.reduce(
+        (sum, mesh) => sum + (mesh.geometry.index?.count ?? mesh.geometry.getAttribute("position").count) / 3, 0,
+      ),
+      selectedModelTriangles: this.model.children.reduce((sum, child) => {
+        const geometry = (child as THREE.Mesh).geometry;
+        return sum + (geometry.index?.count ?? geometry.getAttribute("position").count) / 3;
+      }, 0),
       returningFiles: this.outgoing.length,
       selectionPhase: this.pendingPulse
         ? "lifting"
