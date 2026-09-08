@@ -1,6 +1,7 @@
 ---
 permalink: /security/ssl
 title: SSL/TLS Previous Vulnerabilities
+description: "Notes on POODLE, BEAST, CRIME, BREACH, and Heartbleed, outlining the affected SSL/TLS mechanisms and the role of padding, compression, and implementation flaws."
 ---
 {% include title_patch.html %}
 

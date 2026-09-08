@@ -1,6 +1,7 @@
 ---
 permalink: /course/postgraduate/sectest
 title: Security Testing
+description: "Security testing notes covering web vulnerabilities, network reconnaissance, assessment reporting, social engineering, password attacks, exploitation, and adversarial machine learning."
 ---
 
 {% include title_patch.html %}

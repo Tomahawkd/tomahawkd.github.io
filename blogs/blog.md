@@ -1,6 +1,7 @@
 ---
 permalink: /blogs
 title: Blogs
+description: "个人技术探索与逆向分析记录，收录 Electron 应用研究和游戏反作弊机制分析等文章。"
 ---
 
 {% include title_patch.html %}

@@ -1,6 +1,7 @@
 ---
 permalink: /course/postgraduate/blockchain
 title: Distribute Ledger and Cryptocurrencies
+description: "Distributed ledger notes covering Bitcoin transactions and mining, consensus protocols, cryptocurrency economics, token offerings, ledger platforms, smart contracts, and scaling."
 ---
 
 {% include title_patch.html %}

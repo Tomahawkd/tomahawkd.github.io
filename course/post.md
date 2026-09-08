@@ -1,6 +1,7 @@
 ---
 permalink: /course/postgraduate
 title: Postgraduate Course Notes
+description: "Postgraduate notes on cryptography, security engineering and management, software and security testing, digital forensics, distributed ledgers, and network security."
 ---
 
 {% include title_patch.html %}

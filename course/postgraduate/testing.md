@@ -1,6 +1,7 @@
 ---
 permalink: /course/postgraduate/testing
 title: Software Measurement and Testing
+description: "Software testing notes on verification and validation, dependability, control and data flow, functional and structural coverage, mutation testing, and unit, regression, and system testing."
 ---
 
 {% include title_patch.html %}

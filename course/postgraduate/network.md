@@ -1,6 +1,7 @@
 ---
 permalink: /course/postgraduate/network
 title: Network Security
+description: "Network security notes covering protocol attacks, firewalls, intrusion detection, honeypots, IPsec and TLS, anonymity, and wireless and IoT security."
 ---
 
 {% include title_patch.html %}

@@ -1,6 +1,7 @@
 ---
 permalink: /repo
 title: Repositories
+description: "A collection of personal repositories covering cryptography, authentication, networking, Java libraries, and development utilities."
 ---
 
 {% include title_patch.html %}

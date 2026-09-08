@@ -1,6 +1,7 @@
 ---
 permalink: /course/undergraduate/security
 title: Network Security
+description: "A network security revision summary covering web vulnerabilities, botnets, email and spam, program analysis, denial-of-service attacks, and network defenses."
 ---
 
 {% include title_patch.html %}

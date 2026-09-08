@@ -1,6 +1,7 @@
 ---
 permalink: /security
 title: Security Research
+description: "Security research notes on historical SSL/TLS vulnerabilities, X.509 certificate parsing, and client-server communication with OpenSSL."
 ---
 {% include title_patch.html %}
 

@@ -1,6 +1,7 @@
 ---
 permalink: /course/postgraduate/crypto
 title: Cryptography
+description: "Cryptography notes covering security properties, classical and modern encryption, block cipher modes, RSA, Diffie-Hellman, hashes, authentication protocols, and zero-knowledge proofs."
 ---
 
 {% include title_patch.html %}

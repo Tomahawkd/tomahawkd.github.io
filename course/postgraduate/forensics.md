@@ -1,6 +1,7 @@
 ---
 permalink: /course/postgraduate/forensics
 title: Computer Forensics and Cybercrime
+description: "Course notes on cybercrime and malware economics, investigative and legal frameworks, digital evidence, memory and network forensics, anti-forensics, and incident management."
 ---
 
 {% include title_patch.html %}

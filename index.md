@@ -1,5 +1,6 @@
 ---
 title: "Main Page"
+description: "A personal archive of security research, computer science course notes, open-source projects, and technical experiments."
 ---
 
 # Catalogue

@@ -1,6 +1,7 @@
 ---
 permalink: /course/postgraduate/engineering
 title: Security Engineering
+description: "Security engineering notes on memory corruption, format-string vulnerabilities, shellcode, mitigations, static analysis, symbolic execution, and access control."
 ---
 
 {% include title_patch.html %}

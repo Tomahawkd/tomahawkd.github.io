@@ -1,6 +1,7 @@
 ---
 permalink: /security/cs
 title: OpenSSL C/S Implementation Demo
+description: "使用 OpenSSL 实现客户端与服务端通信的 C 语言示例，涵盖 TLS 上下文初始化、证书配置、连接握手、数据收发与错误处理。"
 ---
 {% include title_patch.html %}
 

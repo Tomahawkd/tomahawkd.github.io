@@ -1,6 +1,7 @@
 ---
 permalink: /course/undergraduate/network
 title: Computer Network
+description: "计算机网络课程复习提纲，整理协议与网络设备的基本概念，以及 CRC、信道容量、帧长、路由、流量整形和 TCP 拥塞控制等计算与问答要点。"
 ---
 
 {% include title_patch.html %}

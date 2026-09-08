@@ -1,6 +1,7 @@
 ---
 permalink: /course/postgraduate/manage
 title: Security Management
+description: "Security management notes on asset and risk assessment, treatment and monitoring, organisational policies, compliance, security economics, business continuity, and disaster recovery."
 ---
 
 {% include title_patch.html %}

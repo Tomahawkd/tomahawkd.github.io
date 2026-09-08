@@ -1,6 +1,7 @@
 ---
 permalink: /blogs/20250629-brokenarrow
 title: 浅析某箭的反作弊机制
+description: "从游戏目录与 IL2CPP 程序结构入手，记录对某箭所用 Anti-Cheat Toolkit 的分析，重点讨论时间差调速检测、注入检测及其实现局限。"
 ---
 
 {% include title_patch.html %}
