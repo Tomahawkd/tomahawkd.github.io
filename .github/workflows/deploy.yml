@@ -1,4 +1,4 @@
-name: Deploy personal archive
+name: Build content with RhineLabUI and deploy
 on:
   push:
     branches: [master]
@@ -13,19 +13,33 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      RHINELAB_CONTENT_DIR: ${{ github.workspace }}
+    defaults:
+      run:
+        working-directory: _engine
     steps:
       - uses: actions/checkout@v4
+      - name: Check out the UI and build engine
+        uses: actions/checkout@v4
+        with:
+          repository: Tomahawkd/RhineLabUI
+          # Updated only when adopting a new reviewed UI version.
+          ref: d0acc81126798e8d2753d5eba360edd42ace6c33
+          path: _engine
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: _engine/package-lock.json
       - run: npm ci
       - run: npm run check
       - run: npm run build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: _engine/dist
   deploy:
     environment:
       name: github-pages

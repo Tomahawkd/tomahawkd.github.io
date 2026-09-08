@@ -1,10 +1,12 @@
-# Tomahawkd's Logger
+# Tomahawkd's Logger — content
 
-A personal Markdown archive with the interactive 3D UI from [RhineLabUI](https://github.com/LBEILC/RhineLabUI). Desktop visitors can browse the animated archive, search, save entries, and inspect the archive model. Articles and the mobile catalogue use a matching, responsive reading layout. Content remains available without JavaScript or WebGL.
+This is the data repository for [Tomahawkd's Logger](https://github.tomahawkd.online).
+UI code, models, fonts, reader styles, build scripts, dependencies, and tests live
+in [Tomahawkd/RhineLabUI](https://github.com/Tomahawkd/RhineLabUI).
 
-## Publishing content
+## Publish a blog
 
-Add a Markdown file anywhere in a content folder, for example `blogs/2026-09-08-a-new-post.md`:
+Add a Markdown file to any content folder, for example `blogs/2026-09-08-a-new-post.md`:
 
 ```markdown
 ---
@@ -18,37 +20,49 @@ description: An optional short introduction.
 Write your post here.
 ```
 
-All front matter is optional. The first heading becomes the title when `title` is omitted. The filename can supply the date. The parent folder supplies the archive category, and the file path supplies the URL. Add, rename, nest, or remove folders and posts: navigation, directory indexes, search, archive records, and the sitemap are rebuilt automatically. Directory listings are generated; do not maintain Markdown lists of posts.
+Commit and push. GitHub Actions fetches the UI engine, builds the site, and
+publishes it to Pages. You do not install dependencies or edit UI code here.
 
-- `permalink: /blogs/my-stable-url` keeps a URL independent of a file's location. Existing posts retain their original permalinks. Omit this field if you want a move to change the URL.
+All front matter is optional. The first heading supplies the title, the filename
+can supply the date, the parent folder supplies the category, and the file path
+supplies the URL. Add, rename, nest, or delete folders and posts: navigation,
+directory indexes, search, archive records, and the sitemap update automatically.
+Do not maintain Markdown lists of posts or a route table.
+
+- `permalink: /blogs/my-stable-url` keeps a URL when moving a file. Existing URLs remain unchanged.
 - `category: Experiments` overrides the folder-derived category.
-- `draft: true` or `published: false` excludes a post from the published site.
-- Put images beside the post and reference them with `![Description](image.png)`. Nested content assets are copied automatically. Existing `/static/...` images continue working.
-- Link to other posts using relative Markdown paths, such as `[Next](../notes/next.md)`. These resolve to their published URLs.
-- Inline `$...$` and display `$$...$$` equations are rendered at build time. Headings become an automatic table of contents; ordinary fenced code blocks and tables are supported.
-- Add or edit project links in `Repo.md`. The archive discovers those links too.
+- `draft: true` or `published: false` excludes an entry from publication.
+- Put images beside posts and use relative links, such as `![Diagram](diagram.png)`. Existing `static/` assets remain supported.
+- Relative Markdown links follow the destination's permalink.
+- `$...$` and `$$...$$` equations, code blocks, and heading-based tables of contents are supported.
+- Manage project links in `Repo.md`.
 
-There is no hand-maintained route table, post registry, or UI code to update when publishing. Infrastructure folders (`src`, `public`, `scripts`, `static`, `node_modules`, `dist`), hidden/underscore-prefixed folders, and repository documentation such as `README.md` are excluded from content discovery.
+## Site-level data
 
-## Local development
+Edit `site.json` to change the site title, author, brand label, canonical URL,
+description, catalogue intro, and project-link discovery settings. `CNAME`
+controls the published custom domain; update it alongside `site.json` if the
+domain changes. `favicon.ico` is also content owned by this repo.
 
-Use Node.js 22.12+:
+There is no JavaScript, CSS, package manifest, or build implementation here.
+The only automation is `.github/workflows/deploy.yml`. It pins a reviewed UI
+commit so content builds are reproducible; updating that pin is needed only
+when adopting a new UI version, never for ordinary content changes.
+
+## Optional local preview
+
+Run from the sibling UI checkout:
 
 ```sh
+cd ../RhineLabUI
 npm ci
-npm run dev
+RHINELAB_CONTENT_DIR=../tomahawkd.github.io npm run dev
 ```
 
-The development server refreshes content when Markdown files are added, edited, or removed. `npm run check` verifies content discovery and publishing behavior; `npm run build` produces the static site in `dist/`; `npm run preview` serves that build locally. Ruby and Jekyll are no longer needed.
+On PowerShell, set `$env:RHINELAB_CONTENT_DIR = '../tomahawkd.github.io'` before
+`npm run dev`. The UI engine watches this repo for content changes. Its generated
+files and production output stay in the UI checkout, not in this data repo.
 
-The archive displays a 100-document stack (5 columns × 20 rows). Background document borders and fittings are simplified automatically during development/build, with the original glass panels, materials, and full-detail selected document retained. Glass refraction is rendered at half width and height (one quarter of the capture pixels), without lowering the main scene or text resolution. Geometry optimization runs only at build time; publishing content requires no extra steps.
-
-## GitHub Pages
-
-The included workflow builds and deploys the site when changes are pushed to `master`. The repository's Pages source must be **GitHub Actions** (a one-time repository setting when adopting this build). Thereafter, publishing only requires committing/pushing content changes. The existing `CNAME` is preserved.
-
-## UI and attribution
-
-`src/` adapts RhineLabUI's Three.js scene, archive navigation, transitions, viewer, and settings. The introductory animation is available through **REINITIALIZE**; ordinary visits open the archive directly. **READING INDEX** switches to a lightweight catalogue. Phones and browsers without WebGL use the catalogue automatically. Bookmarks use entry URLs so adding other posts does not shift saved entries.
-
-Original site content and license remain in place. RhineLabUI's MIT license is retained in `public/licenses/rhinelab-ui.txt`; fonts and the rolling-number dependency retain their notices. See [credits](public/credits.html) for asset attribution and scope. Models and the original-inspired visual identity retain their upstream third-party rights notices.
+The Pages source remains **GitHub Actions**. Article content, existing links,
+and the original content license remain here. UI and third-party asset licenses
+are maintained in the UI repo and included in the published site's credits.

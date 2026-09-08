@@ -1,0 +1,16 @@
+{
+  "title": "Tomahawkd's Logger",
+  "brand": "TOMAHAWKD",
+  "author": "Tomahawkd",
+  "label": "TOMAHAWKD / LOG",
+  "url": "https://github.tomahawkd.online",
+  "githubUrl": "https://github.com/Tomahawkd",
+  "favicon": "/favicon.ico",
+  "description": "Tomahawkd's personal archive. Security research, computer science notes, open source projects, and field notes.",
+  "intro": "Security research, course notes, code, and the occasional deep dive. Welcome to Tomahawkd's Logger.",
+  "headline": "A record of\nthings",
+  "headlineEmphasis": "learned.",
+  "projectLinkPrefixes": ["https://github.com/Tomahawkd/", "https://tomahawkd.github.io/"],
+  "projectTitleAliases": { "here": "TLS-Tester" },
+  "featuredTitles": ["TLS-Tester"]
+}
