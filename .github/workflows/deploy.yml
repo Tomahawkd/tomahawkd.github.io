@@ -25,7 +25,7 @@ jobs:
         with:
           repository: Tomahawkd/RhineLabUI
           # Updated only when adopting a new reviewed UI version.
-          ref: 0e761e2f1a783da21051d61aa1f43e5ce33f1221
+          ref: fd0c3eabd808de15fba51501f1fa2ff1d7749894
           path: _engine
           persist-credentials: false
       - uses: actions/setup-node@v4
